@@ -1,0 +1,15 @@
+<div class="catalog-container">
+  <mat-card *ngFor="let producto of productos" class="producto-card">
+    <img mat-card-image [src]="producto.imagen" alt="{{ producto.nombre }}" />
+    <mat-card-title>{{ producto.nombre }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ producto.descripcion }}</p>
+      <p><strong>${{ producto.precio }}</strong></p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary">Ver más</button>
+      <button mat-stroked-button color="accent">Comprar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

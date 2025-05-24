@@ -8,6 +8,7 @@ export interface Producto {
   descripcion: string;
   precio: number;
   imagen: string;
+  categoria: string; 
 }
 
 @Injectable({ providedIn: 'root' })
@@ -15,6 +16,6 @@ export class CatalogService {
   constructor(private http: HttpClient) {}
 
   getProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>('/assets/mock-data/products.json');
+    return this.http.get<Producto[]>('/mock-data/products.json');
   }
 }

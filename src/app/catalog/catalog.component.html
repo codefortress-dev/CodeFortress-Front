@@ -1,7 +1,19 @@
+<div class="catalog-toolbar">
+  <mat-button-toggle-group
+    [value]="categoriaSeleccionada"
+    (change)="onCategoriaChange($event.value)"
+    appearance="legacy">
+    <mat-button-toggle *ngFor="let cat of categoriasDisponibles" [value]="cat">
+      {{ cat }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
 <div class="catalog-container">
-  <mat-card *ngFor="let producto of productos" class="producto-card">
+  <mat-card *ngFor="let producto of productosFiltrados" class="producto-card">
     <img mat-card-image [src]="producto.imagen" alt="{{ producto.nombre }}" />
     <mat-card-title>{{ producto.nombre }}</mat-card-title>
+    <mat-card-subtitle>{{ producto.categoria }}</mat-card-subtitle>
     <mat-card-content>
       <p>{{ producto.descripcion }}</p>
       <p><strong>${{ producto.precio }}</strong></p>
@@ -12,4 +24,3 @@
     </mat-card-actions>
   </mat-card>
 </div>
-

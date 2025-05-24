@@ -4,20 +4,23 @@
     "nombre": "Starter Seguridad JWT",
     "descripcion": "Template listo con autenticación por token para Spring Boot.",
     "precio": 5,
-    "imagen": "https://via.placeholder.com/300x200"
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Desarrolladores"
   },
   {
     "id": 2,
     "nombre": "Mini eCommerce Angular",
     "descripcion": "Proyecto listo para vender productos digitales.",
     "precio": 15,
-    "imagen": "https://via.placeholder.com/300x200"
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Empresas"
   },
   {
     "id": 3,
     "nombre": "Sistema de reservas",
     "descripcion": "Software para gestionar horarios y reservas online.",
     "precio": 20,
-    "imagen": "https://via.placeholder.com/300x200"
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Empresas"
   }
 ]

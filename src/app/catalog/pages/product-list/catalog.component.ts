@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CatalogService, Producto } from './catalog.service';
+import { ProductService } from '../../../core/product.service';
+import { Producto } from '../../models/product.model';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
 
 @Component({
   selector: 'app-catalog',
@@ -29,14 +29,14 @@ export class CatalogComponent implements OnInit {
   categoriaSeleccionada = 'Todos';
   isLoading = true; 
 
-  constructor(private catalogService: CatalogService) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.catalogService.getProductos().subscribe((data) => {
+    this.productService.getProductos().subscribe((data) => {
       this.productos = data;
       this.categoriasDisponibles = ['Todos', ...new Set(data.map(p => p.categoria))];
       this.filtrarProductos(); 
-       this.isLoading = false;
+      this.isLoading = false;
     });
   }
 

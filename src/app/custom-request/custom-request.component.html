@@ -1,1 +1,71 @@
-<p>custom-request works!</p>
+
+
+<form [formGroup]="form" (ngSubmit)="enviar()" class="formulario">
+  <h2 class="titulo-formulario">Solicita tu proyecto!</h2>
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Nombre completo</mat-label>
+    <input matInput formControlName="nombre" placeholder="Ej: Juan Pérez" />
+    <mat-error *ngIf="form.get('nombre')?.invalid">Campo obligatorio</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Correo electrónico</mat-label>
+    <input matInput formControlName="correo" type="email" placeholder="Ej: nombre@email.com" />
+    <mat-error *ngIf="form.get('correo')?.invalid">Correo inválido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Tipo de proyecto</mat-label>
+    <mat-select formControlName="tipoProyecto">
+      <mat-option value="web">Web</mat-option>
+      <mat-option value="movil">App Móvil</mat-option>
+      <mat-option value="intranet">Sistema Interno</mat-option>
+      <mat-option value="otro">Otro</mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('tipoProyecto')?.invalid">Selecciona un tipo</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Descripción del proyecto</mat-label>
+    <textarea matInput formControlName="descripcion" rows="5" placeholder="Describe tu idea o necesidad"></textarea>
+    <mat-error *ngIf="form.get('descripcion')?.invalid">Campo obligatorio</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Categoría de atención</mat-label>
+    <mat-select formControlName="categoria">
+      <mat-option *ngFor="let cat of categorias" [value]="cat.id">{{ cat.nombre }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('categoria')?.invalid">Selecciona una categoría</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Fecha para entrevista</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="fecha"
+      placeholder="Selecciona una fecha"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker" />
+    <mat-datepicker #picker [startAt]="today"></mat-datepicker>
+    <mat-error *ngIf="form.get('fecha')?.hasError('required')">Selecciona una fecha</mat-error>
+    <mat-error *ngIf="form.get('fecha')?.hasError('finDeSemanaNoPermitido')">
+      No se puede agendar en fin de semana
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo" *ngIf="horariosDisponibles.length > 0">
+    <mat-label>Horario disponible</mat-label>
+    <mat-select formControlName="horario">
+      <mat-option *ngFor="let hora of horariosDisponibles" [value]="hora">
+        {{ hora }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get('horario')?.invalid">Selecciona un horario</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    Enviar solicitud
+  </button>
+</form>

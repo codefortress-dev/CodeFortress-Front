@@ -1,0 +1,5 @@
+[
+  { "id": "comercial", "nombre": "Área Comercial" },
+  { "id": "tecnico", "nombre": "Soporte Técnico" },
+  { "id": "desarrollo", "nombre": "Consultoría de Desarrollo" }
+]

@@ -1,5 +1,92 @@
-a {
-  color: white;
-  text-decoration: none;
-  margin-left: 8px;
+.sidenav-container {
+  width: 100%;
+  height: auto;
+  position: relative;
 }
+
+.sidenav {
+  width: 250px;
+  background-color: #1c2734;
+  color: #F5F7FA;
+}
+
+.mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0f1c26;
+  color: #F5F7FA;
+  height: 64px;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    height: 36px;
+    margin-right: 12px;
+  }
+
+  .brand {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important; // Oculta los botones en versión escritorio
+  }
+
+  .sidenav-container {
+    height: 50vh !important; // El menú ocupará toda la pantalla
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1300;
+  }
+
+  .sidenav {
+    width: 100vw !important; // Que el menú se abra de lado a lado
+    max-width: 100vw;
+    height: 100vh;
+    padding-top: 64px; // Deja espacio para el toolbar
+    background-color: #1c2734;
+    color: #F5F7FA;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .mat-toolbar {
+    flex-wrap: wrap;
+    padding: 0 12px;
+  }
+
+  .logo-container {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+}
+

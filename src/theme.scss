@@ -1,0 +1,44 @@
+@use '@angular/material' as mat;
+
+
+// Paleta personalizada
+$codefortress-primary: mat.m2-define-palette((
+  50 : #e3f2fd,
+  100: #bbdefb,
+  200: #90caf9,
+  300: #64b5f6,
+  400: #42a5f5,
+  500: #2196f3,
+  600: #1a90e2,
+  700: #1A7BE5, // Azul metálico del logo
+  800: #1565c0,
+  900: #0d47a1,
+  contrast: (
+    50 : #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff
+  )
+));
+
+$codefortress-accent: mat.m2-define-palette(mat.$m2-cyan-palette, 400);
+$codefortress-warn: mat.m2-define-palette(mat.$m2-red-palette);
+// Tema light
+$codefortress-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $codefortress-primary,
+    accent: $codefortress-accent,
+    warn: $codefortress-warn
+  ),
+  typography: mat.m2-define-typography-config(),
+  density: 0
+));
+
+// Aplicar tema a todos los componentes
+@include mat.all-component-themes($codefortress-theme);

@@ -1,0 +1,29 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <ng-container *ngIf="producto; else notFound">
+  <mat-card class="detail-card">
+    <img mat-card-image [src]="producto.imagen" alt="{{ producto.nombre }}" />
+    <mat-card-title class="custom-title">{{ producto.nombre }}</mat-card-title>
+    <mat-card-subtitle>{{ producto.categoria }}</mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ producto.descripcion }}</p>
+      <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Comprar</button>
+      <button mat-stroked-button [routerLink]="['/productos']">Volver</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+</ng-container>
+
+<ng-template #loading>
+  <div style="text-align: center; margin-top: 60px;">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p style="margin-top: 12px;">Cargando producto...</p>
+  </div>
+</ng-template>
+
+<ng-template #notFound>
+  <p style="text-align: center; margin-top: 80px;">Producto no encontrado.</p>
+</ng-template>
+

@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RouterModule } from '@angular/router';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @Component({
   selector: 'app-catalog',
@@ -14,7 +16,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     MatCardModule,
     MatButtonModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']
@@ -24,6 +27,7 @@ export class CatalogComponent implements OnInit {
   productosFiltrados: Producto[] = [];
   categoriasDisponibles: string[] = [];
   categoriaSeleccionada = 'Todos';
+  isLoading = true; 
 
   constructor(private catalogService: CatalogService) {}
 
@@ -31,7 +35,8 @@ export class CatalogComponent implements OnInit {
     this.catalogService.getProductos().subscribe((data) => {
       this.productos = data;
       this.categoriasDisponibles = ['Todos', ...new Set(data.map(p => p.categoria))];
-      this.filtrarProductos(); // importante
+      this.filtrarProductos(); 
+       this.isLoading = false;
     });
   }
 

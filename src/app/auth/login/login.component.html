@@ -1,12 +1,13 @@
 <div class="login-container">
   <h2>Iniciar sesión</h2>
-  <form class="login-form" (submit)="login()">
-    <mat-form-field appearance="outline" class="full-width">
+
+  <form>
+    <mat-form-field appearance="fill" color="primary">
       <mat-label>Correo electrónico</mat-label>
       <input matInput type="email" required />
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="fill" color="primary">
       <mat-label>Contraseña</mat-label>
       <input matInput type="password" required />
     </mat-form-field>
@@ -14,4 +15,3 @@
     <button mat-raised-button color="primary" type="submit">Ingresar</button>
   </form>
 </div>
-

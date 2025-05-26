@@ -1,5 +1,10 @@
 <mat-drawer-container class="sidenav-container">
   <mat-drawer #drawer mode="over" class="sidenav">
+    <div class="drawer-header mobile-only">
+    <button mat-icon-button (click)="drawer.close()" aria-label="Cerrar menú">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="drawer.close()">Inicio</a>
       <a mat-list-item routerLink="/productos" (click)="drawer.close()">Productos</a>

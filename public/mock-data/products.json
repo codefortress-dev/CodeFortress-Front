@@ -22,5 +22,53 @@
     "precio": 20,
     "imagen": "https://picsum.photos/300/300",
     "categoria": "Empresas"
+  },
+  {
+    "id": 4,
+    "nombre": "Starter Seguridad JWT",
+    "descripcion": "Template listo con autenticación por token para Spring Boot.",
+    "precio": 5,
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Desarrolladores"
+  },
+  {
+    "id": 5,
+    "nombre": "Mini eCommerce Angular",
+    "descripcion": "Proyecto listo para vender productos digitales.",
+    "precio": 15,
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Empresas"
+  },
+  {
+    "id": 6,
+    "nombre": "Sistema de reservas",
+    "descripcion": "Software para gestionar horarios y reservas online.",
+    "precio": 20,
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Empresas"
+  },
+  {
+    "id": 7,
+    "nombre": "Starter Seguridad JWT",
+    "descripcion": "Template listo con autenticación por token para Spring Boot.",
+    "precio": 5,
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Ecommerce"
+  },
+  {
+    "id": 8,
+    "nombre": "Mini eCommerce Angular",
+    "descripcion": "Proyecto listo para vender productos digitales.",
+    "precio": 15,
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Ecommerce"
+  },
+  {
+    "id": 9,
+    "nombre": "Sistema de reservas",
+    "descripcion": "Software para gestionar horarios y reservas online.",
+    "precio": 20,
+    "imagen": "https://picsum.photos/300/300",
+    "categoria": "Empresas"
   }
 ]

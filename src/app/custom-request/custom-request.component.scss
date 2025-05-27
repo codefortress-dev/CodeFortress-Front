@@ -6,6 +6,7 @@
   color: #F5F7FA;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
 
   h2 {
     margin-bottom: 24px;
@@ -17,17 +18,14 @@
     width: 100%;
     margin-bottom: 20px;
 
-    // Fondo del campo en modo fill
     .mat-form-field-flex {
       background-color: #2a3747;
     }
 
-    // Texto dentro del input
     .mat-input-element {
       color: #F5F7FA;
     }
 
-    // Etiqueta flotante
     .mat-form-field-label {
       color: #cfd8dc;
     }
@@ -44,10 +42,12 @@
     background-color: #2196f3;
     color: #fff;
     font-weight: 600;
+    border-radius: 6px;
   }
 
   @media (max-width: 600px) {
-    padding: 24px;
+    padding: 20px 16px;
+
     h2 {
       font-size: 1.6rem;
     }

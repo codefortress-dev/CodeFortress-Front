@@ -6,6 +6,7 @@ body {
   padding: 0;
   background-color: #0f1c26;
   color: #F5F7FA;
+  overflow-x: hidden; /* ✅ Previene scroll lateral innecesario */
 }
 
 html, app-root {
@@ -56,6 +57,11 @@ footer.footer-container {
 mat-spinner {
   margin: 16px auto;
   display: block;
+}
+
+/* Z-index global para overlays */
+.cdk-overlay-container {
+  z-index: 3500 !important; /* ✅ Evita que overlays queden tapados por otros */
 }
 
 /* Responsivo */

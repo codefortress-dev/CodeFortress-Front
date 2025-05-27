@@ -44,29 +44,29 @@ export class CustomRequestComponent implements OnInit {
 
   today = new Date();
 
-  form = this.fb.group({
+   form = this.fb.group({
     nombre: ['', Validators.required],
     correo: ['', [Validators.required, Validators.email]],
-    tipoProyecto: ['', Validators.required],
+    tipoProyecto: [null, Validators.required],
     descripcion: ['', Validators.required],
-    categoria: ['', Validators.required],
+    categoria: [null, Validators.required], // <-- CAMBIO AQUÍ: de '' a null
     fecha: [
-  '',
-  [
-    Validators.required,
-    (control: AbstractControl) => {
-      const raw = control.value;
-      const fecha = typeof raw === 'string' ? new Date(raw) : raw;
-      if (!(fecha instanceof Date) || isNaN(fecha.getTime())) return { fechaInvalida: true };
+      '',
+      [
+        Validators.required,
+        (control: AbstractControl) => {
+          const raw = control.value;
+          const fecha = typeof raw === 'string' ? new Date(raw) : raw;
+          if (!(fecha instanceof Date) || isNaN(fecha.getTime())) return { fechaInvalida: true };
 
-      const day = fecha.getDay();
-      return day === 0 || day === 6 ? { finDeSemanaNoPermitido: true } : null;
-    }
-  ]
-]
-,
+          const day = fecha.getDay();
+          return day === 0 || day === 6 ? { finDeSemanaNoPermitido: true } : null;
+        }
+      ]
+    ],
     horario: ['', Validators.required]
   });
+
 
   ngOnInit(): void {
     this.servicio.getCategorias().subscribe(data => {

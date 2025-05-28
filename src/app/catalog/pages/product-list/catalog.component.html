@@ -1,9 +1,11 @@
 <ng-container *ngIf="!isLoading; else loading">
 <div class="catalog-toolbar">
   <mat-button-toggle-group
-    [value]="categoriaSeleccionada"
-    (change)="onCategoriaChange($event.value)"
-    appearance="legacy">
+  [value]="categoriaSeleccionada"
+  (change)="onCategoriaChange($event.value)"
+  appearance="standard"
+  color="primary"
+>
     <mat-button-toggle *ngFor="let cat of categoriasDisponibles" [value]="cat">
       {{ cat }}
     </mat-button-toggle>

@@ -23,3 +23,4 @@ export class LoginComponent {
     console.log('Simulación de login');
   }
 }
+

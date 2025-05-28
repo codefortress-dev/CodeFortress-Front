@@ -1,81 +1,134 @@
-/* Tipografía general */
-body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #0f1c26;
-  color: #F5F7FA;
-  overflow-x: hidden; /* ✅ Previene scroll lateral innecesario */
+@import '@angular/cdk/overlay-prebuilt.css';
+
+/* ====== ESTILOS GLOBALES PARA COMPONENTES ====== */
+
+/* --- NAVBAR --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.logo-container img {
+  height: 40px;
+  margin-right: 8px;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.desktop-nav {
+  display: flex;
+  gap: 12px;
+}
+.mobile-only {
+  display: none;
+}
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-only {
+    display: inline-flex;
+  }
 }
 
-html, app-root {
-  height: 100%;
-}
-
-/* Contenedor principal de vistas */
-.main-content {
-  min-height: calc(100vh - 128px);
-  padding: 24px 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Botones */
-button[mat-button],
-button[mat-raised-button],
-button[mat-stroked-button] {
-  text-transform: none;
-  font-weight: 500;
-  letter-spacing: 0.3px;
-}
-
-/* Cards */
-mat-card {
-  background-color: #1c2734;
-  color: #F5F7FA;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-
-mat-card:hover {
-  transform: translateY(-4px);
-}
-
-/* Footer */
-footer.footer-container {
+/* --- FOOTER --- */
+.footer-container {
   text-align: center;
-  padding: 24px 10px;
-  font-size: 0.9rem;
-  color: #AEB3BA;
-  background-color: #0f1c26;
-  border-top: 1px solid #3D4C5C;
+  padding: 24px;
+  font-size: 14px;
+  color: #555;
+  background-color: #f1f1f1;
+  margin-top: auto;
+}
+.footer-container .secondary {
+  font-size: 12px;
+  color: #888;
 }
 
-/* Spinner */
-mat-spinner {
-  margin: 16px auto;
+/* --- HOME --- */
+.home-container {
+  padding: 48px 16px;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.home-container h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+.home-container p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  color: #555;
+}
+.home-container button {
+  margin: 0 8px;
+}
+
+/* --- LOGIN --- */
+.login-container {
+  max-width: 400px;
+  margin: 64px auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+mat-form-field {
   display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
+button[type="submit"] {
+  width: 100%;
 }
 
-/* Z-index global para overlays */
-.cdk-overlay-container {
-  z-index: 3500 !important; /* ✅ Evita que overlays queden tapados por otros */
+/* --- CATÁLOGO --- */
+.catalog-toolbar {
+  margin: 24px auto;
+  text-align: center;
+}
+.catalog-container {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.producto-card {
+  max-width: 360px;
+  margin: 0 auto;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .main-content {
-    padding: 16px 12px;
-    min-height: calc(100vh - 128px);
-  }
+/* --- DETALLE PRODUCTO --- */
+.detail-card {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 16px;
+}
+.detail-card img {
+  object-fit: cover;
+  max-height: 300px;
+}
 
-  mat-card {
-    margin: 8px 0;
-  }
-
-  .catalog-toolbar {
-    flex-direction: column;
-  }
+/* --- FORMULARIO SOLICITUD --- */
+.formulario {
+  max-width: 600px;
+  margin: 48px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.titulo-formulario {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.campo {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
 }

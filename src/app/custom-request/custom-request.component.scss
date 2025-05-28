@@ -1,55 +1,19 @@
 .formulario {
   max-width: 600px;
-  margin: 80px auto;
-  padding: 32px;
-  background-color: #1c2734;
-  color: #F5F7FA;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  box-sizing: border-box;
+  margin: 48px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-  h2 {
-    margin-bottom: 24px;
-    text-align: center;
-    font-size: 2rem;
-  }
+.titulo-formulario {
+  text-align: center;
+  margin-bottom: 24px;
+}
 
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
-
-    .mat-form-field-flex {
-      background-color: #2a3747;
-    }
-
-    .mat-input-element {
-      color: #F5F7FA;
-    }
-
-    .mat-form-field-label {
-      color: #cfd8dc;
-    }
-
-    mat-error,
-    .mat-hint {
-      color: #ef9a9a;
-    }
-  }
-
-  button[type='submit'] {
-    width: 100%;
-    margin-top: 8px;
-    background-color: #2196f3;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 6px;
-  }
-
-  @media (max-width: 600px) {
-    padding: 20px 16px;
-
-    h2 {
-      font-size: 1.6rem;
-    }
-  }
+.campo {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
 }

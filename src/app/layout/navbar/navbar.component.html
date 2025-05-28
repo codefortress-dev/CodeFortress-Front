@@ -1,10 +1,5 @@
 <mat-drawer-container class="sidenav-container">
-  <mat-drawer #drawer mode="over" class="sidenav">
-    <div class="drawer-header mobile-only">
-    <button mat-icon-button (click)="drawer.close()" aria-label="Cerrar menú">
-      <mat-icon>close</mat-icon>
-    </button>
-  </div>
+  <mat-drawer #drawer class="menu-mobile" mode="over" *ngIf="isMobile">
     <mat-nav-list>
       <a mat-list-item routerLink="/" (click)="drawer.close()">Inicio</a>
       <a mat-list-item routerLink="/productos" (click)="drawer.close()">Productos</a>
@@ -13,22 +8,26 @@
     </mat-nav-list>
   </mat-drawer>
 
-  <mat-toolbar class="mat-elevation-z4">
-    <div class="logo-container" routerLink="/">
-      <img src="/logo-codefortress.png" alt="Logo" />
-      <span class="brand">CODEFORTRESS</span>
-    </div>
-    <span class="spacer"></span>
+  <mat-drawer-content>
+    <mat-toolbar color="primary" class="main-toolbar">
+      <div class="logo-container" routerLink="/">
+        <img src="/logo-codefortress.png" alt="Logo" />
+        <span>CodeFortress</span>
+      </div>
 
-    <nav class="desktop-nav">
-      <a mat-button routerLink="/">Inicio</a>
-      <a mat-button routerLink="/productos">Productos</a>
-      <a mat-button routerLink="/solicitar">Solicitar</a>
-      <a mat-button routerLink="/login">Iniciar sesión</a>
-    </nav>
+      <span class="spacer"></span>
 
-    <button mat-icon-button class="mobile-only" (click)="toggleDrawer()">
-      <mat-icon>menu</mat-icon>
-    </button>
-  </mat-toolbar>
+      <nav class="desktop-nav" *ngIf="!isMobile">
+        <a mat-button routerLink="/">Inicio</a>
+        <a mat-button routerLink="/productos">Productos</a>
+        <a mat-button routerLink="/solicitar">Solicitar</a>
+        <a mat-button routerLink="/login">Iniciar sesión</a>
+      </nav>
+
+      <button *ngIf="isMobile" mat-icon-button (click)="toggleDrawer()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    </mat-drawer-content>
 </mat-drawer-container>

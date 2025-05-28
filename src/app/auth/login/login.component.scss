@@ -1,39 +1,23 @@
 .login-container {
   max-width: 400px;
-  margin: 80px auto;
-  padding: 32px;
-  background-color: #1c2734;
-  color: #F5F7FA;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  box-sizing: border-box;
+  margin: 64px auto;
+  padding: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-  h2 {
-    margin-bottom: 24px;
-    text-align: center;
-    font-size: 1.8rem;
-  }
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
 
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
-  }
+mat-form-field {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+}
 
-  button {
-    width: 100%;
-    padding: 12px;
-    font-weight: 600;
-    background-color: #2196f3;
-    color: #fff;
-    border-radius: 6px;
-  }
-
-  @media (max-width: 600px) {
-    margin: 40px 16px;
-    padding: 20px;
-
-    h2 {
-      font-size: 1.5rem;
-    }
-  }
+button[type="submit"] {
+  width: 100%;
 }

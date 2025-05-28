@@ -1,51 +1,47 @@
+/* === catalog.component.scss === */
+
+.catalog-toolbar {
+  margin: 24px auto;
+  text-align: center;
+
+  mat-button-toggle-group {
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    padding: 6px;
+  }
+
+  mat-button-toggle {
+    color: white;
+
+    &.mat-button-toggle-checked {
+      background-color: #1A7BE5;
+      color: white;
+    }
+  }
+}
+
 .catalog-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 16px;
-  padding: 20px;
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-items: center; /* centrar productos cuando hay una sola columna */
+}
+
+.producto-card {
+  width: 100%;
+  max-width: 360px;
+}
+.drawer-content-wrapper {
+    display: none;
+  }
+
+@media (max-width: 768px) {
+  .catalog-container {
+    grid-template-columns: 1fr;
+  }
 
   .producto-card {
     width: 100%;
-    max-width: 300px;
-  }
-
-  .catalog-toolbar {
-    display: flex;
-    justify-content: center;
-    padding: 16px;
-    flex-wrap: wrap;
-
-    mat-button-toggle {
-      margin: 4px;
-    }
-  }
-
-  mat-card-title {
-    margin: 1rem;
-  }
-
-  mat-card-subtitle {
-    margin: 1rem;
-  }
-
-  @media (min-width: 768px) {
-    .producto-card {
-      width: 45%;
-    }
-
-    .catalog-toolbar {
-      justify-content: space-between; // ✅ mejora distribución
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .producto-card {
-      width: 30%;
-    }
-
-    .catalog-toolbar {
-      justify-content: space-around; // ✅ distribución más fluida en desktop
-    }
   }
 }

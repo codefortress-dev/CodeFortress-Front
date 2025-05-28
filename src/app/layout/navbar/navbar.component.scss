@@ -1,97 +1,30 @@
+/* Ensure the sidenav container takes full viewport height */
 .sidenav-container {
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
+  height: 100vh; /* Set height to 100% of the viewport height */
+  display: flex; /* Use flexbox for proper layout within the container */
+  flex-direction: column; /* Stack children vertically */
 }
 
-.mat-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #0f1c26;
-  color: #F5F7FA;
-  height: 64px;
-}
-
-.desktop-nav {
-  display: flex;
-  gap: 10px;
-}
-
-.mobile-only {
-  display: none;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  img {
-    height: 36px;
-    margin-right: 12px;
-  }
-
-  .brand {
-    font-size: 1.3rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
+.menu-mobile {
+  width: 250px;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.drawer-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 8px 12px;
-  background-color: #1c2734;
-
-  button {
-    color: #F5F7FA;
-  }
+.desktop-nav a {
+  margin-left: 12px;
 }
 
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none !important;
-  }
+/* Ensure the mat-drawer-content takes the remaining space and manages its overflow */
+mat-drawer-content {
+  flex-grow: 1; /* Allow content to grow and fill available space */
+  overflow: auto; /* Enable scrolling for content if it overflows */
+}
 
-  .mobile-only {
-    display: block !important;
-  }
-
-  .sidenav-container {
-    height: 100vh !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 1300;
-    background-color: #0f1c26;
-  }
-
-  .sidenav {
-    width: 100vw !important;
-    height: 100vh;
-    padding-top: 64px;
-    background-color: #1c2734;
-    color: #F5F7FA;
-    box-shadow: none;
-    border-radius: 0;
-  }
-
-  .mat-toolbar {
-    flex-wrap: wrap;
-    padding: 0 12px;
-  }
-
-  .logo-container {
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 8px;
-  }
+/* Optional: Adjust main-toolbar if it's pushing content */
+.main-toolbar {
+  z-index: 2; /* Ensure toolbar stays above drawer if needed, though 'mode="over"' handles this */
+  position: relative; /* May help with stacking context if other elements are problematic */
 }

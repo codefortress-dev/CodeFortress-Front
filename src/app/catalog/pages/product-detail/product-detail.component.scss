@@ -2,9 +2,15 @@
   max-width: 600px;
   margin: 48px auto;
   padding: 16px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-radius: 8px;
+  box-shadow: var(--elevation-1);
 }
 
 .detail-card img {
   object-fit: cover;
   max-height: 300px;
+  width: 100%;
+  border-radius: 4px;
 }

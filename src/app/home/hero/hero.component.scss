@@ -1,7 +1,7 @@
 .hero {
   padding: 5rem 2rem;
-  background: linear-gradient(to right, #1e3a8a, #2563eb);
-  color: white;
+  background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
+  color: var(--color-text);
   text-align: center;
 
   .hero-content {
@@ -17,6 +17,7 @@
     p {
       font-size: 1.25rem;
       margin-bottom: 2rem;
+      color: var(--color-muted);
     }
 
     .actions {

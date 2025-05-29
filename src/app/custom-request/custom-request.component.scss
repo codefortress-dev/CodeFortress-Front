@@ -2,14 +2,16 @@
   max-width: 600px;
   margin: 48px auto;
   padding: 24px;
-  background: #fff;
+  background: var(--color-surface);
+  color: var(--color-text);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--elevation-1);
 }
 
 .titulo-formulario {
   text-align: center;
   margin-bottom: 24px;
+  color: var(--color-text);
 }
 
 .campo {
@@ -17,8 +19,10 @@
   width: 100%;
   margin-bottom: 16px;
 }
+
+// Días con disponibilidad (por dateClass)
 .fecha-disponible .mat-calendar-body-cell-content {
-  background-color: #4caf50 !important;
+  background-color: #43a047 !important; // verde de éxito
   color: white !important;
   border-radius: 50%;
 }

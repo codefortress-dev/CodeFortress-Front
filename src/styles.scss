@@ -1,5 +1,42 @@
 @import '@angular/cdk/overlay-prebuilt.css';
 
+:root {
+  /* 🎯 Colores base de marca */
+  --color-primary: #2196f3;       /* Azul principal */
+  --color-primary-dark: #1565c0;
+  --color-primary-light: #64b5f6;
+
+  --color-accent: #00bcd4;        /* Celeste acento */
+  --color-accent-dark: #0097a7;
+  --color-accent-light: #4dd0e1;
+
+  --color-warn: #ff5722;          /* Naranja de advertencia */
+  --color-warn-dark: #e64a19;
+  --color-warn-light: #ff8a65;
+
+  /* 🖤 Fondo general y superficies */
+  --color-bg: #11171E;            /* Fondo principal */
+  --color-surface: #1B212A;       /* Cards, modals */
+  --color-hover: #1A2029;
+  --color-toolbar: #11171E;
+  --color-border: #2c3440;
+
+  /* 📝 Tipografía y elementos */
+  --color-text: white;
+  --color-muted: #b0b8c1;
+  --color-inverted: black;
+
+  /* 🌠 Extras para efectos */
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --elevation-1: 0 1px 3px var(--shadow-color);
+  --elevation-2: 0 3px 6px var(--shadow-color);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: white;
+}
+
 /* ====== ESTILOS GLOBALES PARA COMPONENTES ====== */
 
 /* --- NAVBAR --- */
@@ -57,113 +94,10 @@
   margin-bottom: 12px;
 }
 .home-container p {
-  font-size: 1.1rem;
-  margin-bottom: 24px;
-  color: #555;
-}
-.home-container button {
-  margin: 0 8px;
+  font-size: 1rem;
+  color: var(--color-muted);
 }
 
-/* --- LOGIN --- */
-.login-container {
-  max-width: 400px;
-  margin: 64px auto;
-  padding: 24px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.login-container h2 {
-  text-align: center;
-  margin-bottom: 24px;
-}
-mat-form-field {
-  display: block;
-  width: 100%;
-  margin-bottom: 16px;
-}
-button[type="submit"] {
-  width: 100%;
-}
-
-/* --- CATÁLOGO --- */
-.catalog-toolbar {
-  margin: 24px auto;
-  text-align: center;
-}
-.catalog-container {
-  display: grid;
-  gap: 24px;
-  padding: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-.producto-card {
-  max-width: 360px;
-  margin: 0 auto;
-}
-
-/* --- DETALLE PRODUCTO --- */
-.detail-card {
-  max-width: 600px;
-  margin: 48px auto;
-  padding: 16px;
-}
-.detail-card img {
-  object-fit: cover;
-  max-height: 300px;
-}
-
-/* --- FORMULARIO SOLICITUD --- */
-.formulario {
-  max-width: 600px;
-  margin: 48px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.titulo-formulario {
-  text-align: center;
-  margin-bottom: 24px;
-}
-.campo {
-  display: block;
-  width: 100%;
-  margin-bottom: 16px;
-}
-// styles.scss
-.fecha-disponible .mat-calendar-body-cell-content {
-  background-color: #4caf50 !important;
-  color: white !important;
-  border-radius: 50%;
-}
-/* Mostrar por defecto menú escritorio */
-.desktop-nav {
-  display: flex;
-  gap: 12px;
-}
-
-.hamburger-btn,
-.menu-mobile {
-  display: none;
-}
-
-/* Estilos responsive */
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .hamburger-btn {
-    display: inline-flex;
-  }
-
-  .menu-mobile {
-    display: block;
-    width: 250px; // tamaño del drawer
-  }
-}
 
 // Estilo general del contenedor del calendario
 .mat-datepicker-content {
@@ -205,6 +139,11 @@ button[type="submit"] {
 .fecha-disponible .mat-calendar-body-cell-content {
   background-color: #43a047 !important;
   color: white !important;
-  border-radius: 50%;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
-

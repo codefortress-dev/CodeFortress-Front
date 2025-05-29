@@ -6,16 +6,16 @@
 
   mat-button-toggle-group {
     border-radius: 4px;
-    background-color: #1a1a1a;
+    background-color: var(--color-surface);
     padding: 2px;
   }
 
   mat-button-toggle {
-    color: white;
+    color: var(--color-text);
 
     &.mat-button-toggle-checked {
-      background-color: #1A7BE5;
-      color: white;
+      background-color: var(--color-primary);
+      color: var(--color-text);
     }
   }
 }
@@ -32,9 +32,10 @@
   width: 100%;
   max-width: 360px;
 }
+
 .drawer-content-wrapper {
-    display: none;
-  }
+  display: none;
+}
 
 @media (max-width: 768px) {
   .catalog-container {

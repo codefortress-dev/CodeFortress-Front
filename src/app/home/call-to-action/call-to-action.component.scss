@@ -1,6 +1,6 @@
 .call-to-action {
-  background: linear-gradient(to right, #1976d2, #42a5f5);
-  color: white;
+  background: var(--color-primary-dark);
+  color: var(--color-text);
   text-align: center;
   padding: 4rem 1rem;
 
@@ -16,6 +16,7 @@
     p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      color: var(--color-muted);
     }
 
     .cta-buttons {

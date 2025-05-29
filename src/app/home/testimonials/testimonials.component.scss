@@ -1,11 +1,12 @@
 .testimonials {
   padding: 3rem 1rem;
   text-align: center;
-  background: #3f51b5;
+  background: var(--color-primary-dark);
 
   .section-title {
     font-size: 2rem;
     margin-bottom: 2rem;
+    color: var(--color-text);
   }
 
   .testimonials-list {
@@ -26,7 +27,7 @@
 
       .quote-icon {
         font-size: 3rem;
-        color: #1976d2;
+        color: var(--color-primary);
         position: absolute;
         top: -1rem;
         left: -1rem;
@@ -35,11 +36,12 @@
       .quote {
         font-style: italic;
         margin: 1.5rem 0;
+        color: var(--color-text);
       }
 
       .author {
         font-size: 0.9rem;
-        color: #e4cbcb;
+        color: var(--color-muted);
       }
     }
   }

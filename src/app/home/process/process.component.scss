@@ -1,0 +1,37 @@
+.process-section {
+  text-align: center;
+  padding: 4rem 1rem;
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .step {
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 3rem;
+      color: #3f51b5;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #555;
+    }
+  }
+}

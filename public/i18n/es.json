@@ -1,0 +1,98 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "products": "Productos",
+    "request": "Solicitar",
+    "login": "Iniciar sesión"
+  },
+  "language": "Idioma",
+  "navbar": {
+    "home": "Inicio",
+    "products": "Productos",
+    "request": "Solicitar",
+    "login": "Iniciar sesión",
+    "language": "Idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "form": {
+    "title": "Solicita tu proyecto!",
+    "name": "Nombre completo",
+    "email": "Correo electrónico",
+    "projectType": "Tipo de proyecto",
+    "description": "Descripción del proyecto",
+    "category": "Categoría de atención",
+    "date": "Fecha para entrevista",
+    "time": "Horario disponible",
+    "submit": "Enviar solicitud",
+    "placeholders": {
+      "name": "Ej: Juan Pérez",
+      "email": "Ej: nombre@email.com",
+      "description": "Describe tu idea o necesidad"
+    },
+    "errors": {
+      "required": "Campo obligatorio",
+      "email": "Correo inválido",
+      "select": "Selecciona un tipo",
+      "weekend": "No se puede agendar en fin de semana"
+    },
+    "hint": "Solo se puede seleccionar fechas con disponibilidad"
+  },
+  "hero": {
+    "title": "Soluciones seguras, escalables y personalizables para desarrolladores serios.",
+    "subtitle": "Productos listos y desarrollo a medida para empresas y equipos técnicos exigentes.",
+    "ctaProducts": "Explorar productos",
+    "ctaRequest": "Solicitar desarrollo a medida"
+  },
+  "features": {
+    "trustTitle": "Confiado por equipos técnicos en todo el mundo",
+    "benefits": {
+      "security": "🔐 Seguridad profesional con licenciamiento inteligente",
+      "bundles": "⚙️ Bundles listos para Spring Boot (JWT, CORS, Rate Limiting…)",
+      "modular": "🧩 Modular, extensible y probado",
+      "multiLang": "🌍 Disponible en inglés y español"
+    }
+  },
+  "cta": {
+  "title": "¿Necesitas una solución personalizada?",
+  "subtitle": "Solicita un desarrollo a medida con análisis gratuito y sin compromiso.",
+  "exploreProducts": "Explorar productos",
+  "requestQuote": "Solicitar desarrollo"
+}
+,
+"productsPreview": {
+  "title": "Explora nuestros productos",
+  "details": "Ver más",
+  "viewAll": "Ver todo el catálogo"
+},
+  "process": {
+  "title": "¿Cómo trabajamos?",
+  "subtitle": "Te acompañamos desde la idea hasta la implementación.",
+  "step1": {
+    "title": "Paso 1: Exploración",
+    "desc": "Cuéntanos tus necesidades o elige un producto listo para usar."
+  },
+  "step2": {
+    "title": "Paso 2: Desarrollo",
+    "desc": "Adaptamos, configuramos o desarrollamos según tu caso."
+  },
+  "step3": {
+    "title": "Paso 3: Implementación",
+    "desc": "Integramos, escalamos y damos soporte en producción."
+  }
+},
+"testimonials": {
+  "title": "Testimonios",
+  "quote1": "Implementamos CodeFortress y redujimos en un 50% los ataques de bots.",
+  "author1": "Carlos Méndez",
+  "position1": "CTO en FinPay",
+  "quote2": "La solución fue rápida, robusta y muy fácil de integrar.",
+  "author2": "Laura Rivas",
+  "position2": "Líder de equipo en CloudOps",
+  "quote3": "Finalmente una plataforma de seguridad pensada para desarrolladores.",
+  "author3": "Miguel Soto",
+  "position3": "Arquitecto de software en DevForge"
+}
+
+
+}

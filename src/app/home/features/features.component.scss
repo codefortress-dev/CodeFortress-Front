@@ -1,0 +1,42 @@
+.features-section {
+  padding: 4rem 1rem;
+  text-align: center;
+
+  .trust-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2.5rem;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .benefit-item {
+      background: #f9f9f9;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+
+      .emoji {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      p {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+}

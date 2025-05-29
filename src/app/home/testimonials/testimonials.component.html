@@ -1,0 +1,14 @@
+<section class="testimonials">
+  <h2 class="section-title">{{ 'testimonials.title' | translate }}</h2>
+  <div class="testimonials-list">
+    <mat-card *ngFor="let t of testimonials" class="testimonial-card">
+      <mat-icon class="quote-icon">format_quote</mat-icon>
+      <p class="quote">{{ t.quote | translate }}</p>
+      <div class="author">
+        <strong>{{ t.author | translate }}</strong><br />
+        <span>{{ t.position | translate }}</span>
+      </div>
+    </mat-card>
+  </div>
+</section>
+

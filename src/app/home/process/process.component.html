@@ -1,0 +1,15 @@
+<section class="process-section">
+  <h2 class="section-title">{{ 'process.title' | translate }}</h2>
+  <p class="section-subtitle">{{ 'process.subtitle' | translate }}</p>
+
+  <div class="steps">
+    <div class="step" *ngFor="let step of steps">
+      <div class="icon">
+        <mat-icon>{{ step.icon }}</mat-icon>
+      </div>
+      <h3>{{ step.title | translate }}</h3>
+      <p>{{ step.description | translate }}</p>
+    </div>
+  </div>
+</section>
+

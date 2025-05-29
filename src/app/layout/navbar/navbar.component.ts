@@ -6,6 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { MatMenuModule } from '@angular/material/menu';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -18,12 +21,22 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule
+    MatMenuModule,
+    RouterModule,
+    TranslateModule
   ]
 })
+
+
 export class NavbarComponent {
   @ViewChild('drawer') drawer!: MatDrawer;
+constructor(public translate: TranslateService) {}
 
+ changeLang(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang); // persistir idioma
+  }
+  
   toggleDrawer(): void {
     this.drawer.toggle();
   }

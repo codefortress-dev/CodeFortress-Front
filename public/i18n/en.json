@@ -1,0 +1,99 @@
+{
+  "menu": {
+    "home": "Home",
+    "products": "Products",
+    "request": "Request",
+    "login": "Login"
+  },
+  "language": "Language",
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "request": "Request",
+    "login": "Login",
+    "language": "Language",
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "form": {
+    "title": "Request your project!",
+    "name": "Full name",
+    "email": "Email address",
+    "projectType": "Type of project",
+    "description": "Project description",
+    "category": "Service category",
+    "date": "Interview date",
+    "time": "Available time slot",
+    "submit": "Send request",
+    "placeholders": {
+      "name": "e.g. John Doe",
+      "email": "e.g. name@email.com",
+      "description": "Describe your idea or need"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Invalid email",
+      "select": "Please select a type",
+      "weekend": "Weekends are not allowed"
+    },
+    "hint": "Only dates with availability can be selected"
+  },
+  "hero": {
+    "title": "Secure, scalable and customizable solutions for serious developers.",
+    "subtitle": "Ready-made products and custom development for demanding companies and tech teams.",
+    "ctaProducts": "Explore products",
+    "ctaRequest": "Request custom development"
+  },
+  "features": {
+    "trustTitle": "Trusted by tech teams around the world",
+    "benefits": {
+      "security": "🔐 Professional security with smart licensing",
+      "bundles": "⚙️ Ready-to-use Spring Boot bundles (JWT, CORS, Rate Limiting…)",
+      "modular": "🧩 Modular, extensible, and battle-tested",
+      "multiLang": "🌍 Available in English and Spanish"
+    }
+  },
+  "cta": {
+  "title": "Need a custom solution?",
+  "subtitle": "Request a tailored development with free analysis and no obligation.",
+  "exploreProducts": "Explore products",
+  "requestQuote": "Request development"
+}
+,
+"productsPreview": {
+  "title": "Explore our products",
+  "details": "View more",
+  "viewAll": "See full catalog"
+},
+"process": {
+  "title": "How we work",
+  "subtitle": "We support you from idea to implementation.",
+  "step1": {
+    "title": "Step 1: Discovery",
+    "desc": "Tell us your needs or choose a ready-to-use product."
+  },
+  "step2": {
+    "title": "Step 2: Development",
+    "desc": "We adapt, configure or develop based on your case."
+  },
+  "step3": {
+    "title": "Step 3: Launch",
+    "desc": "We integrate, scale and provide production support."
+  }
+},
+"testimonials": {
+  "title": "Testimonials",
+  "quote1": "We implemented CodeFortress and reduced bot attacks by 50%.",
+  "author1": "Carlos Méndez",
+  "position1": "CTO at FinPay",
+  "quote2": "The solution was fast, robust, and easy to integrate.",
+  "author2": "Laura Rivas",
+  "position2": "Team Lead at CloudOps",
+  "quote3": "Finally a security platform designed for developers.",
+  "author3": "Miguel Soto",
+  "position3": "Software Architect at DevForge"
+}
+
+
+  
+}

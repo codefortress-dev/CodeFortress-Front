@@ -1,0 +1,46 @@
+.testimonials {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #3f51b5;
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .testimonials-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .testimonial-card {
+      max-width: 320px;
+      padding: 1.5rem;
+      position: relative;
+
+      .quote-icon {
+        font-size: 3rem;
+        color: #1976d2;
+        position: absolute;
+        top: -1rem;
+        left: -1rem;
+      }
+
+      .quote {
+        font-style: italic;
+        margin: 1.5rem 0;
+      }
+
+      .author {
+        font-size: 0.9rem;
+        color: #e4cbcb;
+      }
+    }
+  }
+}

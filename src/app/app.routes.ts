@@ -1,16 +1,11 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './public/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
-
+import { CatalogComponent } from './catalog/pages/product-list/catalog.component';
+import { CustomRequestComponent } from './custom-request/custom-request.component';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  {
-    path: 'productos',
-    loadChildren: () => import('./catalog/catalog.routes').then(m => m.catalogRoutes)
-  },
-  {
-    path: 'solicitar',
-    loadChildren: () => import('./custom-request/custom-request.routes').then(m => m.requestRoutes)
-  }
+  { path: 'productos', component: CatalogComponent },
+  { path: 'solicitar', component: CustomRequestComponent },
 ];

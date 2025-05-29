@@ -1,5 +1,4 @@
-import { Component, ViewChild, OnInit, HostListener } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,39 +10,21 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
   imports: [
-    CommonModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
     RouterModule
-  ],
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  ]
 })
-export class NavbarComponent implements OnInit {
-  isMobile = false;
-
+export class NavbarComponent {
   @ViewChild('drawer') drawer!: MatDrawer;
 
-  ngOnInit(): void {
-    this.checkScreenWidth();
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    this.checkScreenWidth();
-  }
-
-  private checkScreenWidth() {
-    this.isMobile = window.innerWidth <= 768;
-  }
-
   toggleDrawer(): void {
-    if (this.drawer) {
-      this.drawer.toggle();
-    }
+    this.drawer.toggle();
   }
 }

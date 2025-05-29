@@ -1,30 +1,50 @@
-/* Ensure the sidenav container takes full viewport height */
-.sidenav-container {
-  height: 100vh; /* Set height to 100% of the viewport height */
-  display: flex; /* Use flexbox for proper layout within the container */
-  flex-direction: column; /* Stack children vertically */
-}
+.logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 
-.menu-mobile {
-  width: 250px;
+  img {
+    height: 40px;
+    margin-right: 8px;
+  }
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-.desktop-nav a {
-  margin-left: 12px;
-}
-
-/* Ensure the mat-drawer-content takes the remaining space and manages its overflow */
-mat-drawer-content {
-  flex-grow: 1; /* Allow content to grow and fill available space */
-  overflow: auto; /* Enable scrolling for content if it overflows */
-}
-
-/* Optional: Adjust main-toolbar if it's pushing content */
+/* Estilos base */
 .main-toolbar {
-  z-index: 2; /* Ensure toolbar stays above drawer if needed, though 'mode="over"' handles this */
-  position: relative; /* May help with stacking context if other elements are problematic */
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.hamburger-btn {
+  display: none;
+}
+
+.menu-mobile {
+  display: none;
+  width: 250px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: inline-flex;
+  }
+
+  .menu-mobile {
+    display: block;
+  }
 }

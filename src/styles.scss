@@ -138,3 +138,29 @@ button[type="submit"] {
   color: white !important;
   border-radius: 50%;
 }
+/* Mostrar por defecto menú escritorio */
+.desktop-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.hamburger-btn,
+.menu-mobile {
+  display: none;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: inline-flex;
+  }
+
+  .menu-mobile {
+    display: block;
+    width: 250px; // tamaño del drawer
+  }
+}

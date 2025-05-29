@@ -1,7 +1,6 @@
-
-
 <form [formGroup]="form" (ngSubmit)="enviar()" class="formulario">
   <h2 class="titulo-formulario">Solicita tu proyecto!</h2>
+
   <mat-form-field appearance="fill" class="campo">
     <mat-label>Nombre completo</mat-label>
     <input matInput formControlName="nombre" placeholder="Ej: Juan Pérez" />
@@ -40,29 +39,33 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="campo">
-    <mat-label>Fecha para entrevista</mat-label>
-    <input
-      matInput
-      [matDatepicker]="picker"
-      formControlName="fecha"
-      placeholder="Selecciona una fecha"
-    />
-    <mat-datepicker-toggle matSuffix [for]="picker" />
-    <mat-datepicker #picker [startAt]="today"></mat-datepicker>
-    <mat-error *ngIf="form.get('fecha')?.hasError('required')">Selecciona una fecha</mat-error>
-    <mat-error *ngIf="form.get('fecha')?.hasError('finDeSemanaNoPermitido')">
-      No se puede agendar en fin de semana
-    </mat-error>
-  </mat-form-field>
+  <mat-label>Fecha para entrevista</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    formControlName="fecha"
+    placeholder="Selecciona una fecha"
+    [matDatepickerFilter]="filtrarFechasDisponibles"
+  />
+  <mat-hint>Solo se puede seleccionar fechas con disponibilidad</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker" />
+  <mat-datepicker #picker [startAt]="today" [dateClass]="resaltarFechasDisponibles"></mat-datepicker>
 
-  <mat-form-field appearance="fill" class="campo" *ngIf="horariosDisponibles.length > 0">
+</mat-form-field>
+
+
+  <mat-form-field appearance="fill" class="campo">
     <mat-label>Horario disponible</mat-label>
     <mat-select formControlName="horario">
-      <mat-option *ngFor="let hora of horariosDisponibles" [value]="hora">
-        {{ hora }}
-      </mat-option>
+      <mat-option *ngFor="let hora of horarios" [value]="hora">{{ hora }}</mat-option>
     </mat-select>
     <mat-error *ngIf="form.get('horario')?.invalid">Selecciona un horario</mat-error>
+  </mat-form-field>
+
+  <!-- Campo solo lectura para mostrar el ejecutivo asignado -->
+  <mat-form-field appearance="fill" class="campo" disabled>
+    <mat-label>Ejecutivo asignado</mat-label>
+    <input matInput [value]="form.get('ejecutivoAsignado')?.value" disabled />
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">

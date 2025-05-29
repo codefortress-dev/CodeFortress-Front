@@ -132,3 +132,9 @@ button[type="submit"] {
   width: 100%;
   margin-bottom: 16px;
 }
+// styles.scss
+.fecha-disponible .mat-calendar-body-cell-content {
+  background-color: #4caf50 !important;
+  color: white !important;
+  border-radius: 50%;
+}

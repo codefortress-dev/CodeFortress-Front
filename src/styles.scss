@@ -40,33 +40,6 @@ body {
 /* ====== ESTILOS GLOBALES PARA COMPONENTES ====== */
 
 /* --- NAVBAR --- */
-.logo-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-.logo-container img {
-  height: 40px;
-  margin-right: 8px;
-}
-.spacer {
-  flex: 1 1 auto;
-}
-.desktop-nav {
-  display: flex;
-  gap: 12px;
-}
-.mobile-only {
-  display: none;
-}
-@media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-  .mobile-only {
-    display: inline-flex;
-  }
-}
 
 /* --- FOOTER --- */
 .footer-container {

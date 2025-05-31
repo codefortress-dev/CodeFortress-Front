@@ -1,16 +1,14 @@
-<!-- hero.component.html -->
 <section class="hero">
   <div class="hero-content">
     <h1>{{ 'hero.title' | translate }}</h1>
     <p>{{ 'hero.subtitle' | translate }}</p>
-
-    <div class="actions">
+    <div class="hero-actions">
       <a mat-flat-button color="primary" routerLink="/productos">
         {{ 'hero.ctaProducts' | translate }}
       </a>
-      <a mat-stroked-button color="primary" routerLink="/solicitar">
-        {{ 'hero.ctaRequest' | translate }}
-      </a>
+      <a mat-stroked-button color="accent" routerLink="/solicitar">
+        {{ 'hero.ctaRequest' | translate }} 
+      </a> 
     </div>
   </div>
 </section>

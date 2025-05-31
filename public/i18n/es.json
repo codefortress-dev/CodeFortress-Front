@@ -47,10 +47,10 @@
   "features": {
     "trustTitle": "Confiado por equipos técnicos en todo el mundo",
     "benefits": {
-      "security": "🔐 Seguridad profesional con licenciamiento inteligente",
-      "bundles": "⚙️ Bundles listos para Spring Boot (JWT, CORS, Rate Limiting…)",
-      "modular": "🧩 Modular, extensible y probado",
-      "multiLang": "🌍 Disponible en inglés y español"
+      "security": "Seguridad profesional con licenciamiento inteligente",
+      "bundles": "Bundles listos para Spring Boot (JWT, CORS, Rate Limiting…)",
+      "modular": "Modular, extensible y probado",
+      "multiLang": "Disponible en inglés y español"
     }
   },
   "cta": {

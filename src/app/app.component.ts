@@ -1,16 +1,16 @@
 import { Component, HostListener, OnInit, signal } from '@angular/core';
+import { NgIf, NgClass } from '@angular/common';
 import { LeftSidebarComponent } from './layout/left-sidebar/left-sidebar.component';
 import { MainComponent } from './main/main.component';
-
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LeftSidebarComponent, MainComponent],
+  imports: [ NgIf, NgClass, LeftSidebarComponent, MainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'codefortress-front';
  isLeftSidebarCollapsed = signal<boolean>(false);
   screenWidth = signal<number>(window.innerWidth);

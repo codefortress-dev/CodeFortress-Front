@@ -1,9 +1,15 @@
 <app-left-sidebar
+  *ngIf="screenWidth() < 769"
   [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
   (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
 />
 
 <app-main
+  [ngClass]="{
+    'body-md-screen': screenWidth() < 769 && isLeftSidebarCollapsed(),
+    'body-trimmed': screenWidth() < 769 && !isLeftSidebarCollapsed(),
+    'body': screenWidth() >= 769
+  }"
   [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
   [screenWidth]="screenWidth()"
 />

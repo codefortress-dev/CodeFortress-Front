@@ -1,23 +1,3 @@
-/* import { APP_INITIALIZER } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-
-export function initializeAppFactory(translate: TranslateService) {
-  return () => {
-    const browserLang = navigator.language.split('-')[0];
-    const supportedLangs = ['es', 'en'];
-    const defaultLang = supportedLangs.includes(browserLang) ? browserLang : 'es';
-
-    translate.setDefaultLang('es');
-    return translate.use(defaultLang).toPromise();
-  };
-}
-
-export const AppInitProvider = {
-  provide: APP_INITIALIZER,
-  useFactory: initializeAppFactory,
-  deps: [TranslateService],
-  multi: true
-}; */
 import { APP_INITIALIZER } from '@angular/core';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';

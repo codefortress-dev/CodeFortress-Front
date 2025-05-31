@@ -1,7 +1,9 @@
-<app-navbar></app-navbar>
+<app-left-sidebar
+  [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+  (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)"
+/>
 
-<main class="main-content">
-  <router-outlet></router-outlet>
-</main>
-
-<app-footer></app-footer>
+<app-main
+  [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+  [screenWidth]="screenWidth()"
+/>

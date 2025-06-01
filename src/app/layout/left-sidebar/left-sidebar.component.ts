@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-left-sidebar',
   standalone: true,
-  imports: [RouterModule, CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './left-sidebar.component.html',
   styleUrl: './left-sidebar.component.css',
 })
@@ -14,22 +14,22 @@ export class LeftSidebarComponent {
   changeIsLeftSidebarCollapsed = output<boolean>();
   items = [
     {
-      routeLink: 'dashboard',
+      routeLink: '/',
       icon: 'fal fa-home',
       label: 'Dashboard',
     },
     {
-      routeLink: 'products',
+      routeLink: '/productos',
       icon: 'fal fa-box-open',
       label: 'Products',
     },
     {
-      routeLink: 'pages',
+      routeLink: '/solicitar',
       icon: 'fal fa-file',
       label: 'Pages',
     },
     {
-      routeLink: 'settings',
+      routeLink: '/login',
       icon: 'fal fa-cog',
       label: 'Settings',
     },

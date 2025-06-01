@@ -3,11 +3,11 @@ import { Component, computed, input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
-
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,FooterComponent, NavbarComponent],
+  imports: [CommonModule,RouterOutlet,TranslateModule, FooterComponent, NavbarComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
 })

@@ -55,7 +55,23 @@ body {
 /* ====== ESTILOS GLOBALES PARA COMPONENTES ====== */
 
 /* --- NAVBAR --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
 
+  .logo {
+    width: 32px;
+    height: auto;
+    margin-right: 0.5rem;
+  }
+
+  .logo-text {
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+}
 /* --- FOOTER --- */
 .footer-container {
   text-align: center;

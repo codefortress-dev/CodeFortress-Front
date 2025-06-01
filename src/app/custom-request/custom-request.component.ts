@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  Validators,
+  FormGroup,
+  ReactiveFormsModule,
+  AbstractControl
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -9,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatError } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import { CustomRequestService } from '../core/custom-request.service';
 import { CategoriaAtencion } from './models/categoria-atencion.model';
 import { isWeekend } from 'date-fns';
@@ -27,14 +35,16 @@ import { isWeekend } from 'date-fns';
     MatButtonModule,
     MatIconModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatError,
+    MatCheckboxModule
   ]
 })
 export class CustomRequestComponent implements OnInit {
   form: FormGroup;
   categorias: CategoriaAtencion[] = [];
   horarios: string[] = [];
-  fechasDisponibles: string[] = []; 
+  fechasDisponibles: string[] = [];
   today: Date = new Date();
 
   constructor(
@@ -49,7 +59,18 @@ export class CustomRequestComponent implements OnInit {
       categoria: ['', Validators.required],
       fecha: ['', [Validators.required, this.validarFechaNoFinDeSemana]],
       horario: ['', Validators.required],
-      ejecutivoAsignado: ['']
+      ejecutivoAsignado: [''],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(18),
+        Validators.pattern('^(?=.*[A-Z])(?=.*\\d).+$')
+      ]],
+      repetirPassword: ['', Validators.required],
+      fechaNacimiento: ['', [Validators.required, this.edadMinimaValidator]],
+      experienciaPrev: [false]
+    }, {
+      validators: this.contrasenasIgualesValidator
     });
   }
 
@@ -66,6 +87,9 @@ export class CustomRequestComponent implements OnInit {
 
         this.horarios = [];
         this.form.get('horario')?.reset();
+        this.cargarFechasDisponibles(categoriaId);
+        this.form.get('fecha')?.reset();
+        this.form.get('horario')?.reset();
       }
     });
 
@@ -78,16 +102,28 @@ export class CustomRequestComponent implements OnInit {
         });
       }
     });
-    this.form.get('categoria')?.valueChanges.subscribe((categoriaId: string) => {
-  this.cargarFechasDisponibles(categoriaId);
-
-  // Opcionalmente limpia fecha y horario si el usuario cambia la categoría
-  this.form.get('fecha')?.reset();
-  this.form.get('horario')?.reset();
+    this.form.valueChanges.subscribe(() => {
+    if (this.form.hasError('contrasenasDistintas')) {
+      this.form.get('repetirPassword')?.setErrors({ contrasenasDistintas: true });
+    } else {
+      this.form.get('repetirPassword')?.setErrors(null);
+    }
   });
   }
 
-  validarFechaNoFinDeSemana(control: any) {
+  enviar(): void {
+    if (this.form.valid) {
+      console.log('✅ Solicitud enviada:', this.form.value);
+      alert('✅ Tu solicitud fue enviada con éxito.');
+      this.form.reset();
+      this.horarios = [];
+    } else {
+      this.form.markAllAsTouched();
+      alert('❌ Revisa los campos. Hay errores en el formulario.');
+    }
+  }
+
+  validarFechaNoFinDeSemana(control: AbstractControl) {
     const fecha: Date = control.value;
     if (fecha && isWeekend(fecha)) {
       return { finDeSemanaNoPermitido: true };
@@ -95,27 +131,38 @@ export class CustomRequestComponent implements OnInit {
     return null;
   }
 
-  enviar(): void {
-    if (this.form.valid) {
-      console.log('Solicitud enviada:', this.form.value);
-      this.form.reset();
-      this.horarios = [];
+  edadMinimaValidator(control: AbstractControl) {
+    const fecha = new Date(control.value);
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - fecha.getFullYear();
+    const mes = hoy.getMonth() - fecha.getMonth();
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fecha.getDate())) {
+      edad--;
     }
+    return edad >= 18 ? null : { menorEdad: true };
   }
-  filtrarFechasDisponibles = (fecha: Date | null): boolean => {
-  if (!fecha) return false;
-  const iso = fecha.toISOString().split('T')[0];
-  return this.fechasDisponibles.includes(iso);
-};
-private cargarFechasDisponibles(categoriaId: string): void {
-  this.service.getDisponibilidad().subscribe(disponibilidad => {
-    const fechasObj = disponibilidad[categoriaId] || {};
-    this.fechasDisponibles = Object.keys(fechasObj);
-  });
-}
-resaltarFechasDisponibles = (fecha: Date): string => {
-  const iso = fecha.toISOString().split('T')[0];
-  return this.fechasDisponibles.includes(iso) ? 'fecha-disponible' : '';
-};
 
+  contrasenasIgualesValidator(form: FormGroup) {
+    const pass = form.get('password')?.value;
+    const repeat = form.get('repetirPassword')?.value;
+    return pass === repeat ? null : { contrasenasDistintas: true };
+  }
+
+  filtrarFechasDisponibles = (fecha: Date | null): boolean => {
+    if (!fecha) return false;
+    const iso = fecha.toISOString().split('T')[0];
+    return this.fechasDisponibles.includes(iso);
+  };
+
+  resaltarFechasDisponibles = (fecha: Date): string => {
+    const iso = fecha.toISOString().split('T')[0];
+    return this.fechasDisponibles.includes(iso) ? 'fecha-disponible' : '';
+  };
+
+  private cargarFechasDisponibles(categoriaId: string): void {
+    this.service.getDisponibilidad().subscribe(disponibilidad => {
+      const fechasObj = disponibilidad[categoriaId] || {};
+      this.fechasDisponibles = Object.keys(fechasObj);
+    });
+  }
 }

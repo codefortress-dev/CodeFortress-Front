@@ -4,13 +4,16 @@
   <mat-form-field appearance="fill" class="campo">
     <mat-label>Nombre completo</mat-label>
     <input matInput formControlName="nombre" placeholder="Ej: Juan Pérez" />
-    <mat-error *ngIf="form.get('nombre')?.invalid">Campo obligatorio</mat-error>
+    <mat-error *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+      Campo obligatorio
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="campo">
     <mat-label>Correo electrónico</mat-label>
     <input matInput formControlName="correo" type="email" placeholder="Ej: nombre@email.com" />
-    <mat-error *ngIf="form.get('correo')?.invalid">Correo inválido</mat-error>
+    <mat-error *ngIf="form.get('correo')?.hasError('required')">Campo obligatorio</mat-error>
+    <mat-error *ngIf="form.get('correo')?.hasError('email')">Correo inválido</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="campo">
@@ -39,20 +42,16 @@
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="campo">
-  <mat-label>Fecha para entrevista</mat-label>
-  <input
-    matInput
-    [matDatepicker]="picker"
-    formControlName="fecha"
-    placeholder="Selecciona una fecha"
-    [matDatepickerFilter]="filtrarFechasDisponibles"
-  />
-  <mat-hint>Solo se puede seleccionar fechas con disponibilidad</mat-hint>
-  <mat-datepicker-toggle matSuffix [for]="picker" />
-  <mat-datepicker #picker [startAt]="today" [dateClass]="resaltarFechasDisponibles"></mat-datepicker>
-
-</mat-form-field>
-
+    <mat-label>Fecha para entrevista</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="fecha"
+           [matDatepickerFilter]="filtrarFechasDisponibles"
+           placeholder="Selecciona una fecha" />
+    <mat-hint>Solo fechas con disponibilidad</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker" />
+    <mat-datepicker #picker [startAt]="today" [dateClass]="resaltarFechasDisponibles"></mat-datepicker>
+    <mat-error *ngIf="form.get('fecha')?.hasError('required')">Campo obligatorio</mat-error>
+    <mat-error *ngIf="form.get('fecha')?.hasError('finDeSemanaNoPermitido')">No se permiten fines de semana</mat-error>
+  </mat-form-field>
 
   <mat-form-field appearance="fill" class="campo">
     <mat-label>Horario disponible</mat-label>
@@ -62,11 +61,50 @@
     <mat-error *ngIf="form.get('horario')?.invalid">Selecciona un horario</mat-error>
   </mat-form-field>
 
-  <!-- Campo solo lectura para mostrar el ejecutivo asignado -->
   <mat-form-field appearance="fill" class="campo" disabled>
     <mat-label>Ejecutivo asignado</mat-label>
     <input matInput [value]="form.get('ejecutivoAsignado')?.value" disabled />
   </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Contraseña</mat-label>
+    <input matInput type="password" formControlName="password" placeholder="Ingresa tu contraseña" />
+    <mat-error *ngIf="form.get('password')?.hasError('required')">Campo obligatorio</mat-error>
+    <mat-error *ngIf="form.get('password')?.hasError('minlength')">Mínimo 6 caracteres</mat-error>
+    <mat-error *ngIf="form.get('password')?.hasError('maxlength')">Máximo 18 caracteres</mat-error>
+    <mat-error *ngIf="form.get('password')?.hasError('pattern')">
+      Debe incluir al menos una mayúscula y un número
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Repetir contraseña</mat-label>
+    <input matInput type="password" formControlName="repetirPassword" placeholder="Confirma tu contraseña" />
+    <mat-error *ngIf="form.get('repetirPassword')?.hasError('required')">
+    Campo obligatorio
+    </mat-error>
+    <mat-error *ngIf="form.get('repetirPassword')?.hasError('contrasenasDistintas')">
+    Las contraseñas no coinciden
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="campo">
+    <mat-label>Fecha de nacimiento</mat-label>
+    <input matInput [matDatepicker]="pickerNacimiento"
+           [max]="today"
+           formControlName="fechaNacimiento" />
+    <mat-datepicker-toggle matSuffix [for]="pickerNacimiento"></mat-datepicker-toggle>
+    <mat-datepicker #pickerNacimiento></mat-datepicker>
+    <mat-error *ngIf="form.get('fechaNacimiento')?.hasError('required')">Campo obligatorio</mat-error>
+    <mat-error *ngIf="form.get('fechaNacimiento')?.hasError('menorEdad')">
+      Debes tener al menos 18 años
+    </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="experienciaPrev" class="campo">
+    He trabajado antes con freelancers o empresas de desarrollo de software
+  </mat-checkbox>
+  
 
   <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
     Enviar solicitud

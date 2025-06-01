@@ -141,7 +141,7 @@ body {
 
 // Días con disponibilidad (basado en [dateClass])
 .fecha-disponible .mat-calendar-body-cell-content {
-  background-color: #43a047 !important;
+  background-color: var(--cf-blue) !important;
   color: white !important;
   border-radius: 50% !important;
   width: 32px !important;

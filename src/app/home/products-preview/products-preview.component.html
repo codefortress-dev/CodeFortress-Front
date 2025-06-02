@@ -5,9 +5,9 @@
 
   <div class="products-grid">
     <div class="product-card" *ngFor="let product of products">
-      <img [src]="product.imagen" [alt]="product.nombre" />
-      <h3>{{ product.nombre }}</h3>
-      <p>{{ product.descripcion }}</p>
+      <img [src]="product.imagen" [alt]="product.nombre[currentLang]" />
+      <h3>{{ product.nombre[currentLang] }}</h3>
+      <p>{{ product.descripcion[currentLang] }}</p>
       <p class="price">{{ product.precio | currency:'USD' }}</p>
       <a mat-stroked-button color="primary" [routerLink]="['/productos', product.id]">
         {{ 'productsPreview.details' | translate }}
@@ -21,4 +21,3 @@
     </a>
   </div>
 </section>
-

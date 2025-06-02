@@ -165,6 +165,29 @@
   "viewMore": "View more",
   "buy": "Buy",
   "loading": "Loading products..."
+},
+"productDetail": {
+  "priceLabel": "Price",
+  "buyButton": "Buy",
+  "backButton": "Back",
+  "loading": "Loading product...",
+  "notFound": "Product not found."
+},
+"footer": {
+  "slogan": "Secure your software, brick by brick.",
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "licenses": "Licenses",
+    "contact": "Contact"
+  },
+  "contact": {
+    "email": "Email"
+  },
+  "legal": {
+    "rights": "All rights reserved.",
+    "tech": "Built with Angular 18 + Material"
+  }
 }
 
 

@@ -74,17 +74,126 @@ body {
 }
 /* --- FOOTER --- */
 .footer-container {
-  text-align: center;
-  padding: 24px;
-  font-size: 14px;
-  color: #555;
-  background-color: #f1f1f1;
-  margin-top: auto;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  padding: 32px 24px 16px;
+  font-size: 0.95rem;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto 16px;
+  }
+
+  .footer-brand {
+    flex: 1 1 220px;
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 0 0 8px;
+    }
+
+    .slogan {
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--color-primary);
+    }
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1 160px;
+
+    a {
+      color: var(--color-text);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  .footer-contact {
+    flex: 1 1 200px;
+
+    p {
+      margin: 0 0 8px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+
+      a {
+        font-size: 1.2rem;
+        color: var(--color-text);
+
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding-top: 12px;
+    text-align: center;
+    font-size: 0.85rem;
+
+    .tech {
+      opacity: 0.7;
+      margin-top: 4px;
+    }
+  }
 }
-.footer-container .secondary {
-  font-size: 12px;
-  color: #888;
+
+/* Adaptación responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    row-gap: 12px; // antes 32px o 16px
+
+    .footer-brand,
+    .footer-contact,
+    .footer-nav {
+      margin: 0; // quita separación adicional
+      flex: 1 1 20px;
+    }
+
+    .footer-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .footer-contact .social-icons {
+      justify-content: center;
+      margin-top: 4px;
+    }
+  }
+
+  .footer-container {
+    padding: 24px 16px 12px; // reduce padding general
+  }
+
+  .footer-bottom {
+    padding-top: 8px;
+  }
 }
+
+
+
 
 /* --- HOME --- */
 .home-container {

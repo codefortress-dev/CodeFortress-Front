@@ -1,6 +1,41 @@
 <mat-divider></mat-divider>
+
 <footer class="footer-container">
-  <p>&copy; 2025 CodeFortress. Todos los derechos reservados.</p>
-  <p class="secondary">Desarrollado con Angular 18 + Material</p>
+  <div class="footer-content">
+    <!-- Marca -->
+    <div class="footer-brand">
+      <h3>CodeFortress</h3>
+      <p class="slogan">{{ 'footer.slogan' | translate }}</p>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="footer-nav">
+      <a routerLink="/productos">{{ 'footer.nav.products' | translate }}</a>
+      <a routerLink="/solicitar">{{ 'footer.nav.services' | translate }}</a>
+      <a href="#">{{ 'footer.nav.licenses' | translate }}</a>
+      <a href="#">{{ 'footer.nav.contact' | translate }}</a>
+    </nav>
+
+    <!-- Contacto y redes -->
+    <div class="footer-contact">
+      <p>{{ 'footer.contact.email' | translate }}: contacto&#64;codefortress.dev</p>
+      <div class="social-icons">
+        <a href="https://github.com/codefortress-dev" target="_blank" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/company/codefortress" target="_blank" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/codefortress" target="_blank" aria-label="Twitter">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 CodeFortress. {{ 'footer.legal.rights' | translate }}</p>
+    <p class="tech">{{ 'footer.legal.tech' | translate }}</p>
+  </div>
 </footer>
 

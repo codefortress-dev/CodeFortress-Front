@@ -1,16 +1,95 @@
-.detail-card {
-  max-width: 600px;
-  margin: 48px auto;
-  padding: 16px;
+.producto-card {
   background-color: var(--color-surface);
   color: var(--color-text);
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: var(--elevation-1);
-}
+  padding: 16px;
+  max-width: 540px; // antes 360px
+  margin: 40px auto; // centrado vertical y horizontal
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-.detail-card img {
-  object-fit: cover;
-  max-height: 300px;
-  width: 100%;
-  border-radius: 4px;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--elevation-2);
+  }
+
+  mat-card-image {
+    object-fit: cover;
+    border-radius: 8px;
+    max-height: 280px;
+  }
+
+  mat-card-content {
+    padding: 16px 0;
+
+    .producto-titulo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin: 12px 0 4px;
+      text-align: center;
+    }
+
+    .producto-categoria {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .producto-descripcion {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .producto-precio {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+  }
+
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: auto;
+
+    button {
+      font-weight: 500;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .producto-card {
+    margin: 24px auto;
+    max-width: 100%;
+    padding: 0 16px; // asegura espacio interno uniforme
+
+    mat-card-content {
+      padding: 12px 0;
+
+      .producto-titulo,
+      .producto-categoria,
+      .producto-descripcion,
+      .producto-precio {
+        text-align: left;
+      }
+    }
+
+    mat-card-actions {
+      flex-direction: column;
+      align-items: stretch;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }

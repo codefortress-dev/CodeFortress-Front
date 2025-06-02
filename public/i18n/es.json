@@ -165,7 +165,31 @@
   "viewMore": "Ver más",
   "buy": "Comprar",
   "loading": "Cargando productos..."
+},
+"productDetail": {
+  "priceLabel": "Precio",
+  "buyButton": "Comprar",
+  "backButton": "Volver",
+  "loading": "Cargando producto...",
+  "notFound": "Producto no encontrado."
+},
+"footer": {
+  "slogan": "Asegura tu software, bloque a bloque.",
+  "nav": {
+    "products": "Productos",
+    "services": "Servicios",
+    "licenses": "Licencias",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "email": "Correo"
+  },
+  "legal": {
+    "rights": "Todos los derechos reservados.",
+    "tech": "Desarrollado con Angular 18 + Material"
+  }
 }
+
 
 
 }

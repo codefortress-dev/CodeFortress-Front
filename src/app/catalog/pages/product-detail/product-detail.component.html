@@ -1,29 +1,37 @@
 <ng-container *ngIf="!isLoading; else loading">
   <ng-container *ngIf="producto; else notFound">
-  <mat-card class="detail-card">
-    <img mat-card-image [src]="producto.imagen" alt="{{ producto.nombre }}" />
-    <mat-card-title class="custom-title">{{ producto.nombre }}</mat-card-title>
-    <mat-card-subtitle>{{ producto.categoria }}</mat-card-subtitle>
-    <mat-card-content>
-      <p>{{ producto.descripcion }}</p>
-      <p><strong>Precio:</strong> ${{ producto.precio }}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary">Comprar</button>
-      <button mat-stroked-button [routerLink]="['/productos']">Volver</button>
-    </mat-card-actions>
-  </mat-card>
-</ng-container>
+   <mat-card class="producto-card">
+  <img mat-card-image [src]="producto.imagen" [alt]="producto.nombre[currentLang]" />
+
+  <mat-card-content>
+    <h3 class="producto-titulo">{{ producto.nombre[currentLang] }}</h3>
+    <p class="producto-categoria">{{ producto.categoria[currentLang] }}</p>
+    <p class="producto-descripcion">{{ producto.descripcion[currentLang] }}</p>
+    <p class="producto-precio"><strong>${{ producto.precio }}</strong></p>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-button color="primary" [routerLink]="['/productos', producto.id]">
+      {{ 'catalog.viewMore' | translate }}
+    </button>
+    <button mat-stroked-button color="accent">
+      {{ 'catalog.buy' | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+  </ng-container>
 </ng-container>
 
 <ng-template #loading>
   <div style="text-align: center; margin-top: 60px;">
     <mat-spinner diameter="50"></mat-spinner>
-    <p style="margin-top: 12px;">Cargando producto...</p>
+    <p style="margin-top: 12px;">{{ 'productDetail.loading' | translate }}</p>
   </div>
 </ng-template>
 
 <ng-template #notFound>
-  <p style="text-align: center; margin-top: 80px;">Producto no encontrado.</p>
+  <p style="text-align: center; margin-top: 80px;">
+    {{ 'productDetail.notFound' | translate }}
+  </p>
 </ng-template>
-

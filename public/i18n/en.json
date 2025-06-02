@@ -92,6 +92,79 @@
   "quote3": "Finally a security platform designed for developers.",
   "author3": "Miguel Soto",
   "position3": "Software Architect at DevForge"
+},
+"login": {
+  "title": "Sign In",
+  "emailLabel": "Email address",
+  "passwordLabel": "Password",
+  "submitButton": "Log In"
+},
+"customForm": {
+  "title": "Request your project!",
+  "required": "This field is required",
+  "invalidEmail": "Invalid email",
+  "fullName": {
+    "label": "Full name",
+    "placeholder": "E.g., John Doe"
+  },
+  "email": {
+    "label": "Email",
+    "placeholder": "E.g., name@email.com"
+  },
+  "projectType": {
+    "label": "Project type",
+    "error": "Select a project type",
+    "options": {
+      "web": "Web",
+      "mobile": "Mobile App",
+      "internal": "Internal System",
+      "other": "Other"
+    }
+  },
+  "description": {
+    "label": "Project description",
+    "placeholder": "Describe your idea or need"
+  },
+  "category": {
+    "label": "Support category",
+    "error": "Select a category"
+  },
+  "date": {
+    "label": "Interview date",
+    "placeholder": "Choose a date",
+    "hint": "Only dates with availability",
+    "noWeekend": "Weekends are not allowed"
+  },
+  "time": {
+    "label": "Available time",
+    "error": "Select a time"
+  },
+  "assigned": {
+    "label": "Assigned executive"
+  },
+  "password": {
+    "label": "Password",
+    "placeholder": "Enter your password",
+    "min": "Minimum 6 characters",
+    "max": "Maximum 18 characters",
+    "pattern": "Must include at least one uppercase letter and a number"
+  },
+  "confirmPassword": {
+    "label": "Repeat password",
+    "placeholder": "Confirm your password",
+    "mismatch": "Passwords do not match"
+  },
+  "birthdate": {
+    "label": "Birthdate",
+    "minAge": "You must be at least 18 years old"
+  },
+  "experience": "I have previously worked with freelancers or development agencies",
+  "submit": "Send request"
+},
+"catalog": {
+  "viewMore": "View more",
+  "buy": "Buy",
+  "loading": "Loading products..."
 }
 
 

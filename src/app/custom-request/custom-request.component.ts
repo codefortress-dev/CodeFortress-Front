@@ -7,6 +7,7 @@ import {
   AbstractControl
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -28,6 +29,7 @@ import { isWeekend } from 'date-fns';
   styleUrls: ['./custom-request.component.scss'],
   imports: [
     CommonModule,
+    TranslateModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,

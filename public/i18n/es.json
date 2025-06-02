@@ -92,6 +92,79 @@
   "quote3": "Finalmente una plataforma de seguridad pensada para desarrolladores.",
   "author3": "Miguel Soto",
   "position3": "Arquitecto de software en DevForge"
+},
+"login": {
+  "title": "Iniciar sesión",
+  "emailLabel": "Correo electrónico",
+  "passwordLabel": "Contraseña",
+  "submitButton": "Ingresar"
+},
+"customForm": {
+  "title": "¡Solicita tu proyecto!",
+  "required": "Campo obligatorio",
+  "invalidEmail": "Correo inválido",
+  "fullName": {
+    "label": "Nombre completo",
+    "placeholder": "Ej: Juan Pérez"
+  },
+  "email": {
+    "label": "Correo electrónico",
+    "placeholder": "Ej: nombre@email.com"
+  },
+  "projectType": {
+    "label": "Tipo de proyecto",
+    "error": "Selecciona un tipo",
+    "options": {
+      "web": "Web",
+      "mobile": "App Móvil",
+      "internal": "Sistema Interno",
+      "other": "Otro"
+    }
+  },
+  "description": {
+    "label": "Descripción del proyecto",
+    "placeholder": "Describe tu idea o necesidad"
+  },
+  "category": {
+    "label": "Categoría de atención",
+    "error": "Selecciona una categoría"
+  },
+  "date": {
+    "label": "Fecha para entrevista",
+    "placeholder": "Selecciona una fecha",
+    "hint": "Solo fechas con disponibilidad",
+    "noWeekend": "No se permiten fines de semana"
+  },
+  "time": {
+    "label": "Horario disponible",
+    "error": "Selecciona un horario"
+  },
+  "assigned": {
+    "label": "Ejecutivo asignado"
+  },
+  "password": {
+    "label": "Contraseña",
+    "placeholder": "Ingresa tu contraseña",
+    "min": "Mínimo 6 caracteres",
+    "max": "Máximo 18 caracteres",
+    "pattern": "Debe incluir al menos una mayúscula y un número"
+  },
+  "confirmPassword": {
+    "label": "Repetir contraseña",
+    "placeholder": "Confirma tu contraseña",
+    "mismatch": "Las contraseñas no coinciden"
+  },
+  "birthdate": {
+    "label": "Fecha de nacimiento",
+    "minAge": "Debes tener al menos 18 años"
+  },
+  "experience": "He trabajado antes con freelancers o empresas de desarrollo de software",
+  "submit": "Enviar solicitud"
+},
+"catalog": {
+  "viewMore": "Ver más",
+  "buy": "Comprar",
+  "loading": "Cargando productos..."
 }
 
 

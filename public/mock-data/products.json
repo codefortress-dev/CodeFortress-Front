@@ -100,5 +100,23 @@
       "es": "Desarrolladores",
       "en": "Developers"
     }
+  },
+  {
+  "id": 7,
+  "nombre": {
+    "es": "Tienda Online Personalizada",
+    "en": "Custom Online Store"
+  },
+  "descripcion": {
+    "es": "Desarrollamos tu tienda online a medida usando herramientas como WordPress, Joomla o frameworks modernos. Ideal para lanzar tu negocio rápido y con estilo profesional.",
+    "en": "We build your custom online store using platforms like WordPress, Joomla or modern frameworks. Perfect to launch your business quickly with a professional touch."
+  },
+  "precio": 39,
+  "imagen": "/images-products/ecommerce-store.png",
+  "categoria": {
+    "es": "Servicios",
+    "en": "Services"
   }
+}
+
 ]

@@ -1,3 +1,21 @@
+.login-banner {
+  padding: 5rem 2rem;
+  background: url('/hero-banner.png') top center/cover no-repeat;
+  color: var(--color-text);
+  text-align: center;
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+}
+
+.login-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+  z-index: -1;
+}
+
 .login-container {
   max-width: 400px;
   margin: 64px auto;

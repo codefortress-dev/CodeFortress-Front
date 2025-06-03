@@ -1,3 +1,4 @@
+<section class="catalog-banner">
 <ng-container *ngIf="!isLoading; else loading">
   <div class="catalog-toolbar">
     <mat-button-toggle-group
@@ -17,7 +18,7 @@
   *ngFor="let producto of productosFiltrados"
   [product]="producto"
   [lang]="currentLang"
-  [modoVista]="'detalle'"
+  [modoVista]="'preview'"
 ></app-product-card>
   </div>
 </ng-container>
@@ -28,3 +29,4 @@
     <p style="margin-top: 12px;">{{ 'catalog.loading' | translate }}</p>
   </div>
 </ng-template>
+</section>

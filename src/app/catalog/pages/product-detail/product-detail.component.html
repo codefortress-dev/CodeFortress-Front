@@ -1,3 +1,4 @@
+<section class="detail-banner">
 <ng-container *ngIf="!isLoading; else loading">
   <ng-container *ngIf="producto; else notFound">
    <mat-card class="producto-card">
@@ -35,3 +36,4 @@
     {{ 'productDetail.notFound' | translate }}
   </p>
 </ng-template>
+</section>

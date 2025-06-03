@@ -21,16 +21,17 @@
 }
 
 .catalog-container {
-  display: grid;
+  display: flex;              // importante
+  flex-wrap: wrap;
   gap: 24px;
-  padding: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  justify-items: center;
+  justify-content: center;    // centra las tarjetas
+  padding: 16px;
 }
+
 
 /* === Tarjeta de producto elegante === */
 
-.producto-card {
+/* .producto-card {
   background-color: var(--color-surface);
   color: var(--color-text);
   border-radius: 10px;
@@ -98,7 +99,7 @@
       font-weight: 500;
     }
   }
-}
+} */
 
 /* === Vista móvil === */
 
@@ -120,7 +121,7 @@
     }
   }
 
-  .producto-card {
+  /* .producto-card {
     margin: 16px auto;
     max-width: 100%;
     padding: 0 16px;
@@ -145,5 +146,5 @@
         width: 100%;
       }
     }
-  }
+  } */
 }

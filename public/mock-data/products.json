@@ -2,15 +2,15 @@
   {
     "id": 1,
     "nombre": {
-      "es": "Starter Seguridad JWT",
-      "en": "JWT Security Starter"
+      "es": "Security Shield",
+      "en": "Security Shield"
     },
     "descripcion": {
-      "es": "Template listo con autenticación por token para Spring Boot.",
-      "en": "Ready-made template with token-based authentication for Spring Boot."
+      "es": "Framework de seguridad para Spring Boot con JWT, UI de login y control de roles. Incluye módulos gratuitos y otros Pro activados por 21 días.",
+      "en": "Security framework for Spring Boot including JWT, login UI and role management. Includes Free and Pro modules enabled for 21 days."
     },
-    "precio": 5,
-    "imagen": "https://picsum.photos/300/300",
+    "precio": 19,
+    "imagen": "/images-products/security-shield.png",
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
@@ -19,32 +19,32 @@
   {
     "id": 2,
     "nombre": {
-      "es": "Mini eCommerce Angular",
-      "en": "Mini Angular eCommerce"
+      "es": "Gateway Guard",
+      "en": "Gateway Guard"
     },
     "descripcion": {
-      "es": "Proyecto listo para vender productos digitales.",
-      "en": "Project ready to sell digital products."
+      "es": "Protección avanzada para endpoints: bloqueo por país, límite de tasa, validación IP. Compatible con cualquier backend Spring Boot.",
+      "en": "Advanced endpoint protection: geo-blocking, rate limiting, IP validation. Works with any Spring Boot backend."
     },
-    "precio": 15,
-    "imagen": "https://picsum.photos/300/300",
+    "precio": 19,
+    "imagen": "/images-products/gateway-guard.png",
     "categoria": {
-      "es": "Empresas",
-      "en": "Businesses"
+      "es": "Desarrolladores",
+      "en": "Developers"
     }
   },
-   {
+  {
     "id": 3,
     "nombre": {
-      "es": "Starter Seguridad JWT",
-      "en": "JWT Security Starter"
+      "es": "Realtime Fortress",
+      "en": "Realtime Fortress"
     },
     "descripcion": {
-      "es": "Template listo con autenticación por token para Spring Boot.",
-      "en": "Ready-made template with token-based authentication for Spring Boot."
+      "es": "Servidor WebSocket robusto, seguro y con métricas integradas. Ideal para aplicaciones con interacción en tiempo real.",
+      "en": "Robust and secure WebSocket server with integrated metrics. Ideal for real-time interaction apps."
     },
-    "precio": 5,
-    "imagen": "https://picsum.photos/300/300",
+    "precio": 15,
+    "imagen": "/images-products/realtime-fortress.png",
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
@@ -53,18 +53,52 @@
   {
     "id": 4,
     "nombre": {
-      "es": "Mini eCommerce Angular",
-      "en": "Mini Angular eCommerce"
+      "es": "Bot Sentinel",
+      "en": "Bot Sentinel"
     },
     "descripcion": {
-      "es": "Proyecto listo para vender productos digitales.",
-      "en": "Project ready to sell digital products."
+      "es": "Sistema anti-bot silencioso: incluye honeypot, captcha invisible y validaciones por comportamiento.",
+      "en": "Silent anti-bot system: includes honeypot, invisible captcha, and behavior validation."
     },
-    "precio": 15,
-    "imagen": "https://picsum.photos/300/300",
+    "precio": 12,
+    "imagen": "/images-products/bot-sentinel.png",
     "categoria": {
-      "es": "Empresas",
-      "en": "Businesses"
+      "es": "Desarrolladores",
+      "en": "Developers"
+    }
+  },
+  {
+    "id": 5,
+    "nombre": {
+      "es": "Data Stronghold",
+      "en": "Data Stronghold"
+    },
+    "descripcion": {
+      "es": "Módulos para trazabilidad, configuración dinámica, auditoría y ajustes centralizados para proyectos Spring Boot.",
+      "en": "Modules for tracing, dynamic configuration, auditing and centralized settings for Spring Boot projects."
+    },
+    "precio": 17,
+    "imagen": "/images-products/data-stronghold.png",
+    "categoria": {
+      "es": "Desarrolladores",
+      "en": "Developers"
+    }
+  },
+  {
+    "id": 6,
+    "nombre": {
+      "es": "Fortress Complete",
+      "en": "Fortress Complete"
+    },
+    "descripcion": {
+      "es": "Licencia total para todos los productos actuales y futuros. Ideal para equipos de desarrollo exigentes que buscan eficiencia y control total.",
+      "en": "All-access license for current and future products. Ideal for demanding dev teams seeking full control and efficiency."
+    },
+    "precio": 59,
+    "imagen": "/images-products/fortress-complete.png",
+    "categoria": {
+      "es": "Desarrolladores",
+      "en": "Developers"
     }
   }
 ]

@@ -1,23 +1,8 @@
 <section class="products-preview-section">
-  <h2 class="section-title">
-    {{ 'productsPreview.title' | translate }}
-  </h2>
-
-  <div class="products-grid">
-    <div class="product-card" *ngFor="let product of products">
-      <img [src]="product.imagen" [alt]="product.nombre[currentLang]" />
-      <h3>{{ product.nombre[currentLang] }}</h3>
-      <p>{{ product.descripcion[currentLang] }}</p>
-      <p class="price">{{ product.precio | currency:'USD' }}</p>
-      <a mat-stroked-button color="primary" [routerLink]="['/productos', product.id]">
-        {{ 'productsPreview.details' | translate }}
-      </a>
-    </div>
-  </div>
-
-  <div class="view-all">
-    <a mat-flat-button color="primary" routerLink="/productos">
-      {{ 'productsPreview.viewAll' | translate }}
-    </a>
-  </div>
+  <app-product-card
+    *ngFor="let product of products"
+    [product]="product"
+    [lang]="currentLang"
+    [modoVista]="'preview'">
+  </app-product-card>
 </section>

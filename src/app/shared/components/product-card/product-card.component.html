@@ -1,0 +1,20 @@
+<mat-card class="product-card" [ngClass]="modoVista">
+  <img mat-card-image [src]="product.imagen" [alt]="product.nombre[lang]" />
+
+  <mat-card-content>
+    <h3 class="product-title">{{ product.nombre[lang] }}</h3>
+    <p class="product-category" *ngIf="modoVista !== 'preview'">{{ product.categoria[lang] }}</p>
+    <p class="product-description" *ngIf="modoVista !== 'preview'">{{ product.descripcion[lang] }}</p>
+    <p class="product-price">{{ product.precio | currency:'USD' }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button *ngIf="modoVista === 'detalle'" mat-raised-button color="primary">
+      {{ 'productsPreview.buy' | translate }}
+    </button>
+    <a *ngIf="modoVista === 'preview'" mat-stroked-button color="primary" [routerLink]="['/productos', product.id]">
+      {{ 'productsPreview.details' | translate }}
+    </a>
+  </mat-card-actions>
+</mat-card>
+

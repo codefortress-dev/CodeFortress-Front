@@ -8,7 +8,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-
+import { ProductCardComponent } from '../../../shared/components/product-card/product-card.component';
 
 @Component({
   selector: 'app-catalog',
@@ -20,7 +20,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     MatButtonModule,
     MatButtonToggleModule,
     MatProgressSpinnerModule,
-    TranslateModule
+    TranslateModule,
+    ProductCardComponent
   ],
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss']

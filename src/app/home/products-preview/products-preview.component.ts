@@ -5,11 +5,12 @@ import { Producto,SupportedLang } from '../../catalog/models/product.model';
 import { ProductService } from '../../core/product.service';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { ProductCardComponent } from '../../shared/components/product-card/product-card.component';
 
 @Component({
   selector: 'app-products-preview',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatButtonModule, CurrencyPipe, TranslateModule],
+  imports: [CommonModule, RouterModule, MatButtonModule, TranslateModule,ProductCardComponent],
   templateUrl: './products-preview.component.html',
   styleUrl: './products-preview.component.scss',
 })

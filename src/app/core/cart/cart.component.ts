@@ -6,13 +6,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
-  imports: [CommonModule, MatCardModule, MatButtonModule, TranslateModule, MatIconModule]
+  imports: [CommonModule, MatCardModule, MatButtonModule, TranslateModule, MatIconModule,RouterModule]
 })
 export class CartComponent implements OnInit {
   cart: CartItem[] = [];

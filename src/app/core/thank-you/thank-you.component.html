@@ -1,0 +1,16 @@
+<section class="thank-you-banner">
+<section class="thank-you">
+  <mat-icon class="icon">check_circle</mat-icon>
+  
+  <h1>{{ 'thankYou.title' | translate }}</h1>
+  <p>{{ 'thankYou.message' | translate }}</p>
+
+ <div *ngIf="orderId">
+  <p><strong>ID:</strong> {{ orderId }}</p>
+</div> 
+
+  <button mat-raised-button color="primary" routerLink="/">
+    {{ 'navbar.home' | translate }}
+  </button>
+</section>
+</section>

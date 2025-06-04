@@ -202,7 +202,25 @@
 },
 "productCard": {
   "addToCart": "Add to cart"
+},
+"checkout": {
+  "title": "Checkout",
+  "email": "Email address",
+  "project": "Project name or domain",
+  "confirm": "Confirm order",
+  "success": "Your order was submitted successfully.",
+  "emptyCart": "Your cart is empty. Please add products before continuing."
+},
+"formErrors": {
+  "emailRequired": "Email is required.",
+  "emailInvalid": "Invalid email format.",
+  "projectRequired": "Project name or domain is required."
+},
+"thankYou": {
+  "title": "Thank you for your purchase!",
+  "message": "Your order has been received. Here is your tracking code:"
 }
+
 
   
 }

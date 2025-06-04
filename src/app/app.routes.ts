@@ -5,6 +5,9 @@ import { CatalogComponent } from './catalog/pages/product-list/catalog.component
 import { CustomRequestComponent } from './custom-request/custom-request.component';
 import { ProductDetailComponent } from './catalog/pages/product-detail/product-detail.component';
 import { CartComponent } from './core/cart/cart.component';
+import { CheckoutComponent } from './core/checkout/checkout.component';
+import { ThankYouComponent } from './core/thank-you/thank-you.component';
+
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
@@ -17,4 +20,6 @@ export const routes: Routes = [
     ]
   },
   { path: 'carrito', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'thank-you/:orderId', component: ThankYouComponent },
 ];

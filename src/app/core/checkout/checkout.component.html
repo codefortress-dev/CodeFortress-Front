@@ -1,0 +1,48 @@
+<section class="checkout-banner">
+<section class="checkout" *ngIf="!enviado; else gracias">
+  <h2>{{ 'checkout.title' | translate }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="confirmar()">
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>{{ 'checkout.email' | translate }}</mat-label>
+    <input matInput formControlName="email" type="email" required />
+    <mat-error *ngIf="form.get('email')?.hasError('required')">
+      {{ 'formErrors.emailRequired' | translate }}
+    </mat-error>
+    <mat-error *ngIf="form.get('email')?.hasError('email')">
+      {{ 'formErrors.emailInvalid' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full">
+    <mat-label>{{ 'checkout.project' | translate }}</mat-label>
+    <input matInput formControlName="proyecto" required />
+    <mat-error *ngIf="form.get('proyecto')?.hasError('required')">
+      {{ 'formErrors.projectRequired' | translate }}
+    </mat-error>
+  </mat-form-field>
+
+  <div *ngIf="cart.length === 0" class="empty-warning">
+    {{ 'checkout.emptyCart' | translate }}
+  </div>
+
+  <mat-card class="checkout-summary" *ngIf="cart.length > 0">
+    <div *ngFor="let item of cart">
+      <p><strong>{{ item.nombre }}</strong> × {{ item.cantidad }} — {{ item.precio | currency:'USD' }}</p>
+    </div>
+    <h3>{{ 'cart.total' | translate }}: {{ total | currency:'USD' }}</h3>
+  </mat-card>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || cart.length === 0">
+    {{ 'checkout.confirm' | translate }}
+  </button>
+</form>
+
+</section>
+
+<ng-template #gracias>
+  <div class="checkout-success">
+    <h2>{{ 'checkout.success' | translate }}</h2>
+  </div>
+</ng-template>
+</section>

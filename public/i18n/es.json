@@ -202,6 +202,23 @@
 },
 "productCard": {
   "addToCart": "Al carrito"
+},
+"checkout": {
+  "title": "Finalizar compra",
+  "email": "Correo electrónico",
+  "project": "Nombre del proyecto o dominio",
+  "confirm": "Confirmar pedido",
+  "success": "Tu pedido fue enviado con éxito.",
+  "emptyCart": "Tu carrito está vacío. Agrega productos antes de continuar."
+},
+"formErrors": {
+  "emailRequired": "El correo es obligatorio.",
+  "emailInvalid": "El formato del correo no es válido.",
+  "projectRequired": "El nombre del proyecto o dominio es obligatorio."
+},
+"thankYou": {
+  "title": "Thank you for your purchase!",
+  "message": "Your order has been received. Here is your tracking code:"
 }
 
 

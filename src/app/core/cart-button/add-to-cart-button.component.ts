@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { CartItem } from '../models/cart-item.model'
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "email": "cliente@demo.com",
+    "nombre": "Cliente Demo",
+    "password": "1234",
+    "role": "cliente",
+    "permissions": ["view-licenses", "access-mvp", "send-feedback"]
+  },
+  {
+    "id": 2,
+    "email": "admin@demo.com",
+    "nombre": "Admin Demo",
+    "password": "admin123",
+    "role": "admin",
+    "permissions": ["user-create", "user-list", "product-manage", "view-sales"]
+  }
+]

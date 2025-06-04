@@ -1,0 +1,20 @@
+[
+  {
+    "id": 101,
+    "name": "Luis Ramírez",
+    "email": "luis.ramirez@codefortress.dev",
+    "role": "admin"
+  },
+  {
+    "id": 102,
+    "name": "Carla Torres",
+    "email": "carla.torres@codefortress.dev",
+    "role": "ventas"
+  },
+  {
+    "id": 103,
+    "name": "Diego Pérez",
+    "email": "diego.perez@codefortress.dev",
+    "role": "soporte"
+  }
+]

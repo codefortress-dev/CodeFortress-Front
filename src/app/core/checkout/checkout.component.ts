@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { CartItem } from '../models/cart-item.model';
 import { Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';

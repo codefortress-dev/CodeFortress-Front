@@ -18,7 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatError } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-import { CustomRequestService } from '../core/custom-request.service';
+import { CustomRequestService } from '../core/services/custom-request.service';
 import { CategoriaAtencion } from './models/categoria-atencion.model';
 import { isWeekend } from 'date-fns';
 

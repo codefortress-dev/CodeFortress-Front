@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "admin",
+    "description": "Acceso total al sistema",
+    "permissions": [
+      "category-create", "category-edit", "category-delete",
+      "product-create", "product-edit", "product-delete",
+      "role-create", "role-assign", "role-edit", "role-delete",
+      "user-create", "user-edit", "user-delete", "user-list",
+      "view-sales", "view-finances", "view-feedback",
+      "license-view", "license-manage",
+      "custom-client-view", "custom-client-update"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "ventas",
+    "description": "Empleado del área comercial",
+    "permissions": [
+      "product-view", "category-view",
+      "view-sales", "license-view", "custom-client-view"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "soporte",
+    "description": "Soporte técnico a clientes",
+    "permissions": [
+      "custom-client-view", "custom-client-update",
+      "view-feedback", "license-view"
+    ]
+  }
+]

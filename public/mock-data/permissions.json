@@ -1,0 +1,31 @@
+[
+  { "id": "category-create", "description": "Crear categorías" },
+  { "id": "category-edit", "description": "Editar categorías" },
+  { "id": "category-delete", "description": "Eliminar categorías" },
+  { "id": "category-view", "description": "Ver categorías" },
+
+  { "id": "product-create", "description": "Crear productos" },
+  { "id": "product-edit", "description": "Editar productos" },
+  { "id": "product-delete", "description": "Eliminar productos" },
+  { "id": "product-view", "description": "Ver productos" },
+
+  { "id": "role-create", "description": "Crear roles" },
+  { "id": "role-edit", "description": "Editar roles" },
+  { "id": "role-delete", "description": "Eliminar roles" },
+  { "id": "role-assign", "description": "Asignar roles" },
+
+  { "id": "user-create", "description": "Crear empleados" },
+  { "id": "user-edit", "description": "Editar empleados" },
+  { "id": "user-delete", "description": "Eliminar empleados" },
+  { "id": "user-list", "description": "Ver empleados" },
+
+  { "id": "view-sales", "description": "Ver resumen de ventas" },
+  { "id": "view-finances", "description": "Ver resumen financiero" },
+  { "id": "view-feedback", "description": "Ver feedback de clientes" },
+
+  { "id": "license-view", "description": "Ver licencias emitidas" },
+  { "id": "license-manage", "description": "Administrar licencias" },
+
+  { "id": "custom-client-view", "description": "Ver clientes de software a medida" },
+  { "id": "custom-client-update", "description": "Actualizar estado de desarrollo a medida" }
+]

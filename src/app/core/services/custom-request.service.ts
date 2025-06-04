@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CategoriaAtencion } from '../custom-request/models/categoria-atencion.model';
-import { Ejecutivo } from '../custom-request/models/ejecutivo.model';
+import { CategoriaAtencion } from '../../custom-request/models/categoria-atencion.model';
+import { Ejecutivo } from '../../custom-request/models/ejecutivo.model';
 import { Observable, map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })

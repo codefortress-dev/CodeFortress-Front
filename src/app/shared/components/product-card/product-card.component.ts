@@ -5,11 +5,12 @@ import { Producto, SupportedLang } from '../../../catalog/models/product.model';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { AddToCartButtonComponent } from '../../../core/cart-button/add-to-cart-button.component';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule, TranslateModule],
+  imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule, TranslateModule, AddToCartButtonComponent],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })

@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { CartService } from '../../core/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +26,14 @@ import { TranslateModule } from '@ngx-translate/core';
   ]
 })
 export class NavbarComponent {
-  constructor(public translate: TranslateService) {}
+  totalItems = 0;
+  constructor(public translate: TranslateService, private cartService: CartService) {}
+
+  ngOnInit(): void {
+  this.cartService.getCart().subscribe(cart => {
+    this.totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
+  });
+}
 
   changeLang(lang: string) {
     this.translate.use(lang);

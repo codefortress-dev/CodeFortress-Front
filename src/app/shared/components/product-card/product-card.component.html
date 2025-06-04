@@ -15,6 +15,12 @@
     <a *ngIf="modoVista === 'preview'" mat-stroked-button color="primary" [routerLink]="['/productos', product.id]">
       {{ 'productsPreview.details' | translate }}
     </a>
+    <app-add-to-cart-button
+  [productId]="product.id"
+  [nombre]="product.nombre[lang]"
+  [precio]="product.precio"
+  [imagen]="product.imagen">
+</app-add-to-cart-button>
   </mat-card-actions>
 </mat-card>
 

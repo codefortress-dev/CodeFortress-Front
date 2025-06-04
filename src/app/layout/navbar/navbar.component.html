@@ -24,4 +24,8 @@
     <button mat-menu-item (click)="changeLang('es')">Español</button>
     <button mat-menu-item (click)="changeLang('en')">English</button>
   </mat-menu>
+  <button mat-icon-button routerLink="/carrito" aria-label="Carrito de compras">
+  <mat-icon>shopping_cart</mat-icon>
+  <span class="cart-badge" *ngIf="totalItems > 0">{{ totalItems }}</span>
+</button>
 </mat-toolbar>

@@ -1,0 +1,25 @@
+/* button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-radius: 8px;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+}
+ */
+ button {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+
+  mat-icon {
+    margin-right: 0.5rem;
+  }
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+  }
+}

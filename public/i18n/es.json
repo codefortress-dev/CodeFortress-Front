@@ -188,8 +188,21 @@
     "rights": "Todos los derechos reservados.",
     "tech": "Desarrollado con Angular 18 + Material"
   }
+},
+"cart": {
+  "title": "Tu carrito",
+  "empty": "Tu carrito está vacío.",
+  "product": "Producto",
+  "quantity": "Cantidad",
+  "unitPrice": "Precio unitario",
+  "total": "Total",
+  "remove": "Eliminar",
+  "clear": "Vaciar carrito",
+  "checkout": "Finalizar compra"
+},
+"productCard": {
+  "addToCart": "Al carrito"
 }
-
 
 
 }

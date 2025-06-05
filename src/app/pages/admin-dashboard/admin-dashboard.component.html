@@ -1,0 +1,24 @@
+<section class="dashboard-container">
+  <mat-toolbar color="primary" class="dashboard-header">
+    <span>{{ 'admin.title' | translate }}</span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="dashboard-layout">
+    <mat-sidenav mode="side" opened class="dashboard-sidenav">
+      <mat-nav-list>
+        <a mat-list-item routerLink="roles">{{ 'admin.roles' | translate }}</a>
+        <a mat-list-item routerLink="permissions">{{ 'admin.permissions' | translate }}</a>
+        <a mat-list-item routerLink="employees">{{ 'admin.employees' | translate }}</a>
+        <a mat-list-item routerLink="categorias">{{ 'admin.categories' | translate }}</a>
+        <a mat-list-item routerLink="productos">{{ 'admin.products' | translate }}</a>
+        <a mat-list-item routerLink="ventas">{{ 'admin.sales' | translate }}</a>
+        <a mat-list-item routerLink="clientes-software">{{ 'admin.customClients' | translate }}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>
+

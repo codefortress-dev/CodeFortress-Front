@@ -7,6 +7,10 @@ import { ProductDetailComponent } from './catalog/pages/product-detail/product-d
 import { CartComponent } from './core/cart/cart.component';
 import { CheckoutComponent } from './core/checkout/checkout.component';
 import { ThankYouComponent } from './core/thank-you/thank-you.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { EmployeesComponent } from './pages/admin-dashboard/pages/employees/employees.component';
+import { RolesComponent } from './pages/admin-dashboard/pages/roles/roles.component';
+import { PermissionsComponent } from './pages/admin-dashboard/pages/permission/permissions.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,4 +26,11 @@ export const routes: Routes = [
   { path: 'carrito', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'thank-you/:orderId', component: ThankYouComponent },
-];
+  { path: 'admin', component: AdminDashboardComponent, 
+    children: [
+                { path: 'employees', component: EmployeesComponent },
+                { path: 'roles', component: RolesComponent },
+                { path: 'permissions', component: PermissionsComponent },
+              ]
+            }
+    ];

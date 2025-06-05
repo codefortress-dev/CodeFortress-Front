@@ -1,31 +1,31 @@
 [
-  { "id": "category-create", "description": "Crear categorías" },
-  { "id": "category-edit", "description": "Editar categorías" },
-  { "id": "category-delete", "description": "Eliminar categorías" },
-  { "id": "category-view", "description": "Ver categorías" },
+  { "code": "category-create", "es": "Crear categorías", "en": "Create categories" },
+  { "code": "category-edit", "es": "Editar categorías", "en": "Edit categories" },
+  { "code": "category-delete", "es": "Eliminar categorías", "en": "Delete categories" },
+  { "code": "category-view", "es": "Ver categorías", "en": "View categories" },
 
-  { "id": "product-create", "description": "Crear productos" },
-  { "id": "product-edit", "description": "Editar productos" },
-  { "id": "product-delete", "description": "Eliminar productos" },
-  { "id": "product-view", "description": "Ver productos" },
+  { "code": "product-create", "es": "Crear productos", "en": "Create products" },
+  { "code": "product-edit", "es": "Editar productos", "en": "Edit products" },
+  { "code": "product-delete", "es": "Eliminar productos", "en": "Delete products" },
+  { "code": "product-view", "es": "Ver productos", "en": "View products" },
 
-  { "id": "role-create", "description": "Crear roles" },
-  { "id": "role-edit", "description": "Editar roles" },
-  { "id": "role-delete", "description": "Eliminar roles" },
-  { "id": "role-assign", "description": "Asignar roles" },
+  { "code": "role-create", "es": "Crear roles", "en": "Create roles" },
+  { "code": "role-edit", "es": "Editar roles", "en": "Edit roles" },
+  { "code": "role-delete", "es": "Eliminar roles", "en": "Delete roles" },
+  { "code": "role-assign", "es": "Asignar roles", "en": "Assign roles" },
 
-  { "id": "user-create", "description": "Crear empleados" },
-  { "id": "user-edit", "description": "Editar empleados" },
-  { "id": "user-delete", "description": "Eliminar empleados" },
-  { "id": "user-list", "description": "Ver empleados" },
+  { "code": "user-create", "es": "Crear empleados", "en": "Create employees" },
+  { "code": "user-edit", "es": "Editar empleados", "en": "Edit employees" },
+  { "code": "user-delete", "es": "Eliminar empleados", "en": "Delete employees" },
+  { "code": "user-list", "es": "Ver empleados", "en": "View employees" },
 
-  { "id": "view-sales", "description": "Ver resumen de ventas" },
-  { "id": "view-finances", "description": "Ver resumen financiero" },
-  { "id": "view-feedback", "description": "Ver feedback de clientes" },
+  { "code": "view-sales", "es": "Ver resumen de ventas", "en": "View sales summary" },
+  { "code": "view-finances", "es": "Ver resumen financiero", "en": "View financial summary" },
+  { "code": "view-feedback", "es": "Ver feedback de clientes", "en": "View client feedback" },
 
-  { "id": "license-view", "description": "Ver licencias emitidas" },
-  { "id": "license-manage", "description": "Administrar licencias" },
+  { "code": "license-view", "es": "Ver licencias emitidas", "en": "View issued licenses" },
+  { "code": "license-manage", "es": "Administrar licencias", "en": "Manage licenses" },
 
-  { "id": "custom-client-view", "description": "Ver clientes de software a medida" },
-  { "id": "custom-client-update", "description": "Actualizar estado de desarrollo a medida" }
+  { "code": "custom-client-view", "es": "Ver clientes de software a medida", "en": "View custom software clients" },
+  { "code": "custom-client-update", "es": "Actualizar estado de desarrollo a medida", "en": "Update custom development status" }
 ]

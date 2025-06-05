@@ -220,6 +220,22 @@
 "thankYou": {
   "title": "Thank you for your purchase!",
   "message": "Your order has been received. Here is your tracking code:"
+},
+"admin": {
+  "title": "Panel Administrativo",
+  "roles": "Roles",
+  "employees": "Empleados del sistema",
+  "role": "Rol",
+  "permissions": "Permisos",
+  "categories": "Categorías",
+  "products": "Productos",
+  "sales": "Ventas y Licencias",
+  "customClients": "Clientes de Software a Medida",
+   "description": "Descripción",
+   "editPermissions": "Permisos del rol",
+  "save": "Guardar",
+  "cancel": "Cancelar",
+  "edit": "Editar"
 }
 
 

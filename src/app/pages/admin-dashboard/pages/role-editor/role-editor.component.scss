@@ -1,0 +1,17 @@
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+:host {
+  display: block;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+mat-selection-list {
+  max-height: 60vh;
+  overflow-y: auto;
+  display: block;
+}

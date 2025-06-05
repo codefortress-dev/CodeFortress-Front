@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{ 'admin.editPermissions' | translate }} - {{ roleName }}</h2>
+
+<mat-selection-list [(ngModel)]="rolePermissions">
+  <mat-list-option *ngFor="let perm of allPermissions" [value]="perm.code">
+    {{ permissionsMap[perm.code] || perm.code }}
+  </mat-list-option>
+</mat-selection-list>
+
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="save()">
+    {{ 'admin.save' | translate }}
+  </button>
+  <button mat-button (click)="cancel()">
+    {{ 'admin.cancel' | translate }}
+  </button>
+</div>

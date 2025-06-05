@@ -1,0 +1,11 @@
+<mat-card>
+  <h2>{{ 'admin.employees' | translate }}</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let emp of employees">
+      <mat-icon matListIcon>person</mat-icon>
+      <div matLine>{{ emp.name }}</div>
+      <div matLine>{{ emp.email }}</div>
+      <div matLine class="secondary">{{ 'admin.role' | translate }}: {{ emp.role }}</div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

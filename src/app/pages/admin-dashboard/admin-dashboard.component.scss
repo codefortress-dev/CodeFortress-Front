@@ -1,0 +1,11 @@
+.dashboard-container {
+  height: 100%;
+}
+
+.dashboard-layout {
+  height: calc(100vh - 64px); // considerando el alto del toolbar
+}
+
+.dashboard-sidenav {
+  width: 240px;
+}

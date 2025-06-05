@@ -1,12 +1,12 @@
 [
   {
     "id": 1,
-    "name": "admin",
-    "description": "Acceso total al sistema",
+    "name": "Administrador",
+    "description": "Acceso total a todas las funcionalidades del sistema",
     "permissions": [
-      "category-create", "category-edit", "category-delete",
-      "product-create", "product-edit", "product-delete",
-      "role-create", "role-assign", "role-edit", "role-delete",
+      "category-create", "category-edit", "category-delete", "category-view",
+      "product-create", "product-edit", "product-delete", "product-view",
+      "role-create", "role-edit", "role-delete", "role-assign",
       "user-create", "user-edit", "user-delete", "user-list",
       "view-sales", "view-finances", "view-feedback",
       "license-view", "license-manage",
@@ -15,20 +15,36 @@
   },
   {
     "id": 2,
-    "name": "ventas",
-    "description": "Empleado del área comercial",
+    "name": "Gestor de Productos",
+    "description": "Gestiona categorías y productos",
     "permissions": [
-      "product-view", "category-view",
-      "view-sales", "license-view", "custom-client-view"
+      "category-create", "category-edit", "category-delete", "category-view",
+      "product-create", "product-edit", "product-delete", "product-view"
     ]
   },
   {
     "id": 3,
-    "name": "soporte",
-    "description": "Soporte técnico a clientes",
+    "name": "RRHH",
+    "description": "Gestión de empleados y asignación de roles",
     "permissions": [
-      "custom-client-view", "custom-client-update",
-      "view-feedback", "license-view"
+      "user-create", "user-edit", "user-delete", "user-list",
+      "role-assign"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Analista de Ventas",
+    "description": "Visualiza reportes de ventas y feedback",
+    "permissions": [
+      "view-sales", "view-feedback"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Cliente de Prueba",
+    "description": "Visualiza el estado de desarrollo personalizado",
+    "permissions": [
+      "custom-client-view"
     ]
   }
 ]

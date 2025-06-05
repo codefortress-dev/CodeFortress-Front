@@ -1,20 +1,21 @@
 [
   {
-    "id": 101,
-    "name": "Luis Ramírez",
-    "email": "luis.ramirez@codefortress.dev",
-    "role": "admin"
+    "id": 1,
+    "name": "Ana Martínez",
+    "email": "ana@codefortress.dev",
+    "role": "Administrador"
   },
   {
-    "id": 102,
-    "name": "Carla Torres",
-    "email": "carla.torres@codefortress.dev",
-    "role": "ventas"
+    "id": 2,
+    "name": "Carlos Pérez",
+    "email": "carlos@codefortress.dev",
+    "role": "Gestor de Productos"
   },
   {
-    "id": 103,
-    "name": "Diego Pérez",
-    "email": "diego.perez@codefortress.dev",
-    "role": "soporte"
+    "id": 3,
+    "name": "Laura Gómez",
+    "email": "laura@codefortress.dev",
+    "role": "RRHH"
   }
 ]
+

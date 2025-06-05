@@ -1,0 +1,8 @@
+<mat-card>
+  <h2>{{ 'admin.permissions' | translate }}</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let perm of permissions">
+      {{ getLabel(perm) }}
+    </mat-list-item>
+  </mat-list>
+</mat-card>

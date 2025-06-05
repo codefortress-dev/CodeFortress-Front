@@ -3,19 +3,19 @@
     "id": 1,
     "name": "Ana Martínez",
     "email": "ana@codefortress.dev",
-    "role": "Administrador"
+    "roles": ["Administrador"]
   },
   {
     "id": 2,
     "name": "Carlos Pérez",
     "email": "carlos@codefortress.dev",
-    "role": "Gestor de Productos"
+    "roles": ["Gestor de Productos"]
   },
   {
     "id": 3,
     "name": "Laura Gómez",
     "email": "laura@codefortress.dev",
-    "role": "RRHH"
+    "roles": ["RRHH"]
   }
 ]
 

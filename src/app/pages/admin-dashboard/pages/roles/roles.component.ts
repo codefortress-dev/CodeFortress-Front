@@ -60,6 +60,10 @@ export class RolesComponent implements OnInit {
       );
     });
   }
+  getRoleDescription(role: Role): string {
+  const lang = this.translate.currentLang || this.translate.defaultLang || 'es';
+  return role.description?.[lang as 'es' | 'en'] ?? '';
+}
 
   editRole(role: Role): void {
   const lang = this.translate.currentLang || this.translate.defaultLang || 'es';

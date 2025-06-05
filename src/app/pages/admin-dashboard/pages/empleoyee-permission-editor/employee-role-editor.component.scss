@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: var(--color-text);
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+mat-selection-list {
+  max-height: 60vh;
+  overflow-y: auto;
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+
+  mat-list-option {
+    padding: 0.5rem;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  button {
+    min-width: 100px;
+  }
+}

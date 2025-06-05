@@ -1,6 +1,9 @@
 export interface Role {
   id: number;
   name: string;
-  description: string;
+  description:{
+    es: string;
+    en: string;
+  };
   permissions: string[];
 }

@@ -1,6 +1,6 @@
 <mat-card *ngFor="let role of roles">
   <h3>{{ role.name }}</h3>
-  <p>{{ role.description }}</p>
+  <p>{{ getRoleDescription(role) }}</p>
 
   <mat-chip *ngFor="let perm of role.permissions">
     {{ permissionsMap[perm] || perm }}

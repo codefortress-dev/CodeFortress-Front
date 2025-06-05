@@ -1,11 +1,17 @@
-<mat-card>
-  <h2>{{ 'admin.employees' | translate }}</h2>
-  <mat-list>
-    <mat-list-item *ngFor="let emp of employees">
-      <mat-icon matListIcon>person</mat-icon>
-      <div matLine>{{ emp.name }}</div>
-      <div matLine>{{ emp.email }}</div>
-      <div matLine class="secondary">{{ 'admin.role' | translate }}: {{ emp.role }}</div>
-    </mat-list-item>
-  </mat-list>
-</mat-card>
+<section class="container">
+  <mat-card *ngFor="let emp of employees">
+    <h3>{{ emp.name }}</h3>
+    <p>{{ emp.email }}</p>
+
+    <div class="role-line">
+      <strong>{{ 'admin.roles' | translate }}:</strong>
+      {{ getRoleNames(emp) }}
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button color="primary" (click)="editEmployee(emp)">
+        {{ 'admin.edit' | translate }}
+      </button>
+    </div>
+  </mat-card>
+</section>

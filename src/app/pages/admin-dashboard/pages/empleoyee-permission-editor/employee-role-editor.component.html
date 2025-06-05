@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>
+  {{ 'admin.editRoles' | translate }} - {{ data.name }}
+</h2>
+
+<mat-form-field appearance="fill" style="width: 100%;">
+  <mat-label>{{ 'admin.roles' | translate }}</mat-label>
+  <mat-select [(ngModel)]="selectedRoles" multiple>
+    <mat-option *ngFor="let role of data.allRoles" [value]="role">
+      {{ role }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="actions">
+  <button mat-raised-button color="primary" (click)="save()">
+    {{ 'admin.save' | translate }}
+  </button>
+  <button mat-button (click)="cancel()">
+    {{ 'admin.cancel' | translate }}
+  </button>
+</div>

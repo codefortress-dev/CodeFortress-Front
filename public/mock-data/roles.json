@@ -2,7 +2,10 @@
   {
     "id": 1,
     "name": "Administrador",
-    "description": "Acceso total a todas las funcionalidades del sistema",
+     "description": {
+      "es": "Acceso total a todas las funcionalidades del sistema",
+      "en": "Full access to all system features"
+    },
     "permissions": [
       "category-create", "category-edit", "category-delete", "category-view",
       "product-create", "product-edit", "product-delete", "product-view",
@@ -16,7 +19,10 @@
   {
     "id": 2,
     "name": "Gestor de Productos",
-    "description": "Gestiona categorías y productos",
+    "description": {
+      "es": "Gestiona categorías y productos",
+      "en": "Manages categories and products"
+    },
     "permissions": [
       "category-create", "category-edit", "category-delete", "category-view",
       "product-create", "product-edit", "product-delete", "product-view"
@@ -25,7 +31,10 @@
   {
     "id": 3,
     "name": "RRHH",
-    "description": "Gestión de empleados y asignación de roles",
+    "description": {
+      "es": "Gestión de empleados y asignación de roles",
+      "en": "Manages employees and role assignments"
+    },
     "permissions": [
       "user-create", "user-edit", "user-delete", "user-list",
       "role-assign"
@@ -34,7 +43,10 @@
   {
     "id": 4,
     "name": "Analista de Ventas",
-    "description": "Visualiza reportes de ventas y feedback",
+    "description": {
+      "es": "Visualiza reportes de ventas y feedback",
+      "en": "Views sales and feedback reports"
+    },
     "permissions": [
       "view-sales", "view-feedback"
     ]
@@ -42,7 +54,10 @@
   {
     "id": 5,
     "name": "Cliente de Prueba",
-    "description": "Visualiza el estado de desarrollo personalizado",
+    "description": {
+      "es": "Visualiza el estado de desarrollo personalizado",
+      "en": "Views the status of custom development"
+    },
     "permissions": [
       "custom-client-view"
     ]

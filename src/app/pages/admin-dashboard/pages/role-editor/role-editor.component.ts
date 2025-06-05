@@ -5,12 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { TranslateModule } from '@ngx-translate/core';
-
-interface Permission {
-  code: string;
-  es: string;
-  en: string;
-}
+import { Permission } from '../../../../core/models/permission.model';
 
 @Component({
   selector: 'app-role-editor',

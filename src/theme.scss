@@ -1,6 +1,9 @@
 @use '@angular/material' as mat;
 
-// 1. Paletas de colores para Material
+// 1. Tipografía con Roboto (ya predeterminada)
+$custom-typography: mat.m2-define-typography-config('Roboto'); // sin parámetros
+
+// 2. Paletas de colores
 $codefortress-primary: mat.m2-define-palette((
   50:  #e3f2fd,
   100: #bbdefb,
@@ -29,7 +32,7 @@ $codefortress-primary: mat.m2-define-palette((
 ));
 
 $codefortress-accent: mat.m2-define-palette((
-   50: #e0f7fa,
+  50:  #e0f7fa,
   100: #b2ebf2,
   200: #80deea,
   300: #4dd0e1,
@@ -63,16 +66,16 @@ $codefortress-accent: mat.m2-define-palette((
 
 $codefortress-warn: mat.m2-define-palette(mat.$m2-deep-orange-palette);
 
-// 2. Definición del tema Material (sin background)
+// 3. Tema oscuro final
 $codefortress-theme: mat.m2-define-dark-theme((
   color: (
     primary: $codefortress-primary,
     accent: $codefortress-accent,
     warn: $codefortress-warn
   ),
-  typography: mat.m2-define-typography-config(),
+  typography: $custom-typography,
   density: 0
 ));
 
-// 3. Aplicar el tema
+// 4. Aplicar tema
 @include mat.all-component-themes($codefortress-theme);

@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../models/cart-item.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
+  constructor(
+  private snackBar: MatSnackBar,private translate: TranslateService
+) {}
   private readonly storageKey = 'cart_items';
   private readonly items$ = new BehaviorSubject<CartItem[]>(this.loadCart());
 
@@ -36,6 +41,11 @@ export class CartService {
   }
 
   this.saveCart(items);
+  this.snackBar.open(
+      this.translate.instant('cart.addedToCart'),
+      'OK',
+      { duration: 3000, horizontalPosition: 'end', verticalPosition: 'top' } );
+  
 }
 
 

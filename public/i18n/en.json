@@ -198,7 +198,8 @@
   "total": "Total",
   "remove": "Remove",
   "clear": "Clear cart",
-  "checkout": "Checkout"
+  "checkout": "Checkout",
+  "addedToCart": "Product added to cart"
 },
 "productCard": {
   "addToCart": "Add to cart"

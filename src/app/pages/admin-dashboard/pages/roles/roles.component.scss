@@ -3,6 +3,11 @@ table {
   margin-top: 1rem;
 }
 
+mat-card {
+  background-color: var(--cf-dark-bg);
+  padding: 5%;
+}
+
 mat-chip {
   margin: 2px;
 }

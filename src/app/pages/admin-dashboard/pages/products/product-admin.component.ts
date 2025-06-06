@@ -11,12 +11,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-
+import { ViewChild, ElementRef } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-product-admin',
   standalone: true,
   imports: [
     CommonModule,
+    MatIconModule,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
@@ -43,6 +45,8 @@ export class ProductAdminComponent implements OnInit {
   editing: boolean = false;
   currentEditId: number | null = null;
 
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+
   ngOnInit(): void {
     this.form = this.fb.group({
       nombreEs: '',
@@ -57,6 +61,9 @@ export class ProductAdminComponent implements OnInit {
 
     this.http.get<any[]>('/mock-data/products.json').subscribe(p => this.products = p);
     this.http.get<any[]>('/mock-data/categories.json').subscribe(c => this.categories = c);
+  }
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
   }
 
   getCategoryName(id: number): string {

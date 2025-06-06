@@ -237,7 +237,18 @@
   "cancel": "Cancel",
   "edit": "Edit",
   "newCategory": "New category",
-  "editCategory": "Edit category"
+  "editCategory": "Edit category",
+  "productNameEn" : "Product name (EN)",
+  "productDescriptionEn" : "Product description (EN)",
+  "category" : "Product category",
+  "state": "Product state",
+  "price": "Price",
+  "image": "Image product",
+  "selectImage": "Select image",
+  "create": "Create product",
+  "update": "Update product",
+  "active": "Active",
+  "inactive": "Inactive"
 }
 
   

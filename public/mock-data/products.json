@@ -11,10 +11,7 @@
     },
     "precio": 19,
     "imagen": "/images-products/security-shield.png",
-    "categoria": {
-      "es": "Desarrolladores",
-      "en": "Developers"
-    },
+    "categoriaId": 1,
     "state": "active"
   },
   {
@@ -29,10 +26,7 @@
     },
     "precio": 19,
     "imagen": "/images-products/gateway-guard.png",
-    "categoria": {
-      "es": "Desarrolladores",
-      "en": "Developers"
-    },
+    "categoriaId": 1,
     "state": "active"
   },
   {
@@ -47,10 +41,7 @@
     },
     "precio": 15,
     "imagen": "/images-products/realtime-fortress.png",
-    "categoria": {
-      "es": "Desarrolladores",
-      "en": "Developers"
-    },
+    "categoriaId": 1,
     "state": "active"
   },
   {
@@ -65,10 +56,7 @@
     },
     "precio": 12,
     "imagen": "/images-products/bot-sentinel.png",
-    "categoria": {
-      "es": "Desarrolladores",
-      "en": "Developers"
-    },
+    "categoriaId": 2,
     "state": "active"
   },
   {
@@ -83,10 +71,7 @@
     },
     "precio": 17,
     "imagen": "/images-products/data-stronghold.png",
-    "categoria": {
-      "es": "Desarrolladores",
-      "en": "Developers"
-    },
+    "categoriaId": 2,
     "state": "active"
   },
   {
@@ -101,10 +86,7 @@
     },
     "precio": 59,
     "imagen": "/images-products/fortress-complete.png",
-    "categoria": {
-      "es": "Desarrolladores",
-      "en": "Developers"
-    },
+    "categoriaId": 3,
     "state": "active"
   },
   {
@@ -119,10 +101,7 @@
   },
   "precio": 39,
   "imagen": "/images-products/ecommerce-store.png",
-  "categoria": {
-    "es": "Servicios",
-    "en": "Services"
-  },
+   "categoriaId": 3,
     "state": "active"
 }
 

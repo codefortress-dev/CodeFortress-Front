@@ -25,8 +25,8 @@
         <textarea matInput rows="3" formControlName="descripcionEn"></textarea>
       </mat-form-field>
     </div>
-
-    <div class="form-row">
+<div class="form-row">
+        <div class="form-row">
       <mat-form-field appearance="outline">
         <mat-label>{{ 'admin.category' | translate }}</mat-label>
         <mat-select formControlName="categoriaId">
@@ -35,17 +35,30 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-
+ 
       <mat-form-field appearance="outline">
         <mat-label>{{ 'admin.price' | translate }}</mat-label>
         <input type="number" matInput formControlName="precio">
       </mat-form-field>
+      </div>
 
       <div class="upload-field">
-        <label>{{ 'admin.image' | translate }}</label>
-        <input type="file" (change)="onImageSelected($event)" accept="image/*">
+        
+        <input
+  type="file"
+  #fileInput
+  (change)="onImageSelected($event)"
+  accept="image/*"
+  hidden
+/>
+<button mat-stroked-button color="primary" (click)="triggerFileInput()">
+  {{ 'admin.selectImage' | translate }}
+</button>
+<span *ngIf="form.value.imagen">
+  {{ form.value.imagen.split('/').pop() }}
+</span>
+        
         <div *ngIf="preview" class="preview">
-          
           <img *ngIf="preview" [src]="preview" alt="Preview" class="image-preview" />
         </div>
       </div>
@@ -61,23 +74,36 @@
   </form>
 
   <mat-divider></mat-divider>
-
+<div class="product-list">
   <mat-list>
     <mat-list-item *ngFor="let prod of products">
       <div class="product-item">
-        <img [src]="prod.imagen" alt="img" class="thumbnail">
-        <span class="product-name">
-          {{ prod.nombre[translate.currentLang] || prod.nombre['es'] }} - {{ prod.precio | currency:'USD' }}
-        </span>
-        <span class="product-meta">
-          {{ 'admin.category' | translate }}: {{ getCategoryName(prod.categoriaId) }} |
-          {{ 'admin.state' | translate }}:
-          <strong>{{ prod.activo ? ('admin.active' | translate) : ('admin.inactive' | translate) }}</strong>
-        </span>
-        <button mat-stroked-button color="primary" (click)="startEdit(prod)">
+        <img [src]="prod.imagen" alt="img" class="thumbnail" />
+
+        <div class="info">
+          <div class="title">
+            {{ prod.nombre[translate.currentLang] || prod.nombre['es'] }}
+          </div>
+          <div class="meta">
+            {{ prod.precio | currency:'USD' }}
+          </div>
+          <div class="meta">
+            {{ 'admin.category' | translate }}: {{ getCategoryName(prod.categoriaId) }}
+          </div>
+          <div class="meta">
+            {{ 'admin.state' | translate }}:
+            <strong>{{ prod.state ? ('admin.active' | translate) : ('admin.inactive' | translate) }}</strong>
+          </div>
+        </div>
+
+        <button mat-stroked-button color="primary" class="edit-btn" (click)="startEdit(prod)">
+          <mat-icon>edit</mat-icon>
           {{ 'admin.edit' | translate }}
         </button>
       </div>
     </mat-list-item>
   </mat-list>
+</div>
+
+
 </mat-card>

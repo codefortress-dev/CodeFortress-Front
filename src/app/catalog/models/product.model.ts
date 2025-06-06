@@ -11,4 +11,5 @@ export interface Producto {
   precio: number;
   imagen: string;
   categoria: TranslatableText;
+  state : 'active' | 'inactive';
 }

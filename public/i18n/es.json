@@ -235,7 +235,9 @@
    "editPermissions": "Permisos del rol",
   "save": "Guardar",
   "cancel": "Cancelar",
-  "edit": "Editar"
+  "edit": "Editar",
+  "newCategory": "Nueva categoría",
+  "editCategory": "Editar categoría"
 }
 
 

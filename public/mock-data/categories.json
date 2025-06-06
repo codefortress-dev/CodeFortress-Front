@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nombre": {
+      "es": "Seguridad",
+      "en": "Security"
+    }
+  },
+  {
+    "id": 2,
+    "nombre": {
+      "es": "AntiBots",
+      "en": "AntiBots"
+    }
+  },
+  {
+    "id": 3,
+    "nombre": {
+      "es": "WebSockets",
+      "en": "WebSockets"
+    }
+  }
+]

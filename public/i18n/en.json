@@ -235,7 +235,9 @@
    "editPermissions": "Role permissions",
   "save": "Save",
   "cancel": "Cancel",
-  "edit": "Edit"
+  "edit": "Edit",
+  "newCategory": "New category",
+  "editCategory": "Edit category"
 }
 
   

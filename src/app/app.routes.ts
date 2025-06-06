@@ -11,6 +11,8 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
 import { EmployeesComponent } from './pages/admin-dashboard/pages/employees/employees.component';
 import { RolesComponent } from './pages/admin-dashboard/pages/roles/roles.component';
 import { PermissionsComponent } from './pages/admin-dashboard/pages/permission/permissions.component';
+import { CategoryAdminComponent } from './pages/admin-dashboard/pages/categories/category-admin.component';
+import { ProductAdminComponent } from './pages/admin-dashboard/pages/products/product-admin.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +33,8 @@ export const routes: Routes = [
                 { path: 'employees', component: EmployeesComponent },
                 { path: 'roles', component: RolesComponent },
                 { path: 'permissions', component: PermissionsComponent },
+                { path: 'categories', component: CategoryAdminComponent },
+                { path: 'products', component: ProductAdminComponent },
               ]
             }
     ];

@@ -14,7 +14,8 @@
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
-    }
+    },
+    "state": "active"
   },
   {
     "id": 2,
@@ -31,7 +32,8 @@
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
-    }
+    },
+    "state": "active"
   },
   {
     "id": 3,
@@ -48,7 +50,8 @@
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
-    }
+    },
+    "state": "active"
   },
   {
     "id": 4,
@@ -65,7 +68,8 @@
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
-    }
+    },
+    "state": "active"
   },
   {
     "id": 5,
@@ -82,7 +86,8 @@
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
-    }
+    },
+    "state": "active"
   },
   {
     "id": 6,
@@ -99,7 +104,8 @@
     "categoria": {
       "es": "Desarrolladores",
       "en": "Developers"
-    }
+    },
+    "state": "active"
   },
   {
   "id": 7,
@@ -116,7 +122,8 @@
   "categoria": {
     "es": "Servicios",
     "en": "Services"
-  }
+  },
+    "state": "active"
 }
 
 ]

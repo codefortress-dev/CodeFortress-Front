@@ -1,4 +1,8 @@
+<h2 class="trust-title">
+    {{ 'productsPreview.title' | translate }}
+  </h2>
 <section class="products-preview-section">
+  
   <app-product-card
     *ngFor="let product of products"
     [product]="product"

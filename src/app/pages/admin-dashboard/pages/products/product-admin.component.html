@@ -1,0 +1,83 @@
+<mat-card>
+  <h2>{{ 'admin.products' | translate }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()" enctype="multipart/form-data">
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'admin.productNameEs' | translate }}</mat-label>
+        <input matInput formControlName="nombreEs" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'admin.productNameEn' | translate }}</mat-label>
+        <input matInput formControlName="nombreEn" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'admin.productDescriptionEs' | translate }}</mat-label>
+        <textarea matInput rows="3" formControlName="descripcionEs"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'admin.productDescriptionEn' | translate }}</mat-label>
+        <textarea matInput rows="3" formControlName="descripcionEn"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'admin.category' | translate }}</mat-label>
+        <mat-select formControlName="categoriaId">
+          <mat-option *ngFor="let cat of categories" [value]="cat.id">
+            {{ cat.nombre[translate.currentLang] || cat.nombre['es'] }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'admin.price' | translate }}</mat-label>
+        <input type="number" matInput formControlName="precio">
+      </mat-form-field>
+
+      <div class="upload-field">
+        <label>{{ 'admin.image' | translate }}</label>
+        <input type="file" (change)="onImageSelected($event)" accept="image/*">
+        <div *ngIf="preview" class="preview">
+          
+          <img *ngIf="preview" [src]="preview" alt="Preview" class="image-preview" />
+        </div>
+      </div>
+
+      <mat-slide-toggle formControlName="activo">
+        {{ 'admin.active' | translate }}
+      </mat-slide-toggle>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">
+      {{ editing ? ('admin.update' | translate) : ('admin.create' | translate) }}
+    </button>
+  </form>
+
+  <mat-divider></mat-divider>
+
+  <mat-list>
+    <mat-list-item *ngFor="let prod of products">
+      <div class="product-item">
+        <img [src]="prod.imagen" alt="img" class="thumbnail">
+        <span class="product-name">
+          {{ prod.nombre[translate.currentLang] || prod.nombre['es'] }} - {{ prod.precio | currency:'USD' }}
+        </span>
+        <span class="product-meta">
+          {{ 'admin.category' | translate }}: {{ getCategoryName(prod.categoriaId) }} |
+          {{ 'admin.state' | translate }}:
+          <strong>{{ prod.activo ? ('admin.active' | translate) : ('admin.inactive' | translate) }}</strong>
+        </span>
+        <button mat-stroked-button color="primary" (click)="startEdit(prod)">
+          {{ 'admin.edit' | translate }}
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

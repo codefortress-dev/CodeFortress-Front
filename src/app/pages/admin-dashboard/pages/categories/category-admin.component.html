@@ -1,0 +1,43 @@
+<mat-card>
+  <h2>{{ 'admin.categories' | translate }}</h2>
+
+  <div *ngIf="categories.length === 0">
+    {{ 'admin.noCategories' | translate }}
+  </div>
+
+  <mat-list *ngIf="categories.length > 0">
+    <mat-list-item *ngFor="let cat of categories">
+      <div class="category-item">
+        <span class="category-name">{{ cat.nombre[translate.currentLang] || cat.nombre['es'] }}</span>
+        <button mat-stroked-button color="primary" (click)="startEdit(cat)">
+          {{ 'admin.edit' | translate }}
+        </button>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+<mat-card >
+  <h3>{{ isEditing ? ('admin.editCategory' | translate) : ('admin.newCategory' | translate) }}</h3>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Nombre (ES)</mat-label>
+      <input matInput formControlName="es" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Name (EN)</mat-label>
+      <input matInput formControlName="en" />
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">
+        {{ 'admin.save' | translate }}
+      </button>
+      <button mat-button type="button" (click)="cancelEdit()">
+        {{ 'admin.cancel' | translate }}
+      </button>
+    </div>
+  </form>
+</mat-card>

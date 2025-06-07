@@ -5,11 +5,17 @@ export type TranslatableText = {
 };
 
 export interface Producto {
- id: number;
+/*  id: number;
   nombre: TranslatableText;
   descripcion: TranslatableText;
   precio: number;
   imagen: string;
-  categoria: TranslatableText;
+  categoria: TranslatableText; */
+   id: number;
+  nombre: { es: string; en: string };
+  descripcion: { es: string; en: string };
+  categoriaId: number;
+  precio: number;
+  imagen: string;
   state : 'active' | 'inactive';
 }

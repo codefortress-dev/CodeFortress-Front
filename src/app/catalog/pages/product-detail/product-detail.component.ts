@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AddToCartButtonComponent } from '../../../core/cart-button/add-to-cart-button.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,7 +19,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatButtonModule,
     RouterModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    AddToCartButtonComponent
   ],
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss']
@@ -27,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
   producto: Producto | null = null;
   isLoading = true;
   currentLang: SupportedLang = 'es';
+  categories: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,19 +38,26 @@ export class ProductDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Determinar el idioma actual
-    const lang = this.translate.currentLang || this.translate.defaultLang;
-    this.currentLang = ['es', 'en'].includes(lang) ? (lang as SupportedLang) : 'es';
-
+    this.currentLang = this.translate.currentLang as SupportedLang || 'es';
     this.translate.onLangChange.subscribe(event => {
-      this.currentLang = ['es', 'en'].includes(event.lang) ? (event.lang as SupportedLang) : 'es';
+      this.currentLang = event.lang as SupportedLang || 'es';
     });
 
-    // Obtener producto por ID
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    
+    // Cargar productos y categorías
     this.productService.getProductos().subscribe((productos) => {
       this.producto = productos.find(p => p.id === id) || null;
       this.isLoading = false;
     });
+
+    this.productService.getCategorias().subscribe(data => {
+      this.categories = data;
+    });
+  }
+
+  getCategoryName(id: number): string {
+    const found = this.categories.find(cat => cat.id === id);
+    return found ? (found.nombre[this.currentLang] || found.nombre['es']) : '-';
   }
 }

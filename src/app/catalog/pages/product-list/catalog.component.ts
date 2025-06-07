@@ -29,8 +29,9 @@ import { ProductCardComponent } from '../../../shared/components/product-card/pr
 export class CatalogComponent implements OnInit {
   productos: Producto[] = [];
   productosFiltrados: Producto[] = [];
-  categoriasDisponibles: string[] = [];
-  categoriaSeleccionada: string = '';
+  categorias: any[] = [];
+  categoriasDisponibles: { id: number, nombre: string }[] = [];
+  categoriaSeleccionada: number | 'Todos' = 'Todos';
   isLoading = true;
   currentLang: SupportedLang = 'es';
 
@@ -44,30 +45,38 @@ export class CatalogComponent implements OnInit {
     this.currentLang = ['es', 'en'].includes(lang) ? (lang as SupportedLang) : 'es';
 
     this.translate.onLangChange.subscribe(event => {
-  this.currentLang = ['es', 'en'].includes(event.lang)
-    ? (event.lang as SupportedLang)
-    : 'es';
+      this.currentLang = ['es', 'en'].includes(event.lang) ? (event.lang as SupportedLang) : 'es';
       this.actualizarCategorias();
       this.filtrarProductos();
     });
 
-    this.productService.getProductos().subscribe((data) => {
-      this.productos = data;
-      this.actualizarCategorias();
-      this.filtrarProductos();
-      this.isLoading = false;
+    this.productService.getProductos().subscribe((productos) => {
+      this.productos = productos;
+
+      this.productService.getCategorias().subscribe(categorias => {
+        this.categorias = categorias;
+        this.actualizarCategorias();
+        this.filtrarProductos();
+        this.isLoading = false;
+      });
     });
   }
 
-  onCategoriaChange(categoria: string) {
-    this.categoriaSeleccionada = categoria;
+  onCategoriaChange(categoriaId: number | 'Todos') {
+    this.categoriaSeleccionada = categoriaId;
     this.filtrarProductos();
   }
 
   private actualizarCategorias() {
-    const cats = this.productos.map(p => p.categoria[this.currentLang]);
-    this.categoriasDisponibles = ['Todos', ...Array.from(new Set(cats))];
-    if (!this.categoriasDisponibles.includes(this.categoriaSeleccionada)) {
+    this.categoriasDisponibles = [
+      { id: 'Todos', nombre: this.translate.instant('catalog.all') },
+      ...this.categorias.map(c => ({
+        id: c.id,
+        nombre: c.nombre[this.currentLang] || c.nombre['es']
+      }))
+    ];
+
+    if (!this.categoriasDisponibles.find(c => c.id === this.categoriaSeleccionada)) {
       this.categoriaSeleccionada = 'Todos';
     }
   }
@@ -77,7 +86,7 @@ export class CatalogComponent implements OnInit {
       this.productosFiltrados = this.productos;
     } else {
       this.productosFiltrados = this.productos.filter(
-        p => p.categoria[this.currentLang] === this.categoriaSeleccionada
+        p => p.categoriaId === this.categoriaSeleccionada
       );
     }
   }

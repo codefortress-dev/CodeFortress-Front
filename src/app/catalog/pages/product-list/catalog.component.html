@@ -1,32 +1,35 @@
 <section class="catalog-banner">
-<ng-container *ngIf="!isLoading; else loading">
-  <div class="catalog-toolbar">
-    <mat-button-toggle-group
-      [value]="categoriaSeleccionada"
-      (change)="onCategoriaChange($event.value)"
-      appearance="standard"
-      color="primary"
-    >
-      <mat-button-toggle *ngFor="let cat of categoriasDisponibles" [value]="cat">
-        {{ cat }}
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
+  <ng-container *ngIf="!isLoading; else loading">
+    <div class="catalog-toolbar">
+      <mat-button-toggle-group
+        [value]="categoriaSeleccionada"
+        (change)="onCategoriaChange($event.value)"
+        appearance="standard"
+        color="primary"
+      >
+        <mat-button-toggle
+          *ngFor="let cat of categoriasDisponibles"
+          [value]="cat.id"
+        >
+          {{ cat.nombre }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
 
-  <div class="catalog-container">
-  <app-product-card
-  *ngFor="let producto of productosFiltrados"
-  [product]="producto"
-  [lang]="currentLang"
-  [modoVista]="'preview'"
-></app-product-card>
-  </div>
-</ng-container>
+    <div class="catalog-container">
+      <app-product-card
+        *ngFor="let producto of productosFiltrados"
+        [product]="producto"
+        [lang]="currentLang"
+        [modoVista]="'preview'"
+      ></app-product-card>
+    </div>
+  </ng-container>
 
-<ng-template #loading>
-  <div style="text-align: center; margin-top: 60px;">
-    <mat-spinner diameter="50"></mat-spinner>
-    <p style="margin-top: 12px;">{{ 'catalog.loading' | translate }}</p>
-  </div>
-</ng-template>
+  <ng-template #loading>
+    <div style="text-align: center; margin-top: 60px;">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p style="margin-top: 12px;">{{ 'catalog.loading' | translate }}</p>
+    </div>
+  </ng-template>
 </section>

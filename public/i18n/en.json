@@ -164,7 +164,8 @@
 "catalog": {
   "viewMore": "View more",
   "buy": "Buy",
-  "loading": "Loading products..."
+  "loading": "Loading products...",
+  "all": "All"
 },
 "productDetail": {
   "priceLabel": "Price",

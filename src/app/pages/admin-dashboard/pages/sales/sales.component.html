@@ -1,0 +1,70 @@
+<mat-card class="sales-card">
+  <h2>{{ 'sales.title' | translate }}</h2>
+  <mat-divider></mat-divider>
+
+  <div class="controls">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'sales.groupBy' | translate }}</mat-label>
+      <mat-select [(value)]="selectedGroup" (selectionChange)="prepareCharts()">
+        <mat-option value="pais">{{ 'sales.group.country' | translate }}</mat-option>
+        <mat-option value="estadoLicencia">{{ 'sales.group.license' | translate }}</mat-option>
+        <mat-option value="productoNombre">{{ 'sales.group.product' | translate }}</mat-option>
+        <mat-option value="categoria">{{ 'sales.group.category' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="chart-container">
+    <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="sales" class="mat-elevation-z2">
+
+      <ng-container matColumnDef="productoNombre">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.product' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.productoNombre }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.category' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.categoria }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="pais">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.country' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="estadoLicencia">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.licenseStatus' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.estadoLicencia }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.quantity' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.cantidad }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="precioUnitario">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.unitPrice' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.precioUnitario | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.total' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.total | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>{{ 'sales.date' | translate }}</th>
+        <td mat-cell *matCellDef="let row">{{ row.fecha | date: 'mediumDate' }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</mat-card>

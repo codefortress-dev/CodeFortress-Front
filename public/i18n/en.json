@@ -249,7 +249,36 @@
   "create": "Create product",
   "update": "Update product",
   "active": "Active",
-  "inactive": "Inactive"
+  "inactive": "Inactive",
+  "salesReport": "Sales report",
+  "totalLicenses": "Total licenses",
+  "totalRevenue": "Total revenue",
+  "quantity":"Quantity",
+  "revenue": "Revenue"
+},
+"sales": {
+  "title": "Sales Overview",
+  "groupBy": "Group by",
+  "group": {
+    "country": "Country",
+    "license": "License Status",
+    "product": "Product",
+    "category": "Category"
+  },
+  "by": {
+    "pais": "Sales by Country",
+    "estadoLicencia": "Sales by License Status",
+    "productoNombre": "Sales by Product",
+    "categoria": "Sales by Category"
+  },
+  "product": "Product",
+  "category": "Category",
+  "country": "Country",
+  "licenseStatus": "License Status",
+  "quantity": "Quantity",
+  "unitPrice": "Unit Price",
+  "total": "Total",
+  "date": "Date"
 }
 
   

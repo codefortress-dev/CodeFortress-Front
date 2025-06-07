@@ -249,9 +249,39 @@
   "createProduct": "Crear producto",
   "update": "Actualizar producto",
   "active": "Activo",
-  "inactive": "Inactivo"
+  "inactive": "Inactivo",
+  "salesReport": "Informe de ventas",
+  "totalLicenses": "Total de licencias",
+  "totalRevenue": "Total de ingresos",
+  "quantity":"Cantidad",
+  "revenue": "Ingresos"
 
+},
+"sales": {
+  "title": "Resumen de Ventas",
+  "groupBy": "Agrupar por",
+  "group": {
+    "country": "País",
+    "license": "Estado de Licencia",
+    "product": "Producto",
+    "category": "Categoría"
+  },
+  "by": {
+    "pais": "Ventas por País",
+    "estadoLicencia": "Ventas por Estado de Licencia",
+    "productoNombre": "Ventas por Producto",
+    "categoria": "Ventas por Categoría"
+  },
+  "product": "Producto",
+  "category": "Categoría",
+  "country": "País",
+  "licenseStatus": "Estado de Licencia",
+  "quantity": "Cantidad",
+  "unitPrice": "Precio Unitario",
+  "total": "Total",
+  "date": "Fecha"
 }
+
 
 
 }

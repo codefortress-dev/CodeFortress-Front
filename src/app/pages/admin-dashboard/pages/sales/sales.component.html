@@ -20,46 +20,60 @@
 
   <mat-divider></mat-divider>
 
+  <div class="export-buttons">
+    <button mat-raised-button color="primary" (click)="exportToExcel()">
+      {{ 'sales.exportExcel' | translate }}
+    </button>
+    <button mat-raised-button color="accent" (click)="exportToPDF()">
+      {{ 'sales.exportPDF' | translate }}
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline" class="filter-field">
+    <mat-label>{{ 'sales.filter' | translate }}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'sales.filterPlaceholder' | translate }}">
+  </mat-form-field>
+
   <div class="table-container">
-    <table mat-table [dataSource]="sales" class="mat-elevation-z2">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
 
       <ng-container matColumnDef="productoNombre">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.product' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.product' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.productoNombre }}</td>
       </ng-container>
 
       <ng-container matColumnDef="categoria">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.category' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.category' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.categoria }}</td>
       </ng-container>
 
       <ng-container matColumnDef="pais">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.country' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.country' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
       </ng-container>
 
       <ng-container matColumnDef="estadoLicencia">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.licenseStatus' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.licenseStatus' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.estadoLicencia }}</td>
       </ng-container>
 
       <ng-container matColumnDef="cantidad">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.quantity' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.quantity' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.cantidad }}</td>
       </ng-container>
 
       <ng-container matColumnDef="precioUnitario">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.unitPrice' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.unitPrice' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.precioUnitario | currency }}</td>
       </ng-container>
 
       <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.total' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.total' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.total | currency }}</td>
       </ng-container>
 
       <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef>{{ 'sales.date' | translate }}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.date' | translate }}</th>
         <td mat-cell *matCellDef="let row">{{ row.fecha | date: 'mediumDate' }}</td>
       </ng-container>
 

@@ -278,7 +278,11 @@
   "quantity": "Quantity",
   "unitPrice": "Unit Price",
   "total": "Total",
-  "date": "Date"
+  "date": "Date",
+   "exportExcel": "Export to Excel",
+  "exportPDF": "Export to PDF",
+  "filter": "Filter",
+  "filterPlaceholder": "Type to filter results..."
 }
 
   

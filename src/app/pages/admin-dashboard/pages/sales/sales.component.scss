@@ -2,28 +2,41 @@
   padding: 16px;
   margin: 24px auto;
   max-width: 1200px;
-  background-color: var( --cf-dark-bg); 
-  color: var(--color-text);
+  background-color: var(--cf-gray);
+  color: var(--cf-dark-bg);
 
   h2 {
     text-align: center;
     margin-bottom: 16px;
     font-size: 1.8rem;
+    
   }
 
   .controls {
     margin: 16px 0;
     display: flex;
     justify-content: flex-end;
+    color: var(--cf-dark-bg);
   }
 
   .chart-container {
     height: 400px;
-    margin: 16px 0;
+    margin-bottom: 24px;
+  }
+
+  .export-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+  }
+
+  .filter-field {
+    width: 100%;
+    margin-bottom: 16px;
   }
 
   .table-container {
-    margin-top: 24px;
     overflow-x: auto;
 
     table {
@@ -36,7 +49,7 @@
       }
 
       th {
-        background-color: var( --cf-dark-bg);
+        background-color: var(--cf-dark-bg);
       }
     }
   }

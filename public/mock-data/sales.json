@@ -1,0 +1,14 @@
+[
+  {
+    "productoId": 1,
+    "nombre": { "es": "Easy Rate Limit", "en": "Easy Rate Limit" },
+    "cantidad": 18,
+    "ingresos": 540.0
+  },
+  {
+    "productoId": 2,
+    "nombre": { "es": "Easy Captcha", "en": "Easy Captcha" },
+    "cantidad": 12,
+    "ingresos": 360.0
+  }
+]

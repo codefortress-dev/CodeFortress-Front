@@ -1,0 +1,16 @@
+[
+  {
+    "cliente": "InnovaTech",
+    "responsable": "Carlos Pérez",
+    "estado": "activo",
+    "demo": "https://demo.codefortress.dev/innova",
+    "feedback": ""
+  },
+  {
+    "cliente": "SoftPlus",
+    "responsable": "Laura Gómez",
+    "estado": "terminado",
+    "demo": "https://demo.codefortress.dev/softplus",
+    "feedback": "Excelente soporte y cumplimiento de plazos."
+  }
+]

@@ -29,7 +29,7 @@ export class ProductsPreviewComponent implements OnInit {
     });
 
     this.productService.getProductos().subscribe((all) => {
-      this.products = all.slice(0, 4);
+      this.products = all.slice(0, 6);
     });
   }
 }

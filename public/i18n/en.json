@@ -283,6 +283,26 @@
   "exportPDF": "Export to PDF",
   "filter": "Filter",
   "filterPlaceholder": "Type to filter results..."
+},
+"projects": {
+  "title": "Custom Software Projects",
+  "filterByStatus": "Filter by Status",
+  "client": "Client",
+  "responsible": "Responsible",
+  "statusLabel": "Status",
+  "startDate": "Start Date",
+  "lastUpdate": "Last Update",
+  "demo": "Demo Environment",
+  "viewDetails": "View Details",
+  "editStatus": "Edit Status",
+  "assignResponsible": "Assign Responsible",
+  "addDemo": "Add Demo",
+  "status": {
+    "todos": "All",
+    "activo": "Active",
+    "terminado": "Completed",
+    "rescindido": "Cancelled"
+  }
 }
 
   

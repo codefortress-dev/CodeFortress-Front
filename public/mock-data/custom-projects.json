@@ -1,16 +1,20 @@
 [
   {
-    "cliente": "InnovaTech",
-    "responsable": "Carlos Pérez",
+    "cliente": "Empresa ABC",
+    "nombreProyecto": "Plataforma de Gestión",
+    "responsable": "Juan Pérez",
     "estado": "activo",
-    "demo": "https://demo.codefortress.dev/innova",
-    "feedback": ""
+    "demoUrl": "https://demo.empresaabc.com",
+    "fechaInicio": "2024-09-01T00:00:00Z",
+    "fechaActualizacion": "2025-05-25T00:00:00Z"
   },
   {
-    "cliente": "SoftPlus",
-    "responsable": "Laura Gómez",
+    "cliente": "Tech Solutions",
+    "nombreProyecto": "Sistema de Inventario",
+    "responsable": "María López",
     "estado": "terminado",
-    "demo": "https://demo.codefortress.dev/softplus",
-    "feedback": "Excelente soporte y cumplimiento de plazos."
+    "demoUrl": "",
+    "fechaInicio": "2023-05-10T00:00:00Z",
+    "fechaActualizacion": "2024-02-01T00:00:00Z"
   }
 ]

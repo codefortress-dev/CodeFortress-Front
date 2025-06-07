@@ -1,0 +1,33 @@
+<div class="header">
+  <h2>{{ 'projects.title' | translate }}</h2>
+
+  <mat-form-field appearance="outline" class="estado-filter">
+    <mat-label>{{ 'projects.filterByStatus' | translate }}</mat-label>
+    <mat-select [(value)]="estadoSeleccionado" (selectionChange)="filtrar()">
+      <mat-option *ngFor="let estado of estados" [value]="estado">{{ 'projects.status.' + estado | translate }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="cards-container">
+  <mat-card class="project-card" *ngFor="let proyecto of proyectosFiltrados">
+    <h3>{{ proyecto.nombreProyecto }}</h3>
+    <p><strong>{{ 'projects.client' | translate }}:</strong> {{ proyecto.cliente }}</p>
+    <p><strong>{{ 'projects.responsible' | translate }}:</strong> {{ proyecto.responsable }}</p>
+    <p><strong>{{ 'projects.statusLabel' | translate }}:</strong> {{ 'projects.status.' + proyecto.estado | translate }}</p>
+    <p><strong>{{ 'projects.startDate' | translate }}:</strong> {{ proyecto.fechaInicio | date:'mediumDate' }}</p>
+    <p><strong>{{ 'projects.lastUpdate' | translate }}:</strong> {{ proyecto.fechaActualizacion | date:'mediumDate' }}</p>
+
+    <p *ngIf="proyecto.demoUrl">
+      <strong>{{ 'projects.demo' | translate }}:</strong>
+      <a [href]="proyecto.demoUrl" target="_blank">{{ proyecto.demoUrl }}</a>
+    </p>
+
+    <div class="actions">
+      <button mat-button color="primary">{{ 'projects.viewDetails' | translate }}</button>
+      <button mat-button>{{ 'projects.editStatus' | translate }}</button>
+      <button mat-button>{{ 'projects.assignResponsible' | translate }}</button>
+      <button mat-button *ngIf="!proyecto.demoUrl">{{ 'projects.addDemo' | translate }}</button>
+    </div>
+  </mat-card>
+</div>

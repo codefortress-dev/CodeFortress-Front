@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+
+  h2 {
+    margin: 0;
+  }
+
+  .estado-filter {
+    width: 220px;
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  max-width: 400px;
+  padding: 16px;
+  background-color: var(--color-surface);
+  border-radius: 12px;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 4px 0;
+  }
+
+  .actions {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

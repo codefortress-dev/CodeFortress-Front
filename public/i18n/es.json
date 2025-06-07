@@ -284,6 +284,26 @@
   "exportPDF": "Exportar a PDF",
   "filter": "Filtrar",
   "filterPlaceholder": "Escribe para filtrar resultados..."
+},
+"projects": {
+  "title": "Proyectos de Software Personalizados",
+  "filterByStatus": "Filtrar por Estado",
+  "client": "Cliente",
+  "responsible": "Responsable",
+  "statusLabel": "Estado",
+  "startDate": "Fecha de Inicio",
+  "lastUpdate": "Última Actualización",
+  "demo": "Entorno de Demostración",
+  "viewDetails": "Ver Detalles",
+  "editStatus": "Editar Estado",
+  "assignResponsible": "Asignar Responsable",
+  "addDemo": "Agregar Demo",
+  "status": {
+    "todos": "Todos",
+    "activo": "Activo",
+    "terminado": "Terminado",
+    "rescindido": "Rescindido"
+  }
 }
 
 

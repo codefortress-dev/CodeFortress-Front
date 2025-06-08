@@ -6,13 +6,42 @@
   <mat-sidenav-container class="dashboard-layout">
     <mat-sidenav mode="side" opened class="dashboard-sidenav">
       <mat-nav-list>
-        <a mat-list-item routerLink="roles">{{ 'admin.roles' | translate }}</a>
-        <a mat-list-item routerLink="permissions">{{ 'admin.permissions' | translate }}</a>
-        <a mat-list-item routerLink="employees">{{ 'admin.employees' | translate }}</a>
-        <a mat-list-item routerLink="categories">{{ 'admin.categories' | translate }}</a>
-        <a mat-list-item routerLink="products">{{ 'admin.products' | translate }}</a>
-        <a mat-list-item routerLink="sales">{{ 'admin.sales' | translate }}</a>
-        <a mat-list-item routerLink="custom-software">{{ 'admin.customClients' | translate }}</a>
+
+        <!-- Empleados -->
+        <a mat-list-item routerLink="employees" *ngxPermissionsOnly="['user-list']">
+          {{ 'admin.employees' | translate }}
+        </a>
+
+        <!-- Roles -->
+        <a mat-list-item routerLink="roles" *ngxPermissionsOnly="['role-assign']">
+          {{ 'admin.roles' | translate }}
+        </a>
+
+        <!-- Permisos -->
+        <a mat-list-item routerLink="permissions" *ngxPermissionsOnly="['role-assign']">
+          {{ 'admin.permissions' | translate }}
+        </a>
+
+        <!-- Categorías -->
+        <a mat-list-item routerLink="categories" *ngxPermissionsOnly="['category-view']">
+          {{ 'admin.categories' | translate }}
+        </a>
+
+        <!-- Productos -->
+        <a mat-list-item routerLink="products" *ngxPermissionsOnly="['product-view']">
+          {{ 'admin.products' | translate }}
+        </a>
+
+        <!-- Ventas -->
+        <a mat-list-item routerLink="sales" *ngxPermissionsOnly="['view-sales']">
+          {{ 'admin.sales' | translate }}
+        </a>
+
+        <!-- Clientes Software a Medida -->
+        <a mat-list-item routerLink="custom-software" *ngxPermissionsOnly="['custom-client-view']">
+          {{ 'admin.customClients' | translate }}
+        </a>
+
       </mat-nav-list>
     </mat-sidenav>
 
@@ -21,4 +50,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
-

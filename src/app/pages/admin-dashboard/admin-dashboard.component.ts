@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -24,7 +25,8 @@ import { RouterModule } from '@angular/router';
             MatIconModule, 
             MatSidenavModule, 
             MatListModule, 
-            RouterModule
+            RouterModule,
+            NgxPermissionsModule
           ],
   templateUrl: './admin-dashboard.component.html',
   styleUrl: './admin-dashboard.component.scss'

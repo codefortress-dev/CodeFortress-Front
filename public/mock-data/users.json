@@ -14,5 +14,21 @@
     "password": "admin123",
     "role": "admin",
     "permissions": ["user-create", "user-list", "product-manage", "view-sales"]
-  }
+  },
+  {
+  "id": 99,
+  "email": "superadmin@codefortress.dev",
+  "password": "admin123",
+  "nombre": "Super Admin",
+  "role": "superadmin",
+  "permissions": [
+    "category-create", "category-edit", "category-delete", "category-view",
+    "product-create", "product-edit", "product-delete", "product-view",
+    "role-create", "role-edit", "role-delete", "role-assign",
+    "user-create", "user-edit", "user-delete", "user-list",
+    "view-sales", "view-finances", "view-feedback",
+    "license-view", "license-manage",
+    "custom-client-view", "custom-client-update"
+  ]
+}
 ]

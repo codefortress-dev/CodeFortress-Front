@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './core/services/auth.guard';
+import { adminGuard } from './core/services/admin.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CatalogComponent } from './catalog/pages/product-list/catalog.component';
@@ -30,15 +32,25 @@ export const routes: Routes = [
   { path: 'carrito', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'thank-you/:orderId', component: ThankYouComponent },
-  { path: 'admin', component: AdminDashboardComponent, 
+
+  {
+    path: 'admin',
+    component: AdminDashboardComponent,
+    canActivate: [authGuard],
+    data: {
+      permissions: {
+        only: ['admin-access'],
+        redirectTo: '/login'
+      }
+    },
     children: [
-                { path: 'employees', component: EmployeesComponent },
-                { path: 'roles', component: RolesComponent },
-                { path: 'permissions', component: PermissionsComponent },
-                { path: 'categories', component: CategoryAdminComponent },
-                { path: 'products', component: ProductAdminComponent },
-                { path: 'sales', component: SalesComponent },
-                { path: 'custom-software', component: CustomProjectsComponent }
-              ]
-            }
-    ];
+      { path: 'employees', component: EmployeesComponent },
+      { path: 'roles', component: RolesComponent },
+      { path: 'permissions', component: PermissionsComponent },
+      { path: 'categories', component: CategoryAdminComponent },
+      { path: 'products', component: ProductAdminComponent },
+      { path: 'sales', component: SalesComponent },
+      { path: 'custom-software', component: CustomProjectsComponent }
+    ]
+  }
+];

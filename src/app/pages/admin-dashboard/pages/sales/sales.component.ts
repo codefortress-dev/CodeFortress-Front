@@ -11,6 +11,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ChartModule } from 'primeng/chart';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule } from '@angular/forms';
+
 
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
@@ -30,7 +33,9 @@ import autoTable from 'jspdf-autotable';
     MatInputModule,
     MatButtonModule,
     TranslateModule,
-    ChartModule
+    ChartModule,
+    MatDatepickerModule,
+    FormsModule
   ],
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.scss']
@@ -38,6 +43,8 @@ import autoTable from 'jspdf-autotable';
 export class SalesComponent implements OnInit {
   private http = inject(HttpClient);
   translate = inject(TranslateService);
+  fromDate: Date | null = null;
+toDate: Date | null = null;
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -97,6 +104,17 @@ export class SalesComponent implements OnInit {
       }
     };
   }
+  filtrarPorFecha(): void {
+  const desde = this.fromDate?.getTime() || 0;
+  const hasta = this.toDate?.getTime() || Date.now();
+
+  this.dataSource.data = this.sales.filter(sale => {
+    const fechaVenta = new Date(sale.fecha).getTime();
+    return fechaVenta >= desde && fechaVenta <= hasta;
+  });
+
+  this.prepareCharts(); // actualiza gráfico con el subset
+}
 
   private aggregateBy(key: string): Record<string, number> {
     return this.sales.reduce((acc, item) => {

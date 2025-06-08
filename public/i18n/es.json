@@ -260,6 +260,9 @@
 "sales": {
   "title": "Resumen de Ventas",
   "groupBy": "Agrupar por",
+   "fromDate": "Desde",
+  "toDate": "hasta",
+  "filterButton": "Filtrar",
   "group": {
     "country": "País",
     "license": "Estado de Licencia",

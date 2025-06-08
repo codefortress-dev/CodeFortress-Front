@@ -1,6 +1,27 @@
 <mat-card class="sales-card">
   <h2>{{ 'sales.title' | translate }}</h2>
   <mat-divider></mat-divider>
+  <div class="filter-dates">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'sales.fromDate' | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker1" [(ngModel)]="fromDate">
+    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+    <mat-datepicker #picker1></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'sales.toDate' | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker2" [(ngModel)]="toDate">
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="filtrarPorFecha()">
+    {{ 'sales.filterButton' | translate }}
+  </button>
+</div>
+.
+  <mat-divider></mat-divider>
 
   <div class="controls">
     <mat-form-field appearance="outline">

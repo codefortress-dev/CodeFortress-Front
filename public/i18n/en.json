@@ -259,6 +259,9 @@
 "sales": {
   "title": "Sales Overview",
   "groupBy": "Group by",
+  "fromDate": "From Date",
+  "toDate": "To Date",
+  "filterButton": "Filter",
   "group": {
     "country": "Country",
     "license": "License Status",

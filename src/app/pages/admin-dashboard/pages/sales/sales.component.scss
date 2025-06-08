@@ -5,6 +5,23 @@
   background-color: var(--cf-gray);
   color: var(--cf-dark-bg);
 
+.filter-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+  background-color: var(--cf-dark-bg);
+  mat-form-field {
+    width: 200px;
+  }
+
+  button {
+    height: 56px; // para alinear con los campos de fecha
+  }
+}
+
+
   h2 {
     text-align: center;
     margin-bottom: 16px;
@@ -16,8 +33,9 @@
     margin: 16px 0;
     display: flex;
     justify-content: flex-end;
-    color: var(--cf-dark-bg);
+    
   }
+  
 
   .chart-container {
     height: 400px;

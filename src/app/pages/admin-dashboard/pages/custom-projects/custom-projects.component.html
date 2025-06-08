@@ -4,7 +4,9 @@
   <mat-form-field appearance="outline" class="estado-filter">
     <mat-label>{{ 'projects.filterByStatus' | translate }}</mat-label>
     <mat-select [(value)]="estadoSeleccionado" (selectionChange)="filtrar()">
-      <mat-option *ngFor="let estado of estados" [value]="estado">{{ 'projects.status.' + estado | translate }}</mat-option>
+      <mat-option *ngFor="let estado of estados" [value]="estado">
+        {{ 'projects.status.' + estado | translate }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -15,8 +17,8 @@
     <p><strong>{{ 'projects.client' | translate }}:</strong> {{ proyecto.cliente }}</p>
     <p><strong>{{ 'projects.responsible' | translate }}:</strong> {{ proyecto.responsable }}</p>
     <p><strong>{{ 'projects.statusLabel' | translate }}:</strong> {{ 'projects.status.' + proyecto.estado | translate }}</p>
-    <p><strong>{{ 'projects.startDate' | translate }}:</strong> {{ proyecto.fechaInicio | date:'mediumDate' }}</p>
-    <p><strong>{{ 'projects.lastUpdate' | translate }}:</strong> {{ proyecto.fechaActualizacion | date:'mediumDate' }}</p>
+    <p><strong>{{ 'projects.startDate' | translate }}:</strong> {{ proyecto.fechaInicio | date: 'mediumDate' }}</p>
+    <p><strong>{{ 'projects.lastUpdate' | translate }}:</strong> {{ proyecto.fechaActualizacion | date: 'mediumDate' }}</p>
 
     <p *ngIf="proyecto.demoUrl">
       <strong>{{ 'projects.demo' | translate }}:</strong>
@@ -24,10 +26,31 @@
     </p>
 
     <div class="actions">
-      <button mat-button color="primary">{{ 'projects.viewDetails' | translate }}</button>
-      <button mat-button>{{ 'projects.editStatus' | translate }}</button>
-      <button mat-button>{{ 'projects.assignResponsible' | translate }}</button>
-      <button mat-button *ngIf="!proyecto.demoUrl">{{ 'projects.addDemo' | translate }}</button>
+      <!-- Editar estado -->
+      <div class="inline-action">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'projects.changeStatus' | translate }}</mat-label>
+          <mat-select [(ngModel)]="nuevoEstado[proyecto.id]">
+            <mat-option *ngFor="let estado of estados.slice(1)" [value]="estado">
+              {{ 'projects.status.' + estado | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-stroked-button color="primary" (click)="actualizarEstado(proyecto.id)">
+          {{ 'projects.save' | translate }}
+        </button>
+      </div>
+
+      <!-- Agregar demo si no existe -->
+      <div class="inline-action" *ngIf="!proyecto.demoUrl">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'projects.demoUrl' | translate }}</mat-label>
+          <input matInput [(ngModel)]="nuevoDemo[proyecto.id]" />
+        </mat-form-field>
+        <button mat-stroked-button color="accent" (click)="guardarDemo(proyecto.id)">
+          {{ 'projects.save' | translate }}
+        </button>
+      </div>
     </div>
   </mat-card>
 </div>

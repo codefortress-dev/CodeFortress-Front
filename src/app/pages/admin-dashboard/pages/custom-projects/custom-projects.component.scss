@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 16px 0;
+  margin: 24px 0;
 
   h2 {
     margin: 0;
   }
 
   .estado-filter {
-    width: 220px;
+    width: 240px;
   }
 }
 
@@ -20,14 +20,16 @@
 }
 
 .project-card {
-  flex: 1 1 300px;
-  max-width: 400px;
+  flex: 1 1 320px;
+  max-width: 420px;
   padding: 16px;
   background-color: var(--color-surface);
   border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
   h3 {
     margin-top: 0;
+    font-size: 1.3rem;
   }
 
   p {
@@ -35,9 +37,19 @@
   }
 
   .actions {
-    margin-top: 12px;
+    margin-top: 16px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
+    gap: 12px;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .inline-action {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
   }
 }

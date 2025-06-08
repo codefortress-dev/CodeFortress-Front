@@ -300,6 +300,10 @@
   "editStatus": "Edit Status",
   "assignResponsible": "Assign Responsible",
   "addDemo": "Add Demo",
+  "changeStatus": "Change Status",
+  "save": "Save",
+  "demoUrl": "Demo URL",
+
   "status": {
     "todos": "All",
     "activo": "Active",

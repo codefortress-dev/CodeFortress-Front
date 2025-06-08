@@ -301,6 +301,10 @@
   "editStatus": "Editar Estado",
   "assignResponsible": "Asignar Responsable",
   "addDemo": "Agregar Demo",
+  "changeStatus": "Cambiar estado",
+  "save": "Guardar",
+  "demoUrl": "Demo URL",
+
   "status": {
     "todos": "Todos",
     "activo": "Activo",

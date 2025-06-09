@@ -1,34 +1,40 @@
 [
   {
     "id": 1,
+    "firstName": "Cliente",
+    "lastName": "Demo",
     "email": "cliente@demo.com",
-    "nombre": "Cliente Demo",
     "password": "1234",
+    "phone": "+56911111111",
     "role": "cliente",
     "permissions": ["view-licenses", "access-mvp", "send-feedback"]
   },
   {
     "id": 2,
+    "firstName": "Admin",
+    "lastName": "Demo",
     "email": "admin@demo.com",
-    "nombre": "Admin Demo",
     "password": "admin123",
+    "phone": "+56922222222",
     "role": "admin",
     "permissions": ["user-create", "user-list", "product-manage", "view-sales"]
   },
   {
-  "id": 99,
-  "email": "superadmin@codefortress.dev",
-  "password": "admin123",
-  "nombre": "Super Admin",
-  "role": "superadmin",
-  "permissions": [
-    "category-create", "category-edit", "category-delete", "category-view",
-    "product-create", "product-edit", "product-delete", "product-view",
-    "role-create", "role-edit", "role-delete", "role-assign",
-    "user-create", "user-edit", "user-delete", "user-list",
-    "view-sales", "view-finances", "view-feedback",
-    "license-view", "license-manage",
-    "custom-client-view", "custom-client-update"
-  ]
-}
+    "id": 99,
+    "firstName": "Super",
+    "lastName": "Admin",
+    "email": "superadmin@codefortress.dev",
+    "password": "admin123",
+    "phone": "+56999999999",
+    "role": "superadmin",
+    "permissions": [
+      "category-create", "category-edit", "category-delete", "category-view",
+      "product-create", "product-edit", "product-delete", "product-view",
+      "role-create", "role-edit", "role-delete", "role-assign",
+      "user-create", "user-edit", "user-delete", "user-list",
+      "view-sales", "view-finances", "view-feedback",
+      "license-view", "license-manage",
+      "custom-client-view", "custom-client-update"
+    ]
+  }
 ]

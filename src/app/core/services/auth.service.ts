@@ -3,33 +3,35 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, delay } from 'rxjs/operators';
 import { NgxPermissionsService } from 'ngx-permissions';
+import { User } from '../models/user.model'; // Asegúrate de que la ruta sea correcta
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private currentUser: any = null;
+  private currentUser: User | null = null;
 
   constructor(
     private http: HttpClient,
     private permissionsService: NgxPermissionsService
   ) {}
 
-  login(email: string, password: string): Observable<any> {
-    return this.http.get<any[]>('/mock-data/users.json').pipe(
-      delay(300),
-      map(users => {
-        const user = users.find(u => u.email === email && u.password === password);
-        if (!user) {
-          return throwError(() => new Error('Credenciales inválidas'));
-        }
+  login(email: string, password: string): Observable<User> {
+  return this.http.get<User[]>('/mock-data/users.json').pipe(
+    delay(300),
+    map(users => {
+      const user = users.find(u => u.email === email && u.password === password);
+      if (!user) {
+        throw new Error('Credenciales inválidas');
+      }
 
-        this.currentUser = user;
-        localStorage.setItem('auth_token', 'mock-token');
-        localStorage.setItem('user', JSON.stringify(user));
-        this.permissionsService.loadPermissions(user.permissions || []);
-        return user;
-      })
-    );
-  }
+      this.currentUser = user;
+      localStorage.setItem('auth_token', 'mock-token');
+      localStorage.setItem('user', JSON.stringify(user));
+      this.permissionsService.loadPermissions(user.permissions || []);
+      return user;
+    })
+  );
+}
+
 
   logout(): void {
     this.currentUser = null;

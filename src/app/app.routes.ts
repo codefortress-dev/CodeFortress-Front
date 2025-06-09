@@ -18,6 +18,7 @@ import { ProductAdminComponent } from './pages/admin-dashboard/pages/products/pr
 import { SalesComponent } from './pages/admin-dashboard/pages/sales/sales.component';
 import { CustomProjectsComponent } from './pages/admin-dashboard/pages/custom-projects/custom-projects.component';
 import { loginRedirectGuard } from "./core/services/login-redirect.guard";
+import { UserProfileComponent } from './pages/admin-dashboard/pages/user-profile/user-profile.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -51,7 +52,8 @@ export const routes: Routes = [
       { path: 'categories', component: CategoryAdminComponent },
       { path: 'products', component: ProductAdminComponent },
       { path: 'sales', component: SalesComponent },
-      { path: 'custom-software', component: CustomProjectsComponent }
+      { path: 'custom-software', component: CustomProjectsComponent },
+      { path: 'user-profile', component: UserProfileComponent }
     ]
   }
 ];

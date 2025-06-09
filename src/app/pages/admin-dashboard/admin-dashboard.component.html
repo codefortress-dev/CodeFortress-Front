@@ -41,6 +41,10 @@
         <a mat-list-item routerLink="custom-software" *ngxPermissionsOnly="['custom-client-view']">
           {{ 'admin.customClients' | translate }}
         </a>
+        <!-- Perfil actual -->
+        <a mat-list-item routerLink="user-profile" *ngxPermissionsOnly="['custom-client-view']">
+          {{ 'admin.userProfile' | translate }}
+        </a>
 
       </mat-nav-list>
     </mat-sidenav>

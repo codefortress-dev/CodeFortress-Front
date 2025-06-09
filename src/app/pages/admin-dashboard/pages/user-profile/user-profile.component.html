@@ -1,0 +1,29 @@
+<div class="profile-container">
+  <h2>{{ 'profile.title' | translate }}</h2>
+
+  <form>
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'profile.firstName' | translate }}</mat-label>
+      <input matInput [(ngModel)]="user.firstName" name="firstName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'profile.lastName' | translate }}</mat-label>
+      <input matInput [(ngModel)]="user.lastName" name="lastName" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'profile.email' | translate }}</mat-label>
+      <input matInput type="email" [(ngModel)]="user.email" name="email" disabled />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'profile.phone' | translate }}</mat-label>
+      <input matInput type="tel" [(ngModel)]="user.phone" name="phone" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="save()">
+      {{ 'profile.save' | translate }}
+    </button>
+  </form>
+</div>

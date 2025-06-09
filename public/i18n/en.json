@@ -259,7 +259,8 @@
   "totalRevenue": "Total revenue",
   "quantity":"Quantity",
   "revenue": "Revenue",
-  "editRoles": "Edit Roles"
+  "editRoles": "Edit Roles",
+  "userProfile": "User Profile"
 },
 "sales": {
   "title": "Sales Overview",
@@ -315,6 +316,14 @@
     "terminado": "Completed",
     "rescindido": "Cancelled"
   }
+},
+"profile": {
+  "title": "My Profile",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "email": "Email",
+  "phone": "Phone",
+  "save": "Save Changes"
 }
 
   

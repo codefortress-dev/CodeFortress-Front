@@ -326,7 +326,10 @@
   "phone": "Phone",
   "save": "Save Changes",
   "updated": "Profile updated successfully"
+},
+"customProjects": {
+  "demoSaved": "Demo URL saved successfully.",
+  "stateUpdated": "Project status updated successfully."
 }
-
   
 }

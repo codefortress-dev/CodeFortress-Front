@@ -327,7 +327,10 @@
   "phone": "Teléfono",
   "save": "Guardar cambios",
   "updated": "Perfil actualizado con éxito"
+},
+"customProjects": {
+  "demoSaved": "URL de demo guardada exitosamente.",
+  "stateUpdated": "Estado del proyecto actualizado correctamente."
 }
-
 
 }

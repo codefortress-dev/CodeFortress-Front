@@ -53,3 +53,20 @@
     }
   }
 }
+.mensaje-exito {
+  background-color: #e6ffed;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+
+  mat-icon {
+    color: #28a745;
+  }
+}
+

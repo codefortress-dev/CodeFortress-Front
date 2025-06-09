@@ -1,20 +1,34 @@
 [
   {
-    "cliente": "Empresa ABC",
-    "nombreProyecto": "Plataforma de Gestión",
-    "responsable": "Juan Pérez",
+    "id": 1,
+    "nombreCliente": "TechGlobal Inc.",
+    "nombreProyecto": "CRM Web para ventas B2B",
+    "responsable": "Ana Torres",
+    "descripcion": "Sistema de gestión de clientes y oportunidades comerciales.",
     "estado": "activo",
-    "demoUrl": "https://demo.empresaabc.com",
-    "fechaInicio": "2024-09-01T00:00:00Z",
-    "fechaActualizacion": "2025-05-25T00:00:00Z"
+    "demoUrl": "https://demo.techglobal.com/crm",
+    "fechaInicio": "2024-11-01T00:00:00Z",
+    "fechaActualizacion": "2025-05-30T00:00:00Z"
   },
   {
-    "cliente": "Tech Solutions",
-    "nombreProyecto": "Sistema de Inventario",
-    "responsable": "María López",
-    "estado": "terminado",
-    "demoUrl": "",
-    "fechaInicio": "2023-05-10T00:00:00Z",
-    "fechaActualizacion": "2024-02-01T00:00:00Z"
+    "id": 2,
+    "nombreCliente": "LogiSoft Ltda.",
+    "nombreProyecto": "Plataforma logística de última milla",
+    "responsable": "Carlos Vega",
+    "descripcion": "Herramienta para rastreo y optimización de entregas urbanas.",
+    "estado": "en desarrollo",
+    "fechaInicio": "2025-01-15T00:00:00Z",
+    "fechaActualizacion": "2025-06-04T00:00:00Z"
+  },
+  {
+    "id": 3,
+    "nombreCliente": "Finanzas Seguras SPA",
+    "nombreProyecto": "Simulador de créditos hipotecarios",
+    "responsable": "María Gutiérrez",
+    "descripcion": "Aplicación web para simular y comparar préstamos bancarios.",
+    "estado": "finalizado",
+    "demoUrl": "https://demo.finseguras.cl/simulador",
+    "fechaInicio": "2024-08-01T00:00:00Z",
+    "fechaActualizacion": "2025-03-12T00:00:00Z"
   }
 ]

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { CustomProject } from '../../../../core/models/custom-project.model';
 
 @Component({
   selector: 'app-custom-projects',
@@ -24,7 +26,8 @@ import { delay } from 'rxjs/operators';
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    TranslateModule
+    TranslateModule,
+    MatIconModule
   ],
   templateUrl: './custom-projects.component.html',
   styleUrls: ['./custom-projects.component.scss']
@@ -33,24 +36,25 @@ export class CustomProjectsComponent implements OnInit {
   private http = inject(HttpClient);
   translate = inject(TranslateService);
 
-  proyectos: any[] = [];
-  proyectosFiltrados: any[] = [];
+  proyectos: CustomProject[] = [];
+  proyectosFiltrados: CustomProject[] = [];
   estadoSeleccionado: string = 'todos';
   estados: string[] = [];
 
-  // valores temporales para acciones
+  // valores temporales
   nuevoDemo: Record<number, string> = {};
   nuevoEstado: Record<number, string> = {};
+  mensajeExito: string = '';
 
   ngOnInit(): void {
-    this.http.get<any[]>('/mock-data/custom-projects.json').subscribe(data => {
+    this.http.get<CustomProject[]>('/mock-data/custom-projects.json').subscribe(data => {
       this.proyectos = data;
       this.proyectosFiltrados = [...data];
       this.estados = this.extraerEstados(data);
     });
   }
 
-  extraerEstados(proyectos: any[]): string[] {
+  extraerEstados(proyectos: CustomProject[]): string[] {
     const encontrados = new Set(proyectos.map(p => p.estado.toLowerCase()));
     return ['todos', ...Array.from(encontrados)];
   }
@@ -69,11 +73,16 @@ export class CustomProjectsComponent implements OnInit {
     const demo = this.nuevoDemo[id];
     if (!demo) return;
 
-    // simulamos post
-    console.log('(Mock) POST /projects/' + id + '/demo', { demo });
+    const body = { demoUrl: demo };
+
+    console.log('(Mock) POST /projects/' + id + '/demo', body);
+
     of({ success: true }).pipe(delay(500)).subscribe(() => {
-      const p = this.proyectos.find(p => p.id === id);
-      if (p) p.demoUrl = demo;
+      const proyecto = this.proyectos.find(p => p.id === id);
+      if (proyecto) proyecto.demoUrl = demo;
+
+      this.mensajeExito = this.translate.instant('customProjects.demoSaved');
+      setTimeout(() => (this.mensajeExito = ''), 3000);
       this.nuevoDemo[id] = '';
     });
   }
@@ -83,10 +92,14 @@ export class CustomProjectsComponent implements OnInit {
     if (!estado) return;
 
     console.log('(Mock) POST /projects/' + id + '/estado', { estado });
+
     of({ success: true }).pipe(delay(500)).subscribe(() => {
-      const p = this.proyectos.find(p => p.id === id);
-      if (p) p.estado = estado;
+      const proyecto = this.proyectos.find(p => p.id === id);
+      if (proyecto) proyecto.estado = estado;
+
+      this.mensajeExito = this.translate.instant('customProjects.stateUpdated');
+      setTimeout(() => (this.mensajeExito = ''), 3000);
       this.filtrar();
     });
   }
-} 
+}

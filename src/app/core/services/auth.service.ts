@@ -49,4 +49,7 @@ export class AuthService {
     const stored = localStorage.getItem('user');
     return stored ? JSON.parse(stored) : null;
   }
+  restorePermissions(permissions: string[]): void {
+  this.permissionsService.loadPermissions(permissions);
+}
 }

@@ -241,6 +241,8 @@
   "editCategory": "Edit category",
   "productNameEn" : "Product name (EN)",
   "productDescriptionEn" : "Product description (EN)",
+  "productNameEs": "Product name (ES)",
+  "productDescriptionEs": "Product description (ES)",
   "category" : "Product category",
   "state": "Product state",
   "price": "Price",

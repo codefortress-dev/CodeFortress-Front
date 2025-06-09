@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit, signal } from '@angular/core';
 import { NgIf, NgClass } from '@angular/common';
 import { LeftSidebarComponent } from './layout/left-sidebar/left-sidebar.component';
 import { MainComponent } from './main/main.component';
+import { AuthService } from './core/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,12 @@ export class AppComponent implements OnInit{
  isLeftSidebarCollapsed = signal<boolean>(false);
   screenWidth = signal<number>(window.innerWidth);
 
+  constructor(private auth: AuthService) {
+  const user = this.auth.getUser();
+  if (user?.permissions?.length) {
+    this.auth.restorePermissions(user.permissions);
+  }
+}
   @HostListener('window:resize')
   onResize() {
     this.screenWidth.set(window.innerWidth);

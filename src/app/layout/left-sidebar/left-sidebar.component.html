@@ -64,7 +64,19 @@
         }
       </a>
     </li>
-
+ <li class="sidenav-nav-item" *ngIf="isLoggedIn()">
+  <a
+    class="sidenav-nav-link"
+    routerLink="/admin"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <i class="sidenav-link-icon fal fa-tools"></i>
+    @if (!isLeftSidebarCollapsed()) {
+      <span class="sidenav-link-text">Panel Admin</span>
+    }
+  </a>
+</li>
     <li class="sidenav-nav-item" *ngIf="isLoggedIn()">
       <a class="sidenav-nav-link" (click)="logout()">
         <i class="fa fa-sign-out sidenav-link-icon"></i>
@@ -73,5 +85,6 @@
         }
       </a>
     </li>
+   
   </div>
 </div>

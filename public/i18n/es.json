@@ -4,7 +4,8 @@
     "products": "Productos",
     "request": "Solicitar",
     "login": "Iniciar sesión",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "adminPanel": "Administrar"
   },
   "language": "Idioma",
   "navbar": {

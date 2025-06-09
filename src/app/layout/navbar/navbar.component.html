@@ -16,10 +16,13 @@
     <a mat-button *ngIf="!isLoggedIn()" routerLink="/login">
   {{ 'menu.login' | translate }}
 </a>
-
+<a mat-button *ngIf="isLoggedIn()" routerLink="/admin">
+  {{ 'menu.adminPanel' | translate }}
+</a>
 <a mat-button *ngIf="isLoggedIn()" (click)="logout()">
   {{ 'menu.logout' | translate }}
 </a>
+
   </nav>
 
   <!-- Selector de idioma permanece siempre visible -->

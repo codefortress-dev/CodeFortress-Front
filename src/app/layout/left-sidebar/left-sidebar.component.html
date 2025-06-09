@@ -1,33 +1,77 @@
-<div
-  class="sidenav"
-  [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''"
->
+<div class="sidenav" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav-collapsed' : ''">
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()">
       <i class="fal fa-bars"></i>
     </button>
     @if (!isLeftSidebarCollapsed()) {
-      <div class="logo-text">App</div>
+      <div class="logo-text">CodeFortress</div>
       <button class="btn-close" (click)="closeSidenav()">
         <i class="fal fa-times close-icon"></i>
       </button>
     }
   </div>
+
   <div class="sidenav-nav">
-    @for (item of items; track $index) {
-      <li class="sidenav-nav-item">
-        <a
-          class="sidenav-nav-link"
-          [routerLink]="item.routeLink"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <i class="sidenav-link-icon" [class]="item.icon"></i>
-          @if (!isLeftSidebarCollapsed()) {
-            <span class="sidenav-link-text">{{ item.label }}</span>
-          }
-        </a>
-      </li>
-    }
+    <li class="sidenav-nav-item">
+      <a
+        class="sidenav-nav-link"
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fal fa-home sidenav-link-icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+          <span class="sidenav-link-text">{{ 'menu.home' | translate }}</span>
+        }
+      </a>
+    </li>
+
+    <li class="sidenav-nav-item">
+      <a
+        class="sidenav-nav-link"
+        routerLink="/productos"
+        routerLinkActive="active"
+      >
+        <i class="fal fa-box-open sidenav-link-icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+          <span class="sidenav-link-text">{{ 'menu.products' | translate }}</span>
+        }
+      </a>
+    </li>
+
+    <li class="sidenav-nav-item">
+      <a
+        class="sidenav-nav-link"
+        routerLink="/solicitar"
+        routerLinkActive="active"
+      >
+        <i class="fal fa-file sidenav-link-icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+          <span class="sidenav-link-text">{{ 'menu.request' | translate }}</span>
+        }
+      </a>
+    </li>
+
+    <li class="sidenav-nav-item" *ngIf="!isLoggedIn()">
+      <a
+        class="sidenav-nav-link"
+        routerLink="/login"
+        routerLinkActive="active"
+      >
+        <i class="fa fa-sign-in sidenav-link-icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+          <span class="sidenav-link-text">{{ 'menu.login' | translate }}</span>
+        }
+      </a>
+    </li>
+
+    <li class="sidenav-nav-item" *ngIf="isLoggedIn()">
+      <a class="sidenav-nav-link" (click)="logout()">
+        <i class="fa fa-sign-out sidenav-link-icon"></i>
+        @if (!isLeftSidebarCollapsed()) {
+          <span class="sidenav-link-text">{{ 'menu.logout' | translate }}</span>
+        }
+      </a>
+    </li>
   </div>
 </div>

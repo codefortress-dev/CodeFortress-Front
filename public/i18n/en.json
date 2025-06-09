@@ -257,7 +257,8 @@
   "totalLicenses": "Total licenses",
   "totalRevenue": "Total revenue",
   "quantity":"Quantity",
-  "revenue": "Revenue"
+  "revenue": "Revenue",
+  "editRoles": "Edit Roles"
 },
 "sales": {
   "title": "Sales Overview",

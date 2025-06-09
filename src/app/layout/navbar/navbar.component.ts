@@ -9,7 +9,8 @@ import { RouterModule } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CartService } from '../../core/services/cart.service';
-
+import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -27,13 +28,26 @@ import { CartService } from '../../core/services/cart.service';
 })
 export class NavbarComponent {
   totalItems = 0;
-  constructor(public translate: TranslateService, private cartService: CartService) {}
+  constructor(
+    public translate: TranslateService, 
+    private cartService: CartService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
   this.cartService.getCart().subscribe(cart => {
     this.totalItems = cart.reduce((acc, item) => acc + item.cantidad, 0);
   });
 }
+isLoggedIn(): boolean {
+    return this.auth.isAuthenticated();
+  }
+
+  logout(): void {
+    this.auth.logout();
+    this.router.navigate(['/']);
+  }
 
   changeLang(lang: string) {
     this.translate.use(lang);

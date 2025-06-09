@@ -3,7 +3,8 @@
     "home": "Home",
     "products": "Products",
     "request": "Request",
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout"
   },
   "language": "Language",
   "navbar": {

@@ -13,7 +13,13 @@
     <a mat-button routerLink="/">{{ 'menu.home' | translate }}</a>
     <a mat-button routerLink="/productos">{{ 'menu.products' | translate }}</a>
     <a mat-button routerLink="/solicitar">{{ 'menu.request' | translate }}</a>
-    <a mat-button routerLink="/login">{{ 'menu.login' | translate }}</a>
+    <a mat-button *ngIf="!isLoggedIn()" routerLink="/login">
+  {{ 'menu.login' | translate }}
+</a>
+
+<a mat-button *ngIf="isLoggedIn()" (click)="logout()">
+  {{ 'menu.logout' | translate }}
+</a>
   </nav>
 
   <!-- Selector de idioma permanece siempre visible -->

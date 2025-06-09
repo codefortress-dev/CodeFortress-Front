@@ -3,7 +3,8 @@
     "home": "Inicio",
     "products": "Productos",
     "request": "Solicitar",
-    "login": "Iniciar sesión"
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión"
   },
   "language": "Idioma",
   "navbar": {

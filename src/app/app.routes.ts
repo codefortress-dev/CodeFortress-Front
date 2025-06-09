@@ -17,10 +17,11 @@ import { CategoryAdminComponent } from './pages/admin-dashboard/pages/categories
 import { ProductAdminComponent } from './pages/admin-dashboard/pages/products/product-admin.component';
 import { SalesComponent } from './pages/admin-dashboard/pages/sales/sales.component';
 import { CustomProjectsComponent } from './pages/admin-dashboard/pages/custom-projects/custom-projects.component';
+import { loginRedirectGuard } from "./core/services/login-redirect.guard";
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [loginRedirectGuard] },
   { path: 'solicitar', component: CustomRequestComponent },
   {
     path: 'productos',

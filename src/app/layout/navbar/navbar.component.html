@@ -24,6 +24,10 @@
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #userOptions="matMenu">
+        <button mat-menu-item routerLink="/admin">
+          <mat-icon>settings</mat-icon>
+          <span>{{ 'menu.adminPanel' | translate }}</span>
+        </button>
         <button mat-menu-item routerLink="/admin/user-profile">
           <mat-icon>person</mat-icon>
           <span>{{ 'menu.profile' | translate }}</span>

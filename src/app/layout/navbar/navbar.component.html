@@ -1,5 +1,5 @@
 <mat-toolbar class="main-toolbar">
-  <!-- Logo centrado en mobile -->
+  <!-- Logo -->
   <a routerLink="/" class="logo-container">
     <img src="/logo-codefortress.png" alt="Logo" />
     <span>CodeFortress</span>
@@ -8,24 +8,35 @@
   <!-- Espaciador -->
   <span class="spacer"></span>
 
-  <!-- Menú de navegación solo visible en pantallas ≥ 769px -->
+  <!-- Navegación escritorio -->
   <nav class="desktop-nav">
     <a mat-button routerLink="/">{{ 'menu.home' | translate }}</a>
     <a mat-button routerLink="/productos">{{ 'menu.products' | translate }}</a>
     <a mat-button routerLink="/solicitar">{{ 'menu.request' | translate }}</a>
-    <a mat-button *ngIf="!isLoggedIn()" routerLink="/login">
-  {{ 'menu.login' | translate }}
-</a>
-<a mat-button *ngIf="isLoggedIn()" routerLink="/admin">
-  {{ 'menu.adminPanel' | translate }}
-</a>
-<a mat-button *ngIf="isLoggedIn()" (click)="logout()">
-  {{ 'menu.logout' | translate }}
-</a>
 
+    <!-- Mostrar login o perfil/menú -->
+    <ng-container *ngIf="!isLoggedIn(); else userMenu">
+      <a mat-button routerLink="/login">{{ 'menu.login' | translate }}</a>
+    </ng-container>
+
+    <ng-template #userMenu>
+      <button mat-icon-button [matMenuTriggerFor]="userOptions" aria-label="Opciones de usuario">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #userOptions="matMenu">
+        <button mat-menu-item routerLink="/admin/user-profile">
+          <mat-icon>person</mat-icon>
+          <span>{{ 'menu.profile' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>{{ 'menu.logout' | translate }}</span>
+        </button>
+      </mat-menu>
+    </ng-template>
   </nav>
 
-  <!-- Selector de idioma permanece siempre visible -->
+  <!-- Selector de idioma -->
   <button mat-icon-button [matMenuTriggerFor]="langMenu" aria-label="Idioma">
     <mat-icon>language</mat-icon>
   </button>
@@ -33,8 +44,10 @@
     <button mat-menu-item (click)="changeLang('es')">Español</button>
     <button mat-menu-item (click)="changeLang('en')">English</button>
   </mat-menu>
+
+  <!-- Carrito -->
   <button mat-icon-button routerLink="/carrito" aria-label="Carrito de compras">
-  <mat-icon>shopping_cart</mat-icon>
-  <span class="cart-badge" *ngIf="totalItems > 0">{{ totalItems }}</span>
-</button>
+    <mat-icon>shopping_cart</mat-icon>
+    <span class="cart-badge" *ngIf="totalItems > 0">{{ totalItems }}</span>
+  </button>
 </mat-toolbar>

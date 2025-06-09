@@ -5,7 +5,8 @@
     "request": "Solicitar",
     "login": "Iniciar sesión",
     "logout": "Cerrar sesión",
-    "adminPanel": "Administrar"
+    "adminPanel": "Administrar",
+    "profile": "Perfil"
   },
   "language": "Idioma",
   "navbar": {

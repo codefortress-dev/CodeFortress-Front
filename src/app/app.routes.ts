@@ -19,10 +19,12 @@ import { SalesComponent } from './pages/admin-dashboard/pages/sales/sales.compon
 import { CustomProjectsComponent } from './pages/admin-dashboard/pages/custom-projects/custom-projects.component';
 import { loginRedirectGuard } from "./core/services/login-redirect.guard";
 import { UserProfileComponent } from './pages/admin-dashboard/pages/user-profile/user-profile.component';
+import { PasswordRecoveryComponent } from './pages/admin-dashboard/pages/password-recovery/password-recovery.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, canActivate: [loginRedirectGuard] },
+  { path: 'recuperar-contrasenia', component: PasswordRecoveryComponent },
   { path: 'solicitar', component: CustomRequestComponent },
   {
     path: 'productos',

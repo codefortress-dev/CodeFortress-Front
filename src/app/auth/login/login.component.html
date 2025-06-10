@@ -24,6 +24,11 @@
         [(ngModel)]="password"
       />
     </mat-form-field>
+    <div class="forgot-password mat-caption">
+      <a mat-button color="primary" routerLink="/recuperar-contrasenia">
+        {{ 'login.forgotPassword' | translate }}
+      </a>
+    </div>
 
     <button
       mat-raised-button

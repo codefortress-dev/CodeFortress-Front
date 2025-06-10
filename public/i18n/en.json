@@ -100,7 +100,10 @@
   "title": "Sign In",
   "emailLabel": "Email address",
   "passwordLabel": "Password",
-  "submitButton": "Log In"
+  "submitButton": "Log In",
+  "forgotPassword": "Forgot password",
+  "recoverySuccess": "Notification sent successfully",
+  "recoveryError": "Not found user"
 },
 "customForm": {
   "title": "Request your project!",
@@ -330,6 +333,13 @@
 "customProjects": {
   "demoSaved": "Demo URL saved successfully.",
   "stateUpdated": "Project status updated successfully."
+},
+"recovery": {
+  "title": "Password Recovery",
+  "emailLabel": "Email address",
+  "submitButton": "Send instructions",
+  "successMessage": "If the email exists, instructions to reset the password will be sent."
 }
+
   
 }

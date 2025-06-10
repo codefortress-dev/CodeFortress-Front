@@ -184,8 +184,8 @@
   "slogan": "Secure your software, brick by brick.",
   "nav": {
     "products": "Products",
-    "services": "Services",
-    "licenses": "Licenses",
+    "home": "Home",
+    "request": "Request",
     "contact": "Contact"
   },
   "contact": {

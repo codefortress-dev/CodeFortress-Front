@@ -184,8 +184,8 @@
   "slogan": "Asegura tu software, bloque a bloque.",
   "nav": {
     "products": "Productos",
-    "services": "Servicios",
-    "licenses": "Licencias",
+    "home": "Inicio",
+    "request": "Solicitar",
     "contact": "Contacto"
   },
   "contact": {

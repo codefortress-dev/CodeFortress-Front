@@ -315,10 +315,10 @@
   "demoUrl": "Demo URL",
 
   "status": {
-    "todos": "All",
+    "finalizado": "Finalized",
     "activo": "Active",
-    "terminado": "Completed",
-    "rescindido": "Cancelled"
+    "rescindido": "Cancelled",
+    "desarrollo": "In Development"
   }
 },
 "profile": {

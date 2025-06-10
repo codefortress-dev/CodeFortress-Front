@@ -314,12 +314,11 @@
   "changeStatus": "Cambiar estado",
   "save": "Guardar",
   "demoUrl": "Demo URL",
-
   "status": {
-    "todos": "Todos",
+    "finalizado": "Finalizado",
     "activo": "Activo",
-    "terminado": "Terminado",
-    "rescindido": "Rescindido"
+    "rescindido": "Rescindido",
+    "desarrollo": "En Desarrollo"
   }
 },
 "profile": {

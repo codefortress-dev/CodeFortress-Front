@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 interface Permission {
   code: string;
@@ -20,7 +21,8 @@ interface Permission {
     CommonModule,
     MatCardModule,
     MatListModule,
-    TranslateModule
+    TranslateModule,
+    NgxPermissionsModule
   ]
 })
 export class PermissionsComponent implements OnInit {

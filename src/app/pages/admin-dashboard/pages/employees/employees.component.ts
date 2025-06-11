@@ -9,10 +9,8 @@ import { Employee } from '../../../../core/models/employee.model';
 import { MatDialog } from '@angular/material/dialog';
 import { EmployeeRoleEditorComponent } from '../empleoyee-permission-editor/employee-role-editor.component';
 import { Role } from '../../../../core/models/role.model';
-
-
 import { TranslateService } from '@ngx-translate/core';
-
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @Component({
   selector: 'app-employees',
@@ -24,7 +22,8 @@ import { TranslateService } from '@ngx-translate/core';
     TranslateModule,
     MatCardModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    NgxPermissionsModule
   ]
 })
 export class EmployeesComponent implements OnInit {

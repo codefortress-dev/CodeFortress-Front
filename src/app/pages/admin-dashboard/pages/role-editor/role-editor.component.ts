@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { TranslateModule } from '@ngx-translate/core';
 import { Permission } from '../../../../core/models/permission.model';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @Component({
   selector: 'app-role-editor',
@@ -18,7 +19,8 @@ import { Permission } from '../../../../core/models/permission.model';
     MatButtonModule,
     MatSelectionList,
     MatListOption,
-    TranslateModule
+    TranslateModule,
+    NgxPermissionsModule
   ]
 })
 export class RoleEditorComponent {

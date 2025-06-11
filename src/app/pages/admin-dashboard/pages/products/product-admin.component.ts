@@ -13,6 +13,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxPermissionsModule } from 'ngx-permissions';
+
 @Component({
   selector: 'app-product-admin',
   standalone: true,
@@ -28,7 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDividerModule,
     MatSlideToggleModule,
-    TranslateModule
+    TranslateModule,
+    NgxPermissionsModule
   ],
   templateUrl: './product-admin.component.html',
   styleUrls: ['./product-admin.component.scss']

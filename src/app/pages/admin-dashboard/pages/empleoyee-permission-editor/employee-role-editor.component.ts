@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @Component({
   selector: 'app-employee-role-editor',
@@ -16,7 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     MatButtonModule,
     MatSelectModule,
-    TranslateModule
+    TranslateModule,
+    NgxPermissionsModule
   ]
 })
 export class EmployeeRoleEditorComponent {

@@ -318,7 +318,8 @@
     "finalizado": "Finalized",
     "activo": "Active",
     "rescindido": "Cancelled",
-    "desarrollo": "In Development"
+    "desarrollo": "In Development",
+    "todos": "All Projects"
   }
 },
 "profile": {

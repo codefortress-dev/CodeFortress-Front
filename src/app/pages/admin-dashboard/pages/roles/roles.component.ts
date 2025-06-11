@@ -11,7 +11,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 import { RoleEditorComponent } from '../role-editor/role-editor.component';
-
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { Role } from '../../../../core/models/role.model';
 import { Permission } from '../../../../core/models/permission.model';
 
@@ -32,7 +32,8 @@ import { Permission } from '../../../../core/models/permission.model';
     MatButtonModule,
     MatListOption,
     MatSelectionList,
-    TranslateModule
+    TranslateModule,
+    NgxPermissionsModule
   ]
 })
 export class RolesComponent implements OnInit {

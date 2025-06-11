@@ -10,6 +10,8 @@ import { User } from '../../../../core/models/user.model';
 import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { NgxPermissionsModule } from 'ngx-permissions';
+
 @Component({
   selector: 'app-user-profile',
   standalone: true,
@@ -20,6 +22,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatInputModule,
     MatButtonModule,
     TranslateModule,
+    NgxPermissionsModule
   ],
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']

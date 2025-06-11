@@ -1,3 +1,4 @@
+<ng-container *ngxPermissionsOnly="'category-view'; else noAccess">
 <mat-card>
   <h2>{{ 'admin.categories' | translate }}</h2>
 
@@ -41,3 +42,7 @@
     </div>
   </form>
 </mat-card>
+</ng-container>
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

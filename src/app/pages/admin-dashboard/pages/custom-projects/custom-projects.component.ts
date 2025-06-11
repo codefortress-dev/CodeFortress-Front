@@ -13,6 +13,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { CustomProject } from '../../../../core/models/custom-project.model';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @Component({
   selector: 'app-custom-projects',
@@ -27,7 +28,8 @@ import { CustomProject } from '../../../../core/models/custom-project.model';
     MatInputModule,
     MatDividerModule,
     TranslateModule,
-    MatIconModule
+    MatIconModule,
+    NgxPermissionsModule
   ],
   templateUrl: './custom-projects.component.html',
   styleUrls: ['./custom-projects.component.scss']

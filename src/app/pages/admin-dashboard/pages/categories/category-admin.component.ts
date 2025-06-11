@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { NgxPermissionsService } from 'ngx-permissions';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { MatListModule } from '@angular/material/list';
 @Component({
   selector: 'app-category-admin',
@@ -20,7 +20,8 @@ MatListModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    TranslateModule
+    TranslateModule,
+    NgxPermissionsModule
   ],
   templateUrl: './category-admin.component.html',
   styleUrls: ['./category-admin.component.scss']

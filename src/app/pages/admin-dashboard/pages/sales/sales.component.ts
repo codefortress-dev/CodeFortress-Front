@@ -13,8 +13,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ChartModule } from 'primeng/chart';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
-
-
+import { NgxPermissionsModule } from 'ngx-permissions';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -35,7 +34,8 @@ import autoTable from 'jspdf-autotable';
     TranslateModule,
     ChartModule,
     MatDatepickerModule,
-    FormsModule
+    FormsModule,
+    NgxPermissionsModule
   ],
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.scss']

@@ -115,7 +115,6 @@ export class CustomRequestComponent implements OnInit {
 
   enviar(): void {
     if (this.form.valid) {
-      console.log('✅ Solicitud enviada:', this.form.value);
       alert('✅ Tu solicitud fue enviada con éxito.');
       this.form.reset();
       this.horarios = [];

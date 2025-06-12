@@ -77,7 +77,6 @@ export class CustomProjectsComponent implements OnInit {
 
     const body = { demoUrl: demo };
 
-    console.log('(Mock) POST /projects/' + id + '/demo', body);
 
     of({ success: true }).pipe(delay(500)).subscribe(() => {
       const proyecto = this.proyectos.find(p => p.id === id);
@@ -93,7 +92,6 @@ export class CustomProjectsComponent implements OnInit {
     const estado = this.nuevoEstado[id];
     if (!estado) return;
 
-    console.log('(Mock) POST /projects/' + id + '/estado', { estado });
 
     of({ success: true }).pipe(delay(500)).subscribe(() => {
       const proyecto = this.proyectos.find(p => p.id === id);

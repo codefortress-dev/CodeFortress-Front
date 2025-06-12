@@ -35,7 +35,7 @@
      "sales-create", "sales-update", "sales-delete", "sales-view",
       "license-view", "license-update", "license-delete", "license-create",
       "custom-client-view", "custom-client-update","custom-client-delete", "custom-client-create",
-       "custom-software-view", "custom-software-update", "custom-software-delete", "custom-software-create"
+       "custom-project-view", "custom-project-update", "custom-project-delete", "custom-project-create"
     ]
   }
 ]

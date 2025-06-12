@@ -36,13 +36,10 @@ export class LoginComponent {
     this.error = null;
     this.loading = true;
 
-    console.log('[LOGIN] Iniciando autenticación para:', this.email);
 
     this.auth.login(this.email, this.password).subscribe({
       next: user => {
         this.loading = false;
-        console.log('[LOGIN] Usuario autenticado:', user);
-        console.log('[LOGIN] Permisos cargados:', user.permissions);
         this.router.navigate(['/admin']);
       },
       error: err => {

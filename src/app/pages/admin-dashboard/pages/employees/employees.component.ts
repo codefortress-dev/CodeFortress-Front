@@ -41,7 +41,6 @@ export class EmployeesComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<Role[]>('/mock-data/roles.json').subscribe((roles) => {
       this.allRoles = roles;
-      console.log('Roles cargados:', this.allRoles);
 
       this.http.get<any[]>('/mock-data/employees.json').subscribe((rawEmployees) => {
   this.employees = rawEmployees.map(emp => ({
@@ -50,13 +49,11 @@ export class EmployeesComponent implements OnInit {
       .map((name: string) => this.allRoles.find(r => r.name === name)!)
       .filter(Boolean)
   }));
-   console.log('Empleados con roles:', this.employees);
 });
 
     });
   }
   getRoleNames(emp: Employee): string {
-     console.log('Roles de', emp.name, emp.roles);
   return emp.roles && emp.roles.length > 0
     ? emp.roles.map(r => r.name).join(', ')
     : '-';

@@ -12,7 +12,7 @@
 
   <mat-form-field appearance="fill" class="campo">
     <mat-label>{{ 'customForm.email.label' | translate }}</mat-label>
-    <input matInput formControlName="correo" type="email" [placeholder]="'customForm.email.placeholder' | translate" />
+    <input matInput formControlName="correo" type="email" [placeholder]="'customForm.email.placeholder' | translate" autocomplete="email" />
     <mat-error *ngIf="form.get('correo')?.hasError('required')">{{ 'customForm.required' | translate }}</mat-error>
     <mat-error *ngIf="form.get('correo')?.hasError('email')">{{ 'customForm.invalidEmail' | translate }}</mat-error>
   </mat-form-field>
@@ -69,7 +69,7 @@
 
   <mat-form-field appearance="fill" class="campo">
     <mat-label>{{ 'customForm.password.label' | translate }}</mat-label>
-    <input matInput type="password" formControlName="password" [placeholder]="'customForm.password.placeholder' | translate" />
+    <input matInput type="password" formControlName="password" [placeholder]="'customForm.password.placeholder' | translate" autocomplete="current-password"/>
     <mat-error *ngIf="form.get('password')?.hasError('required')">{{ 'customForm.required' | translate }}</mat-error>
     <mat-error *ngIf="form.get('password')?.hasError('minlength')">{{ 'customForm.password.min' | translate }}</mat-error>
     <mat-error *ngIf="form.get('password')?.hasError('maxlength')">{{ 'customForm.password.max' | translate }}</mat-error>

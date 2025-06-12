@@ -17,7 +17,7 @@
     "password": "admin123",
     "phone": "+56922222222",
     "role": "admin",
-    "permissions": ["user-create", "user-list", "product-manage", "view-sales"]
+    "permissions": ["user-create", "user-list", "product-manage", "view-sales", "category-view"]
   },
   {
     "id": 99,
@@ -28,13 +28,14 @@
     "phone": "+56999999999",
     "role": "superadmin",
     "permissions": [
-      "category-create", "category-edit", "category-delete", "category-view",
-      "product-create", "product-edit", "product-delete", "product-view",
-      "role-create", "role-edit", "role-delete", "role-assign",
-      "user-create", "user-edit", "user-delete", "user-list",
-      "view-sales", "view-finances", "view-feedback",
-      "license-view", "license-manage",
-      "custom-client-view", "custom-client-update"
+      "category-create", "category-update", "category-delete", "category-view",
+      "product-create", "product-update", "product-delete", "product-view",
+      "role-create", "role-update", "role-delete", "role-assign", "role-view",
+      "user-create", "user-update", "user-delete", "user-view",
+     "sales-create", "sales-update", "sales-delete", "sales-view",
+      "license-view", "license-update", "license-delete", "license-create",
+      "custom-client-view", "custom-client-update","custom-client-delete", "custom-client-create",
+       "custom-software-view", "custom-software-update", "custom-software-delete", "custom-software-create"
     ]
   }
 ]

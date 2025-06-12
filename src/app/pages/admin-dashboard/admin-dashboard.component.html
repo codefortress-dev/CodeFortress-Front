@@ -8,17 +8,17 @@
       <mat-nav-list>
 
         <!-- Empleados -->
-        <a mat-list-item routerLink="employees" *ngxPermissionsOnly="['user-list']">
+        <a mat-list-item routerLink="employees" *ngxPermissionsOnly="['user-view']">
           {{ 'admin.employees' | translate }}
         </a>
 
         <!-- Roles -->
-        <a mat-list-item routerLink="roles" *ngxPermissionsOnly="['role-assign']">
+        <a mat-list-item routerLink="roles" *ngxPermissionsOnly="['role-view']">
           {{ 'admin.roles' | translate }}
         </a>
 
         <!-- Permisos -->
-        <a mat-list-item routerLink="permissions" *ngxPermissionsOnly="['role-assign']">
+        <a mat-list-item routerLink="permissions" *ngxPermissionsOnly="['role-view']">
           {{ 'admin.permissions' | translate }}
         </a>
 
@@ -33,12 +33,12 @@
         </a>
 
         <!-- Ventas -->
-        <a mat-list-item routerLink="sales" *ngxPermissionsOnly="['view-sales']">
+        <a mat-list-item routerLink="sales" *ngxPermissionsOnly="['sales-view']">
           {{ 'admin.sales' | translate }}
         </a>
 
         <!-- Clientes Software a Medida -->
-        <a mat-list-item routerLink="custom-software" *ngxPermissionsOnly="['custom-client-view']">
+        <a mat-list-item routerLink="custom-software" *ngxPermissionsOnly="['custom-project-view']">
           {{ 'admin.customClients' | translate }}
         </a>
         <!-- Perfil actual -->

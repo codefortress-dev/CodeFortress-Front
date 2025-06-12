@@ -46,7 +46,7 @@ export class EmployeesComponent implements OnInit {
       this.http.get<any[]>('/mock-data/employees.json').subscribe((rawEmployees) => {
   this.employees = rawEmployees.map(emp => ({
     ...emp,
-    roles: (emp.roles ?? []) // ✅ fallback si emp.roles es undefined
+    roles: (emp.roles ?? []) 
       .map((name: string) => this.allRoles.find(r => r.name === name)!)
       .filter(Boolean)
   }));

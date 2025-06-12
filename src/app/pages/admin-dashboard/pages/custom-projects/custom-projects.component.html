@@ -1,63 +1,82 @@
-<div class="header">
-  <h2>{{ 'projects.title' | translate }}</h2>
+<ng-container *ngxPermissionsOnly="'custom-project-view'; else noAccess">
+  <div class="header">
+    <h2>{{ 'projects.title' | translate }}</h2>
 
-  <mat-form-field appearance="outline" class="estado-filter">
-    <mat-label>{{ 'projects.filterByStatus' | translate }}</mat-label>
-    <mat-select [(value)]="estadoSeleccionado" (selectionChange)="filtrar()">
-      <mat-option *ngFor="let estado of estados" [value]="estado">
-        {{ 'projects.status.' + estado | translate }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+    <mat-form-field appearance="outline" class="estado-filter">
+      <mat-label>{{ 'projects.filterByStatus' | translate }}</mat-label>
+      <mat-select [(value)]="estadoSeleccionado" (selectionChange)="filtrar()">
+        <mat-option *ngFor="let estado of estados" [value]="estado">
+          {{ 'projects.status.' + estado | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 
-<!-- MENSAJE DE ÉXITO -->
-<div *ngIf="mensajeExito" class="mensaje-exito">
-  <mat-icon>check_circle</mat-icon>
-  {{ mensajeExito }}
-</div>
+  <!-- MENSAJE DE ÉXITO -->
+  <div *ngIf="mensajeExito" class="mensaje-exito">
+    <mat-icon>check_circle</mat-icon>
+    {{ mensajeExito }}
+  </div>
 
-<div class="cards-container">
-  <mat-card class="project-card" *ngFor="let proyecto of proyectosFiltrados">
-    <h3>{{ proyecto.nombreProyecto }}</h3>
-    <p><strong>{{ 'projects.client' | translate }}:</strong> {{ proyecto.nombreCliente }}</p>
-    <p><strong>{{ 'projects.description' | translate }}:</strong> {{ proyecto.descripcion }}</p>
-    <p><strong>{{ 'projects.responsible' | translate }}:</strong> {{ proyecto.responsable }}</p>
-    <p><strong>{{ 'projects.statusLabel' | translate }}:</strong> {{ 'projects.status.' + proyecto.estado | translate }}</p>
-    <p><strong>{{ 'projects.startDate' | translate }}:</strong> {{ proyecto.fechaInicio | date: 'mediumDate' }}</p>
-    <p><strong>{{ 'projects.lastUpdate' | translate }}:</strong> {{ proyecto.fechaActualizacion | date: 'mediumDate' }}</p>
+  <!-- CONTENEDOR DE PROYECTOS -->
+  <div class="cards-container">
+    <mat-card class="project-card" *ngFor="let proyecto of proyectosFiltrados">
+      <h3>{{ proyecto.nombreProyecto }}</h3>
+      <p><strong>{{ 'projects.client' | translate }}:</strong> {{ proyecto.nombreCliente }}</p>
+      <p><strong>{{ 'projects.description' | translate }}:</strong> {{ proyecto.descripcion }}</p>
+      <p><strong>{{ 'projects.responsible' | translate }}:</strong> {{ proyecto.responsable }}</p>
+      <p><strong>{{ 'projects.statusLabel' | translate }}:</strong> {{ 'projects.status.' + proyecto.estado | translate }}</p>
+      <p><strong>{{ 'projects.startDate' | translate }}:</strong> {{ proyecto.fechaInicio | date: 'mediumDate' }}</p>
+      <p><strong>{{ 'projects.lastUpdate' | translate }}:</strong> {{ proyecto.fechaActualizacion | date: 'mediumDate' }}</p>
 
-    <p *ngIf="proyecto.demoUrl">
-      <strong>{{ 'projects.demo' | translate }}:</strong>
-      <a [href]="proyecto.demoUrl" target="_blank">{{ proyecto.demoUrl }}</a>
-    </p>
+      <p *ngIf="proyecto.demoUrl">
+        <strong>{{ 'projects.demo' | translate }}:</strong>
+        <a [href]="proyecto.demoUrl" target="_blank">{{ proyecto.demoUrl }}</a>
+      </p>
 
-    <div class="actions">
-      <!-- Editar estado -->
-      <div class="inline-action">
-        <mat-form-field appearance="fill">
-          <mat-label>{{ 'projects.changeStatus' | translate }}</mat-label>
-          <mat-select [(ngModel)]="nuevoEstado[proyecto.id]">
-            <mat-option *ngFor="let estado of estados.slice(1)" [value]="estado">
-              {{ 'projects.status.' + estado | translate }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <button mat-stroked-button color="primary" (click)="actualizarEstado(proyecto.id)">
-          {{ 'projects.save' | translate }}
-        </button>
-      </div>
+      <!-- Acciones solo si se tiene permiso de actualización -->
+      <ng-container *ngxPermissionsOnly="'custom-project-update'">
+        <div class="actions">
+          <!-- Cambiar estado -->
+          <div class="inline-action">
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'projects.changeStatus' | translate }}</mat-label>
+              <mat-select [(ngModel)]="nuevoEstado[proyecto.id]">
+                <mat-option *ngFor="let estado of estados.slice(1)" [value]="estado">
+                  {{ 'projects.status.' + estado | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-stroked-button color="primary" (click)="actualizarEstado(proyecto.id)">
+              {{ 'projects.save' | translate }}
+            </button>
+          </div>
 
-      <!-- Agregar demo si no existe -->
-      <div class="inline-action" *ngIf="!proyecto.demoUrl">
-        <mat-form-field appearance="fill">
-          <mat-label>{{ 'projects.demoUrl' | translate }}</mat-label>
-          <input matInput [(ngModel)]="nuevoDemo[proyecto.id]" />
-        </mat-form-field>
-        <button mat-stroked-button color="accent" (click)="guardarDemo(proyecto.id)">
-          {{ 'projects.save' | translate }}
-        </button>
-      </div>
-    </div>
-  </mat-card>
-</div>
+          <!-- Agregar demo si no existe -->
+          <div class="inline-action" *ngIf="!proyecto.demoUrl">
+            <mat-form-field appearance="fill">
+              <mat-label>{{ 'projects.demoUrl' | translate }}</mat-label>
+              <input matInput [(ngModel)]="nuevoDemo[proyecto.id]" />
+            </mat-form-field>
+            <button mat-stroked-button color="accent" (click)="guardarDemo(proyecto.id)">
+              {{ 'projects.save' | translate }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+    </mat-card>
+  </div>
+
+  <!-- Ejemplo de uso futuro del permiso custom-project-create -->
+  <!--
+  <div *ngxPermissionsOnly="'custom-project-create'" class="create-button">
+    <button mat-raised-button color="primary" (click)="crearNuevoProyecto()">
+      {{ 'projects.newProject' | translate }}
+    </button>
+  </div>
+  -->
+</ng-container>
+
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

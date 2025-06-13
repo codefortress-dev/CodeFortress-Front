@@ -14,7 +14,7 @@ import { RoleEditorComponent } from '../role-editor/role-editor.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { Role } from '../../../../core/models/role.model';
 import { Permission } from '../../../../core/models/permission.model';
-
+import { NgxPermissionsService } from 'ngx-permissions';
 
 
 @Component({
@@ -45,7 +45,8 @@ export class RolesComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private translate: TranslateService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private permissionsService: NgxPermissionsService
   ) {}
 
   ngOnInit(): void {
@@ -88,7 +89,9 @@ export class RolesComponent implements OnInit {
   });
 }
 
-
+hasPermission(permission: string): boolean {
+  return this.permissionsService.getPermissions()[permission] !== undefined;
+}
   saveRole(): void {
     if (!this.selectedRole) return;
     const index = this.roles.findIndex(r => r.id === this.selectedRole!.id);

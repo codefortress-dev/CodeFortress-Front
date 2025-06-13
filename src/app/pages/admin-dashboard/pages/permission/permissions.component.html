@@ -1,3 +1,4 @@
+<ng-container *ngxPermissionsOnly="'role-view'; else noAccess">
 <div class="container">
 <mat-card>
   <h2>{{ 'admin.permissions' | translate }}</h2>
@@ -8,3 +9,8 @@
   </mat-list>
 </mat-card>
 </div>
+</ng-container>
+
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

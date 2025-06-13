@@ -4,10 +4,10 @@
     "firstName": "Cliente",
     "lastName": "Demo",
     "email": "cliente@demo.com",
-    "password": "1234",
+    "password": "admin123",
     "phone": "+56911111111",
     "role": "cliente",
-    "permissions": ["view-licenses", "access-mvp", "send-feedback"]
+    "permissions": ["custom-client-view", "custom-project-view", "sales-view"]
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "password": "admin123",
     "phone": "+56922222222",
     "role": "admin",
-    "permissions": ["user-create", "user-list", "product-manage", "view-sales", "category-view"]
+    "permissions": ["user-create", "user-list", "product-view", "custom-client-view", "category-view"]
   },
   {
     "id": 99,
@@ -32,10 +32,10 @@
       "product-create", "product-update", "product-delete", "product-view",
       "role-create", "role-update", "role-delete", "role-assign", "role-view",
       "user-create", "user-update", "user-delete", "user-view",
-     "sales-create", "sales-update", "sales-delete", "sales-view",
+      "sales-filter", "sales-export", "sales-view",
       "license-view", "license-update", "license-delete", "license-create",
       "custom-client-view", "custom-client-update","custom-client-delete", "custom-client-create",
-       "custom-project-view", "custom-project-update", "custom-project-delete", "custom-project-create"
+       "custom-project-view", "custom-project-update", "custom-project-delete", "custom-project-create" 
     ]
   }
 ]

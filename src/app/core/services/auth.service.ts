@@ -40,6 +40,7 @@ export class AuthService {
     localStorage.removeItem('auth_token');
     localStorage.removeItem('user');
     localStorage.removeItem('last_activity');
+    localStorage.setItem('manual_logout', 'true');
     this.permissionsService.flushPermissions();
   }
 

@@ -1,34 +1,52 @@
-<mat-card *ngFor="let role of roles">
-  <h3>{{ role.name }}</h3>
-  <p>{{ getRoleDescription(role) }}</p>
+<ng-container *ngxPermissionsOnly="'role-view'; else noAccess">
+  <!-- Lista de roles -->
+  <mat-card *ngFor="let role of roles">
+    <h3>{{ role.name }}</h3>
+    <p>{{ getRoleDescription(role) }}</p>
 
-  <mat-chip *ngFor="let perm of role.permissions">
-    {{ permissionsMap[perm] || perm }}
-  </mat-chip>
+    <mat-chip *ngFor="let perm of role.permissions">
+      {{ permissionsMap[perm] || perm }}
+    </mat-chip>
 
-  <div class="actions">
-    <button mat-button color="primary" (click)="editRole(role)">
-      {{ 'admin.edit' | translate }}
-    </button>
-  </div>
-</mat-card>
+    <div class="actions">
+      <!-- Editar rol solo con permiso -->
+      <ng-container *ngxPermissionsOnly="'role-update'">
+        <button mat-button color="primary" (click)="editRole(role)">
+          {{ 'admin.edit' | translate }}
+        </button>
+      </ng-container>
+    </div>
+  </mat-card>
 
-<mat-card *ngIf="selectedRole" class="edit-card">
-  <h3>{{ selectedRole.name }}</h3>
-  <p>{{ 'admin.editPermissions' | translate }}</p>
+  <!-- Edición activa de un rol -->
+  <mat-card *ngIf="selectedRole" class="edit-card">
+    <h3>{{ selectedRole.name }}</h3>
+    <p>{{ 'admin.editPermissions' | translate }}</p>
 
-  <mat-selection-list [(ngModel)]="selectedRole.permissions">
-    <mat-list-option *ngFor="let perm of allPermissions" [value]="perm.code">
-      {{ permissionsMap[perm.code] || perm.code }}
-    </mat-list-option>
-  </mat-selection-list>
+    <!-- Lista de permisos editable solo si tiene role-update -->
+    <mat-selection-list [(ngModel)]="selectedRole.permissions"
+                        [disabled]="!hasPermission('role-update')">
+      <mat-list-option *ngFor="let perm of allPermissions" [value]="perm.code">
+        {{ permissionsMap[perm.code] || perm.code }}
+      </mat-list-option>
+    </mat-selection-list>
 
-  <div class="actions">
-    <button mat-raised-button color="primary" (click)="saveRole()">
-      {{ 'admin.save' | translate }}
-    </button>
-    <button mat-button (click)="cancelEdit()">
-      {{ 'admin.cancel' | translate }}
-    </button>
-  </div>
-</mat-card>
+    <div class="actions">
+      <!-- Guardar solo si tiene permiso -->
+      <ng-container *ngxPermissionsOnly="'role-update'">
+        <button mat-raised-button color="primary" (click)="saveRole()">
+          {{ 'admin.save' | translate }}
+        </button>
+      </ng-container>
+
+      <!-- Cancelar siempre visible -->
+      <button mat-button (click)="cancelEdit()">
+        {{ 'admin.cancel' | translate }}
+      </button>
+    </div>
+  </mat-card>
+</ng-container>
+
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

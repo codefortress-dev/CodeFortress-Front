@@ -1,21 +1,32 @@
-<h2 mat-dialog-title>
-  {{ 'admin.editRoles' | translate }} - {{ data.name }}
-</h2>
+<ng-container *ngxPermissionsOnly="'user-update'; else noAccess">
+  <h2 mat-dialog-title>
+    {{ 'admin.editRoles' | translate }} - {{ data.name }}
+  </h2>
 
-<mat-form-field appearance="fill" style="width: 100%;">
-  <mat-label>{{ 'admin.roles' | translate }}</mat-label>
-  <mat-select [(ngModel)]="selectedRoles" multiple>
-    <mat-option *ngFor="let role of data.allRoles" [value]="role">
-      {{ role }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ 'admin.roles' | translate }}</mat-label>
+    <mat-select [(ngModel)]="selectedRoles" multiple>
+      <mat-option *ngFor="let role of data.allRoles" [value]="role">
+        {{ role }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-<div class="actions">
-  <button mat-raised-button color="primary" (click)="save()">
-    {{ 'admin.save' | translate }}
-  </button>
-  <button mat-button (click)="cancel()">
-    {{ 'admin.cancel' | translate }}
-  </button>
-</div>
+  <div class="actions">
+    <!-- Botón guardar protegido con user-update -->
+    <ng-container *ngxPermissionsOnly="'user-update'">
+      <button mat-raised-button color="primary" (click)="save()">
+        {{ 'admin.save' | translate }}
+      </button>
+    </ng-container>
+
+    <!-- Botón cancelar siempre visible -->
+    <button mat-button (click)="cancel()">
+      {{ 'admin.cancel' | translate }}
+    </button>
+  </div>
+</ng-container>
+
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

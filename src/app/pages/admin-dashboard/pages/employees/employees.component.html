@@ -1,17 +1,35 @@
-<section class="container">
-  <mat-card *ngFor="let emp of employees">
-    <h3>{{ emp.name }}</h3>
-    <p>{{ emp.email }}</p>
+<ng-container *ngxPermissionsOnly="'user-view'; else noAccess">
+  <section class="container">
+    <mat-card *ngFor="let emp of employees">
+      <h3>{{ emp.name }}</h3>
+      <p>{{ emp.email }}</p>
 
-    <div class="role-line">
-      <strong>{{ 'admin.roles' | translate }}:</strong>
-      {{ getRoleNames(emp) }}
-    </div>
+      <div class="role-line">
+        <strong>{{ 'admin.roles' | translate }}:</strong>
+        {{ getRoleNames(emp) }}
+      </div>
 
-    <div class="actions">
-      <button mat-stroked-button color="primary" (click)="editEmployee(emp)">
-        {{ 'admin.edit' | translate }}
-      </button>
-    </div>
-  </mat-card>
-</section>
+      <div class="actions">
+        <!-- Botón editar visible solo con permiso user-update -->
+        <ng-container *ngxPermissionsOnly="'user-update'">
+          <button mat-stroked-button color="primary" (click)="editEmployee(emp)">
+            {{ 'admin.edit' | translate }}
+          </button>
+        </ng-container>
+
+        <!-- Ejemplo futuro: botón eliminar con permiso user-delete -->
+        <!--
+        <ng-container *ngxPermissionsOnly="'user-delete'">
+          <button mat-stroked-button color="warn" (click)="deleteEmployee(emp)">
+            {{ 'admin.delete' | translate }}
+          </button>
+        </ng-container>
+        -->
+      </div>
+    </mat-card>
+  </section>
+</ng-container>
+
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

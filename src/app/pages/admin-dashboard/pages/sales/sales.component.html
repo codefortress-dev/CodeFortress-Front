@@ -1,105 +1,121 @@
-<mat-card class="sales-card">
-  <h2>{{ 'sales.title' | translate }}</h2>
-  <mat-divider></mat-divider>
-  <div class="filter-dates">
-  <mat-form-field appearance="outline">
-    <mat-label>{{ 'sales.fromDate' | translate }}</mat-label>
-    <input matInput [matDatepicker]="picker1" [(ngModel)]="fromDate">
-    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-    <mat-datepicker #picker1></mat-datepicker>
-  </mat-form-field>
+<ng-container *ngxPermissionsOnly="'sales-view'; else noAccess">
+  <mat-card class="sales-card">
+    <h2>{{ 'sales.title' | translate }}</h2>
+    <mat-divider></mat-divider>
 
-  <mat-form-field appearance="outline">
-    <mat-label>{{ 'sales.toDate' | translate }}</mat-label>
-    <input matInput [matDatepicker]="picker2" [(ngModel)]="toDate">
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2></mat-datepicker>
-  </mat-form-field>
+    <!-- FILTRO POR FECHA - Solo con permiso sales-filter -->
+    <ng-container *ngxPermissionsOnly="'sales-filter'">
+      <div class="filter-dates">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'sales.fromDate' | translate }}</mat-label>
+          <input matInput [matDatepicker]="picker1" [(ngModel)]="fromDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="filtrarPorFecha()">
-    {{ 'sales.filterButton' | translate }}
-  </button>
-</div>
-.
-  <mat-divider></mat-divider>
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'sales.toDate' | translate }}</mat-label>
+          <input matInput [matDatepicker]="picker2" [(ngModel)]="toDate">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
 
-  <div class="controls">
-    <mat-form-field appearance="outline">
-      <mat-label>{{ 'sales.groupBy' | translate }}</mat-label>
-      <mat-select [(value)]="selectedGroup" (selectionChange)="prepareCharts()">
-        <mat-option value="pais">{{ 'sales.group.country' | translate }}</mat-option>
-        <mat-option value="estadoLicencia">{{ 'sales.group.license' | translate }}</mat-option>
-        <mat-option value="productoNombre">{{ 'sales.group.product' | translate }}</mat-option>
-        <mat-option value="categoria">{{ 'sales.group.category' | translate }}</mat-option>
-      </mat-select>
+        <button mat-raised-button color="primary" (click)="filtrarPorFecha()">
+          {{ 'sales.filterButton' | translate }}
+        </button>
+      </div>
+    </ng-container>
+
+    <mat-divider></mat-divider>
+    <ng-container *ngxPermissionsOnly="'sales-filter'">
+    <div class="controls">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'sales.groupBy' | translate }}</mat-label>
+        <mat-select [(value)]="selectedGroup" (selectionChange)="prepareCharts()">
+          <mat-option value="pais">{{ 'sales.group.country' | translate }}</mat-option>
+          <mat-option value="estadoLicencia">{{ 'sales.group.license' | translate }}</mat-option>
+          <mat-option value="productoNombre">{{ 'sales.group.product' | translate }}</mat-option>
+          <mat-option value="categoria">{{ 'sales.group.category' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+   
+
+    <div class="chart-container">
+      <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
+    </div>
+ </ng-container>
+    <mat-divider></mat-divider>
+
+    <!-- BOTONES DE EXPORTACIÓN - Solo con permiso sales-export -->
+    <ng-container *ngxPermissionsOnly="'sales-export'">
+      <div class="export-buttons">
+        <button mat-raised-button color="primary" (click)="exportToExcel()">
+          {{ 'sales.exportExcel' | translate }}
+        </button>
+        <button mat-raised-button color="accent" (click)="exportToPDF()">
+          {{ 'sales.exportPDF' | translate }}
+        </button>
+      </div>
+    </ng-container>
+
+    <!-- Filtro de texto general -->
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>{{ 'sales.filter' | translate }}</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'sales.filterPlaceholder' | translate }}">
     </mat-form-field>
-  </div>
 
-  <div class="chart-container">
-    <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
-  </div>
+    <!-- Tabla de datos -->
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
 
-  <mat-divider></mat-divider>
+        <ng-container matColumnDef="productoNombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.product' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.productoNombre }}</td>
+        </ng-container>
 
-  <div class="export-buttons">
-    <button mat-raised-button color="primary" (click)="exportToExcel()">
-      {{ 'sales.exportExcel' | translate }}
-    </button>
-    <button mat-raised-button color="accent" (click)="exportToPDF()">
-      {{ 'sales.exportPDF' | translate }}
-    </button>
-  </div>
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.category' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.categoria }}</td>
+        </ng-container>
 
-  <mat-form-field appearance="outline" class="filter-field">
-    <mat-label>{{ 'sales.filter' | translate }}</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="{{ 'sales.filterPlaceholder' | translate }}">
-  </mat-form-field>
+        <ng-container matColumnDef="pais">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.country' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
+        </ng-container>
 
-  <div class="table-container">
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+        <ng-container matColumnDef="estadoLicencia">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.licenseStatus' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.estadoLicencia }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="productoNombre">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.product' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.productoNombre }}</td>
-      </ng-container>
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.quantity' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.cantidad }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="categoria">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.category' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.categoria }}</td>
-      </ng-container>
+        <ng-container matColumnDef="precioUnitario">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.unitPrice' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.precioUnitario | currency }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="pais">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.country' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.pais }}</td>
-      </ng-container>
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.total' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.total | currency }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="estadoLicencia">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.licenseStatus' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.estadoLicencia }}</td>
-      </ng-container>
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.date' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.fecha | date: 'mediumDate' }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="cantidad">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.quantity' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.cantidad }}</td>
-      </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card>
+</ng-container>
 
-      <ng-container matColumnDef="precioUnitario">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.unitPrice' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.precioUnitario | currency }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.total' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.total | currency }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sales.date' | translate }}</th>
-        <td mat-cell *matCellDef="let row">{{ row.fecha | date: 'mediumDate' }}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-</mat-card>
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

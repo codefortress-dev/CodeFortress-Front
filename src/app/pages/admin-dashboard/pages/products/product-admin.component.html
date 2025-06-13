@@ -1,109 +1,119 @@
-<mat-card>
-  <h2>{{ 'admin.products' | translate }}</h2>
+<ng-container *ngxPermissionsOnly="'product-view'; else noAccess">
+  <mat-card>
+    <h2>{{ 'admin.products' | translate }}</h2>
 
-  <form [formGroup]="form" (ngSubmit)="save()" enctype="multipart/form-data">
-    <div class="form-row">
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'admin.productNameEs' | translate }}</mat-label>
-        <input matInput formControlName="nombreEs" required>
-      </mat-form-field>
+    <!-- Formulario de creación/edición -->
+    <form [formGroup]="form" (ngSubmit)="save()" enctype="multipart/form-data"
+          *ngxPermissionsOnly="editing ? 'product-update' : 'product-create'">
 
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'admin.productNameEn' | translate }}</mat-label>
-        <input matInput formControlName="nombreEn" required>
-      </mat-form-field>
-    </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'admin.productNameEs' | translate }}</mat-label>
+          <input matInput formControlName="nombreEs" required>
+        </mat-form-field>
 
-    <div class="form-row">
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'admin.productDescriptionEs' | translate }}</mat-label>
-        <textarea matInput rows="3" formControlName="descripcionEs"></textarea>
-      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'admin.productNameEn' | translate }}</mat-label>
+          <input matInput formControlName="nombreEn" required>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'admin.productDescriptionEn' | translate }}</mat-label>
-        <textarea matInput rows="3" formControlName="descripcionEn"></textarea>
-      </mat-form-field>
-    </div>
-<div class="form-row">
-        <div class="form-row">
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'admin.category' | translate }}</mat-label>
-        <mat-select formControlName="categoriaId">
-          <mat-option *ngFor="let cat of categories" [value]="cat.id">
-            {{ cat.nombre[translate.currentLang] || cat.nombre['es'] }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
- 
-      <mat-form-field appearance="outline">
-        <mat-label>{{ 'admin.price' | translate }}</mat-label>
-        <input type="number" matInput formControlName="precio">
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'admin.productDescriptionEs' | translate }}</mat-label>
+          <textarea matInput rows="3" formControlName="descripcionEs"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'admin.productDescriptionEn' | translate }}</mat-label>
+          <textarea matInput rows="3" formControlName="descripcionEn"></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'admin.category' | translate }}</mat-label>
+          <mat-select formControlName="categoriaId">
+            <mat-option *ngFor="let cat of categories" [value]="cat.id">
+              {{ cat.nombre[translate.currentLang] || cat.nombre['es'] }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'admin.price' | translate }}</mat-label>
+          <input type="number" matInput formControlName="precio">
+        </mat-form-field>
       </div>
 
       <div class="upload-field">
-        
         <input
-  type="file"
-  #fileInput
-  (change)="onImageSelected($event)"
-  accept="image/*"
-  hidden
-/>
-<button mat-stroked-button color="primary" (click)="triggerFileInput()">
-  {{ 'admin.selectImage' | translate }}
-</button>
-<span *ngIf="form.value.imagen">
-  {{ form.value.imagen.split('/').pop() }}
-</span>
-        
+          type="file"
+          #fileInput
+          (change)="onImageSelected($event)"
+          accept="image/*"
+          hidden
+        />
+        <button mat-stroked-button color="primary" (click)="triggerFileInput()">
+          {{ 'admin.selectImage' | translate }}
+        </button>
+        <span *ngIf="form.value.imagen">
+          {{ form.value.imagen.split('/').pop() }}
+        </span>
+
         <div *ngIf="preview" class="preview">
-          <img *ngIf="preview" [src]="preview" alt="Preview" class="image-preview" />
+          <img [src]="preview" alt="Preview" class="image-preview" />
         </div>
       </div>
 
       <mat-slide-toggle formControlName="activo">
         {{ 'admin.active' | translate }}
       </mat-slide-toggle>
+
+      <button mat-raised-button color="primary" type="submit">
+        {{ editing ? ('admin.update' | translate) : ('admin.create' | translate) }}
+      </button>
+    </form>
+
+    <mat-divider></mat-divider>
+
+    <!-- Lista de productos -->
+    <div class="product-list">
+      <mat-list>
+        <mat-list-item *ngFor="let prod of products">
+          <div class="product-item">
+            <img [src]="prod.imagen" alt="img" class="thumbnail" />
+
+            <div class="info">
+              <div class="title">
+                {{ prod.nombre[translate.currentLang] || prod.nombre['es'] }}
+              </div>
+              <div class="meta">
+                {{ prod.precio | currency:'USD' }}
+              </div>
+              <div class="meta">
+                {{ 'admin.category' | translate }}: {{ getCategoryName(prod.categoriaId) }}
+              </div>
+              <div class="meta">
+                {{ 'admin.state' | translate }}:
+                <strong>{{ prod.state ? ('admin.active' | translate) : ('admin.inactive' | translate) }}</strong>
+              </div>
+            </div>
+
+            <!-- Botón de edición protegido con product-update -->
+            <ng-container *ngxPermissionsOnly="'product-update'">
+              <button mat-stroked-button color="primary" class="edit-btn" (click)="startEdit(prod)">
+                <mat-icon>edit</mat-icon>
+                {{ 'admin.edit' | translate }}
+              </button>
+            </ng-container>
+          </div>
+        </mat-list-item>
+      </mat-list>
     </div>
+  </mat-card>
+</ng-container>
 
-    <button mat-raised-button color="primary" type="submit">
-      {{ editing ? ('admin.update' | translate) : ('admin.create' | translate) }}
-    </button>
-  </form>
-
-  <mat-divider></mat-divider>
-<div class="product-list">
-  <mat-list>
-    <mat-list-item *ngFor="let prod of products">
-      <div class="product-item">
-        <img [src]="prod.imagen" alt="img" class="thumbnail" />
-
-        <div class="info">
-          <div class="title">
-            {{ prod.nombre[translate.currentLang] || prod.nombre['es'] }}
-          </div>
-          <div class="meta">
-            {{ prod.precio | currency:'USD' }}
-          </div>
-          <div class="meta">
-            {{ 'admin.category' | translate }}: {{ getCategoryName(prod.categoriaId) }}
-          </div>
-          <div class="meta">
-            {{ 'admin.state' | translate }}:
-            <strong>{{ prod.state ? ('admin.active' | translate) : ('admin.inactive' | translate) }}</strong>
-          </div>
-        </div>
-
-        <button mat-stroked-button color="primary" class="edit-btn" (click)="startEdit(prod)">
-          <mat-icon>edit</mat-icon>
-          {{ 'admin.edit' | translate }}
-        </button>
-      </div>
-    </mat-list-item>
-  </mat-list>
-</div>
-
-
-</mat-card>
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

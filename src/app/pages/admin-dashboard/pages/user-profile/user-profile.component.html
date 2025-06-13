@@ -1,3 +1,4 @@
+<ng-container *ngxPermissionsOnly="'custom-client-view'; else noAccess">
 <div class="profile-container">
   <h2>{{ 'profile.title' | translate }}</h2>
 
@@ -27,3 +28,8 @@
     </button>
   </form>
 </div>
+</ng-container>
+
+<ng-template #noAccess>
+  <p>No tienes permiso para ver esta sección.</p>
+</ng-template>

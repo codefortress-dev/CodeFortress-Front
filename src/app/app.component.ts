@@ -54,8 +54,9 @@ private router: Router = inject(Router);
 
   // Verificación periódica para forzar logout si ya expiró
   setInterval(() => {
-  const authenticated = this.auth.isAuthenticated();
-  if (!authenticated) {
+  //const authenticated = this.auth.isAuthenticated();
+  const manualLogout = localStorage.getItem('manual_logout') === 'true';
+  if (!this.auth.isAuthenticated() && !manualLogout) {
     this.snackBar.open('Tu sesión ha expirado por inactividad.', 'Cerrar', {
       duration: 5000,
       horizontalPosition: 'center',

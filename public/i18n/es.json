@@ -264,8 +264,10 @@
   "quantity":"Cantidad",
   "revenue": "Ingresos",
   "editRoles": "Editar Roles",
-  "userProfile": "Perfil de Usuario"
-
+  "userProfile": "Perfil de Usuario",
+  "newEmployee": "Nuevo Empleado",
+  "email": "Correo Electrónico",
+  "add": "Agregar trabajador"
 },
 "sales": {
   "title": "Resumen de Ventas",

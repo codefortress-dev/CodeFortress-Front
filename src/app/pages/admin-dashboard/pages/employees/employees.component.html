@@ -1,5 +1,6 @@
 <ng-container *ngxPermissionsOnly="'user-view'; else noAccess">
   <section class="container">
+    <!-- Lista de empleados -->
     <mat-card *ngFor="let emp of employees">
       <h3>{{ emp.name }}</h3>
       <p>{{ emp.email }}</p>
@@ -16,17 +17,37 @@
             {{ 'admin.edit' | translate }}
           </button>
         </ng-container>
-
-        <!-- Ejemplo futuro: botón eliminar con permiso user-delete -->
-        <!--
-        <ng-container *ngxPermissionsOnly="'user-delete'">
-          <button mat-stroked-button color="warn" (click)="deleteEmployee(emp)">
-            {{ 'admin.delete' | translate }}
-          </button>
-        </ng-container>
-        -->
       </div>
     </mat-card>
+
+    <!-- Formulario de nuevo empleado -->
+    <ng-container *ngxPermissionsOnly="'user-create'">
+      <mat-card class="new-employee-form">
+        <h3>{{ 'admin.newEmployee' | translate }}</h3>
+
+        <form [formGroup]="newEmployeeForm" (ngSubmit)="addNewEmployee()">
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{ 'admin.email' | translate }}</mat-label>
+            <input matInput formControlName="email" type="email" required />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="width: 100%;">
+            <mat-label>{{ 'admin.roles' | translate }}</mat-label>
+            <mat-select formControlName="roles" multiple>
+              <mat-option *ngFor="let role of allRoles" [value]="role.id">
+                {{ role.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="newEmployeeForm.invalid">
+              {{ 'admin.add' | translate }}
+            </button>
+          </div>
+        </form>
+      </mat-card>
+    </ng-container>
   </section>
 </ng-container>
 

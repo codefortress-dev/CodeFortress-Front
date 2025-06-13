@@ -3,19 +3,38 @@
     "id": 1,
     "name": "Ana Martínez",
     "email": "ana@codefortress.dev",
-    "roles": ["Administrador"]
+    "roles": [
+      {
+        "id": 1,
+        "name": "Administrador",
+        "permissions": ["user-view", "user-update", "user-create", "role-view", "role-update"]
+      }
+    ]
   },
   {
     "id": 2,
     "name": "Carlos Pérez",
     "email": "carlos@codefortress.dev",
-    "roles": ["Gestor de Productos"]
+    "roles": [
+      {
+        "id": 2,
+        "name": "Gestor de Productos",
+        "permissions": ["product-view", "product-update", "product-create"]
+      }
+    ]
   },
   {
     "id": 3,
     "name": "Laura Gómez",
     "email": "laura@codefortress.dev",
-    "roles": ["RRHH"]
+    "roles": [
+      {
+        "id": 3,
+        "name": "RRHH",
+        "permissions": ["user-view"]
+      }
+    ]
   }
 ]
+
 

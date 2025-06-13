@@ -264,7 +264,10 @@
   "quantity":"Quantity",
   "revenue": "Revenue",
   "editRoles": "Edit Roles",
-  "userProfile": "User Profile"
+  "userProfile": "User Profile",
+  "newEmployee": "New Employee",
+  "email": "Email",
+  "add" : "Add employees"
 },
 "sales": {
   "title": "Sales Overview",

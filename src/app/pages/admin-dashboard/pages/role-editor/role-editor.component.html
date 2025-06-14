@@ -1,5 +1,10 @@
 <ng-container *ngxPermissionsOnly="'role-view'; else noAccess">
-  <h2 mat-dialog-title>{{ 'admin.editPermissions' | translate }} - {{ roleName }}</h2>
+  <h2 mat-dialog-title>{{ 'admin.editPermissions' | translate }}</h2>
+
+  <mat-form-field appearance="outline" style="width: 100%;">
+    <mat-label>{{ 'admin.roleName' | translate }}</mat-label>
+    <input matInput [(ngModel)]="roleName" required />
+  </mat-form-field>
 
   <mat-selection-list [(ngModel)]="rolePermissions">
     <mat-list-option *ngFor="let perm of allPermissions" [value]="perm.code">
@@ -8,14 +13,12 @@
   </mat-selection-list>
 
   <div class="actions">
-    <!-- Botón Guardar protegido por role-update -->
     <ng-container *ngxPermissionsOnly="'role-update'">
       <button mat-raised-button color="primary" (click)="save()">
         {{ 'admin.save' | translate }}
       </button>
     </ng-container>
 
-    <!-- Cancelar siempre visible -->
     <button mat-button (click)="cancel()">
       {{ 'admin.cancel' | translate }}
     </button>

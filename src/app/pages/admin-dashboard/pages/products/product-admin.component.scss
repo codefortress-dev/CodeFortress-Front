@@ -122,7 +122,14 @@ mat-list-item {
     align-self: center;
   }
 }
-
+button[type="submit"] {
+  display: block;
+  margin-top: 1rem; 
+}
+mat-slide-toggle {
+  display: block;
+  margin-bottom: 1rem; // o el valor que prefieras
+}
 @media (min-width: 768px) {
   .product-item {
     flex-direction: row;

@@ -7,6 +7,8 @@ import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { TranslateModule } from '@ngx-translate/core';
 import { Permission } from '../../../../core/models/permission.model';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-role-editor',
@@ -20,7 +22,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     MatSelectionList,
     MatListOption,
     TranslateModule,
-    NgxPermissionsModule
+    NgxPermissionsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class RoleEditorComponent {
@@ -51,7 +55,7 @@ export class RoleEditorComponent {
   }
 
   save(): void {
-    this.dialogRef.close(this.rolePermissions);
+    this.dialogRef.close({ name: this.roleName, permissions: this.rolePermissions });
   }
 
   cancel(): void {

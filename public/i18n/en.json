@@ -256,7 +256,7 @@
   "selectImage": "Select image",
   "create": "Create product",
   "update": "Update product",
-  "active": "Active",
+  "active": "Active by default",
   "inactive": "Inactive",
   "salesReport": "Sales report",
   "totalLicenses": "Total licenses",
@@ -267,7 +267,9 @@
   "userProfile": "User Profile",
   "newEmployee": "New Employee",
   "email": "Email",
-  "add" : "Add employees"
+  "add" : "Add employees",
+  "roleName": "Role name",
+  "createRole": "Create Role"
 },
 "sales": {
   "title": "Sales Overview",

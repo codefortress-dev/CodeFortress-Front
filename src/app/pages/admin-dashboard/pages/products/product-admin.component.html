@@ -45,7 +45,9 @@
           <input type="number" matInput formControlName="precio">
         </mat-form-field>
       </div>
-
+<mat-slide-toggle formControlName="activo">
+        {{ 'admin.active' | translate }}
+      </mat-slide-toggle>
       <div class="upload-field">
         <input
           type="file"
@@ -66,9 +68,7 @@
         </div>
       </div>
 
-      <mat-slide-toggle formControlName="activo">
-        {{ 'admin.active' | translate }}
-      </mat-slide-toggle>
+      
 
       <button mat-raised-button color="primary" type="submit">
         {{ editing ? ('admin.update' | translate) : ('admin.create' | translate) }}

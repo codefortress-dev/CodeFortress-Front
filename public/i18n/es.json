@@ -256,7 +256,7 @@
   "selectImage": "Seleccionar imagen",
   "createProduct": "Crear producto",
   "update": "Actualizar producto",
-  "active": "Activo",
+  "active": "Activar por defecto",
   "inactive": "Inactivo",
   "salesReport": "Informe de ventas",
   "totalLicenses": "Total de licencias",
@@ -267,7 +267,10 @@
   "userProfile": "Perfil de Usuario",
   "newEmployee": "Nuevo Empleado",
   "email": "Correo Electrónico",
-  "add": "Agregar trabajador"
+  "add": "Agregar trabajador",
+  "create" : "Crear Producto",
+  "roleName": "Nombre del rol",
+  "createRole": "Crear rol"
 },
 "sales": {
   "title": "Resumen de Ventas",

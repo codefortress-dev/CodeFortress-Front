@@ -11,11 +11,11 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialog } from '@angular/material/dialog';
 import { RoleEditorComponent } from '../role-editor/role-editor.component';
-import { NgxPermissionsModule } from 'ngx-permissions';
+import { NgxPermissionsModule, NgxPermissionsService } from 'ngx-permissions';
 import { Role } from '../../../../core/models/role.model';
 import { Permission } from '../../../../core/models/permission.model';
-import { NgxPermissionsService } from 'ngx-permissions';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-roles',
@@ -33,7 +33,9 @@ import { NgxPermissionsService } from 'ngx-permissions';
     MatListOption,
     MatSelectionList,
     TranslateModule,
-    NgxPermissionsModule
+    NgxPermissionsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class RolesComponent implements OnInit {
@@ -41,6 +43,9 @@ export class RolesComponent implements OnInit {
   allPermissions: Permission[] = [];
   permissionsMap: { [key: string]: string } = {};
   selectedRole: Role | null = null;
+  newRoleName: string = '';
+  newRolePermissions: string[] = [];
+  nextId = 1000;
 
   constructor(
     private http: HttpClient,
@@ -62,46 +67,57 @@ export class RolesComponent implements OnInit {
       );
     });
   }
+
   getRoleDescription(role: Role): string {
-  const lang = this.translate.currentLang || this.translate.defaultLang || 'es';
-  return role.description?.[lang as 'es' | 'en'] ?? '';
-}
-
-  editRole(role: Role): void {
-  const lang = this.translate.currentLang || this.translate.defaultLang || 'es';
-
-  const dialogRef = this.dialog.open(RoleEditorComponent, {
-    data: {
-      name: role.name,
-      permissions: role.permissions,
-      all: this.allPermissions,
-      lang
-    }
-  });
-
-  dialogRef.afterClosed().subscribe((updatedPermissions: string[] | undefined) => {
-    if (updatedPermissions) {
-      const idx = this.roles.findIndex(r => r.id === role.id);
-      if (idx > -1) {
-        this.roles[idx].permissions = updatedPermissions;
-      }
-    }
-  });
-}
-
-hasPermission(permission: string): boolean {
-  return this.permissionsService.getPermissions()[permission] !== undefined;
-}
-  saveRole(): void {
-    if (!this.selectedRole) return;
-    const index = this.roles.findIndex(r => r.id === this.selectedRole!.id);
-    if (index !== -1) {
-      this.roles[index] = { ...this.selectedRole };
-    }
-    this.selectedRole = null;
+    const lang = this.translate.currentLang || this.translate.defaultLang || 'es';
+    return role.description?.[lang as 'es' | 'en'] ?? '';
   }
 
-  cancelEdit(): void {
-    this.selectedRole = null;
+  editRole(role: Role): void {
+    const lang = this.translate.currentLang || this.translate.defaultLang || 'es';
+    const dialogRef = this.dialog.open(RoleEditorComponent, {
+      data: {
+        name: role.name,
+        permissions: role.permissions,
+        all: this.allPermissions,
+        lang
+      }
+    });
+
+    dialogRef.afterClosed().subscribe((result: { name: string; permissions: string[] } | undefined) => {
+      if (result) {
+        const idx = this.roles.findIndex(r => r.id === role.id);
+        if (idx > -1) {
+          this.roles[idx].name = result.name;
+          this.roles[idx].permissions = result.permissions;
+        }
+      }
+    });
+  }
+
+  hasPermission(permission: string): boolean {
+    return this.permissionsService.getPermissions()[permission] !== undefined;
+  }
+
+  createRole(): void {
+    if (!this.newRoleName.trim() || this.newRolePermissions.length === 0) return;
+    const newRole: Role = {
+      id: this.nextId++,
+      name: this.newRoleName,
+      permissions: this.newRolePermissions,
+       description: {
+    es: '',
+    en: ''
+  }
+    };
+    this.roles.push(newRole);
+    this.newRoleName = '';
+    this.newRolePermissions = [];
+  }
+
+  toggleNewPermission(code: string): void {
+    const idx = this.newRolePermissions.indexOf(code);
+    if (idx > -1) this.newRolePermissions.splice(idx, 1);
+    else this.newRolePermissions.push(code);
   }
 }

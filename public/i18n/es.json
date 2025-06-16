@@ -319,6 +319,7 @@
   "changeStatus": "Cambiar estado",
   "save": "Guardar",
   "demoUrl": "Demo URL",
+  "description": "Descripción",
   "status": {
     "finalizado": "Finalizado",
     "activo": "Activo",

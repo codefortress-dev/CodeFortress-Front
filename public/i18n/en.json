@@ -318,7 +318,7 @@
   "changeStatus": "Change Status",
   "save": "Save",
   "demoUrl": "Demo URL",
-
+  "description": "Description",
   "status": {
     "finalizado": "Finalized",
     "activo": "Active",

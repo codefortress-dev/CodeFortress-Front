@@ -87,31 +87,6 @@ export class ProductAdminComponent implements OnInit {
     }
   }
 
-  /* save() {
-    const producto = {
-      id: this.editing ? this.currentEditId : Date.now(),
-      nombre: {
-        es: this.form.value.nombreEs,
-        en: this.form.value.nombreEn
-      },
-      descripcion: {
-        es: this.form.value.descripcionEs,
-        en: this.form.value.descripcionEn
-      },
-      categoriaId: this.form.value.categoriaId,
-      precio: this.form.value.precio,
-      imagen: this.form.value.imagen,
-      activo: this.form.value.activo
-    };
-
-    if (this.editing) {
-      this.products = this.products.map(p => p.id === this.currentEditId ? producto : p);
-    } else {
-      this.products.push(producto);
-    }
-
-    this.resetForm();
-  } */
  save() {
   const producto = {
     id: this.editing ? this.currentEditId : Date.now(),

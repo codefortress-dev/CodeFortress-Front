@@ -21,6 +21,7 @@ import { loginRedirectGuard } from "./core/services/login-redirect.guard";
 import { UserProfileComponent } from './pages/admin-dashboard/pages/user-profile/user-profile.component';
 import { PasswordRecoveryComponent } from './pages/admin-dashboard/pages/password-recovery/password-recovery.component';
 import { TrialRequestComponent } from './trial-request/trial-request.component';
+import { ActionSuccessComponent } from './shared/components/success-componet/success.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
   { path: 'recuperar-contrasenia', component: PasswordRecoveryComponent },
   { path: 'solicitar', component: CustomRequestComponent },
   { path: 'trial-license', component: TrialRequestComponent },
+  { path: 'success', component: ActionSuccessComponent },
   {
     path: 'productos',
     children: [

@@ -1,27 +1,27 @@
 import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
-import { ChangeDetectorRef } from '@angular/core';
 
-export function safeReset(form: FormGroup, wasSuccessful: boolean): void {
-  if (!wasSuccessful) return;
 
-  function resetControls(group: FormGroup) {
-    Object.keys(group.controls).forEach(key => {
-      const control = group.get(key);
-      if (control instanceof FormControl) {
-        control.setValue('');
-        control.markAsPristine();      // ✅ limpia estado visual
-        control.markAsUntouched();    // ✅ oculta errores como "campo obligatorio"
-        control.updateValueAndValidity();
-      } else if (control instanceof FormGroup) {
-        resetControls(control); // ✅ soporte para anidados
-      }
-    });
-  }
+export function safeReset(form: FormGroup): void {
+  const resetRecursively = (control: AbstractControl) => {
+    if (control instanceof FormGroup) {
+      Object.values(control.controls).forEach(resetRecursively);
+    } else if (control instanceof FormControl) {
+      control.reset('');
+      control.markAsPristine();
+      control.markAsUntouched();
+      control.updateValueAndValidity({ onlySelf: true });
+    }
+  };
 
-  resetControls(form);
-
-  // También al form root
+  resetRecursively(form);
   form.markAsPristine();
   form.markAsUntouched();
   form.updateValueAndValidity();
+
+  // 🔁 Eliminar residuos visuales de Angular Material
+  setTimeout(() => {
+    document.querySelectorAll('.mat-form-field-invalid').forEach(el => {
+      el.classList.remove('mat-form-field-invalid');
+    });
+  }, 0);
 }

@@ -354,7 +354,11 @@
   "emailInvalid": "Formato de correo inválido",
   "submit": "Solicitar prueba",
   "successMessage": "¡Clave de prueba enviada a tu correo!"
+},
+"generic": {
+  "successTitle": "Solicitud procesada con éxito",
+  "successMessage": "Hemos recibido tu solicitud correctamente.",
+  "successButton": "Volver al inicio"
 }
-
 
 }

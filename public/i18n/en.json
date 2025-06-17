@@ -353,6 +353,11 @@
   "emailInvalid": "Invalid email format",
   "submit": "Request Trial",
   "successMessage": "Trial key sent to your email!"
+},
+"generic": {
+  "successTitle": "Request Successful",
+  "successMessage": "We have received your request successfully.",
+  "successButton": "Go back to home"
 }
 
   

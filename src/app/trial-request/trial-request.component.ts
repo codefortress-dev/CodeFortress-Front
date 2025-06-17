@@ -64,12 +64,12 @@ export class TrialRequestComponent implements OnInit {
     const success = res.status === 'ok';
     const message = this.translate.instant('trial.successMessage');
     this.snackBar.open(message, '', { duration: 4000 });
-    safeReset(this.trialForm, success);
+    safeReset(this.trialForm);
   },
   error: (err) => {
     const message = this.translate.instant('trial.errorMessage');
     this.snackBar.open(message, '', { duration: 4000 });
-    safeReset(this.trialForm, false);
+    safeReset(this.trialForm);
   }
   });
   }

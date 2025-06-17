@@ -5,11 +5,11 @@
   <form [formGroup]="trialForm" (ngSubmit)="submit()">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>{{ 'trial.emailLabel' | translate }}</mat-label>
-      <input matInput formControlName="email" type="email" />
-      <mat-error *ngIf="trialForm.get('email')?.hasError('required')">
+      <input matInput formControlName="email" type="email" class="no-error-style"/>
+      <mat-error *ngIf="trialForm.get('email')?.hasError('required') && trialForm.get('email')?.touched">
         {{ 'trial.emailRequired' | translate }}
       </mat-error>
-      <mat-error *ngIf="trialForm.get('email')?.hasError('email')">
+      <mat-error *ngIf="trialForm.get('email')?.hasError('email') && trialForm.get('email')?.touched">
         {{ 'trial.emailInvalid' | translate }}
       </mat-error>
     </mat-form-field>

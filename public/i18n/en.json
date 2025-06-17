@@ -345,6 +345,14 @@
   "emailLabel": "Email address",
   "submitButton": "Send instructions",
   "successMessage": "If the email exists, instructions to reset the password will be sent."
+},
+"trial": {
+  "title": "Request Trial Key",
+  "emailLabel": "Email address",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Invalid email format",
+  "submit": "Request Trial",
+  "successMessage": "Trial key sent to your email!"
 }
 
   

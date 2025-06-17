@@ -20,12 +20,14 @@ import { CustomProjectsComponent } from './pages/admin-dashboard/pages/custom-pr
 import { loginRedirectGuard } from "./core/services/login-redirect.guard";
 import { UserProfileComponent } from './pages/admin-dashboard/pages/user-profile/user-profile.component';
 import { PasswordRecoveryComponent } from './pages/admin-dashboard/pages/password-recovery/password-recovery.component';
+import { TrialRequestComponent } from './trial-request/trial-request.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent, canActivate: [loginRedirectGuard] },
   { path: 'recuperar-contrasenia', component: PasswordRecoveryComponent },
   { path: 'solicitar', component: CustomRequestComponent },
+  { path: 'trial-license', component: TrialRequestComponent },
   {
     path: 'productos',
     children: [

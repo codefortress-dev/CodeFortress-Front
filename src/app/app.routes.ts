@@ -22,6 +22,7 @@ import { UserProfileComponent } from './pages/admin-dashboard/pages/user-profile
 import { PasswordRecoveryComponent } from './pages/admin-dashboard/pages/password-recovery/password-recovery.component';
 import { TrialRequestComponent } from './trial-request/trial-request.component';
 import { ActionSuccessComponent } from './shared/components/success-componet/success.component';
+import { ActionErrorComponent } from './shared/components/error-componet/error.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +31,7 @@ export const routes: Routes = [
   { path: 'solicitar', component: CustomRequestComponent },
   { path: 'trial-license', component: TrialRequestComponent },
   { path: 'success', component: ActionSuccessComponent },
+  { path: 'error', component: ActionErrorComponent },
   {
     path: 'productos',
     children: [

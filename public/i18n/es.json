@@ -358,7 +358,10 @@
 "generic": {
   "successTitle": "Solicitud procesada con éxito",
   "successMessage": "Hemos recibido tu solicitud correctamente.",
-  "successButton": "Volver al inicio"
+  "successButton": "Volver al inicio",
+  "errorTitle": "Error en la solicitud",
+  "errorMessage": "Ha ocurrido un error al procesar tu solicitud.",
+  "errorButton": "Intentar de nuevo"
 }
 
 }

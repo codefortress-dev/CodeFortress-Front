@@ -357,7 +357,10 @@
 "generic": {
   "successTitle": "Request Successful",
   "successMessage": "We have received your request successfully.",
-  "successButton": "Go back to home"
+  "successButton": "Go back to home",
+  "errorTitle": "Request Failed",
+  "errorMessage": "There was an error processing your request.",
+  "errorButton": "Try Again"
 }
 
   

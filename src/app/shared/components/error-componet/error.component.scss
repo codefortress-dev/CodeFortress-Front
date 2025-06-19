@@ -1,0 +1,14 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 2rem;
+  color: rgb(99, 5, 5);
+}
+
+mat-card {
+  max-width: 480px;
+  text-align: center;
+  padding: 2rem;
+}

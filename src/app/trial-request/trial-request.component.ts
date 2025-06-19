@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormGroup } from '@angular/forms';
-import { safeReset } from '../core/utils/safereset-form-utils'; // Adjust the import path as necessary
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trial-request',
@@ -36,6 +36,7 @@ export class TrialRequestComponent implements OnInit {
   trialForm!: FormGroup;
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
@@ -61,15 +62,10 @@ export class TrialRequestComponent implements OnInit {
 
   this.http.get<{ status: string }>('/mock-data/trial-request.json').subscribe({
    next: (res) => {
-    const success = res.status === 'ok';
-    const message = this.translate.instant('trial.successMessage');
-    this.snackBar.open(message, '', { duration: 4000 });
-    safeReset(this.trialForm);
+    this.router.navigate(['/success']);
   },
   error: (err) => {
-    const message = this.translate.instant('trial.errorMessage');
-    this.snackBar.open(message, '', { duration: 4000 });
-    safeReset(this.trialForm);
+    this.router.navigate(['/error']);
   }
   });
   }

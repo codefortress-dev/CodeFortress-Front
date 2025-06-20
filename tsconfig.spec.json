@@ -1,11 +1,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ES2016",
-    "module": "CommonJS",
-    "types": ["jest"]
+    "outDir": "./out-tsc/spec",
+    "types": ["jest"],
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "files": ["setup-jest.ts"],
-  "include": ["src/**/*.spec.ts"]
+  "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }
-

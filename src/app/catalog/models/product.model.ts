@@ -5,12 +5,6 @@ export type TranslatableText = {
 };
 
 export interface Producto {
-/*  id: number;
-  nombre: TranslatableText;
-  descripcion: TranslatableText;
-  precio: number;
-  imagen: string;
-  categoria: TranslatableText; */
    id: number;
   nombre: { es: string; en: string };
   descripcion: { es: string; en: string };

@@ -67,7 +67,7 @@ export class CatalogComponent implements OnInit {
     this.filtrarProductos();
   }
 
-  private actualizarCategorias() {
+  public actualizarCategorias() {
     this.categoriasDisponibles = [
       { id: 'Todos', nombre: this.translate.instant('catalog.all') },
       ...this.categorias.map(c => ({
@@ -81,7 +81,7 @@ export class CatalogComponent implements OnInit {
     }
   }
 
-  private filtrarProductos() {
+  public filtrarProductos() {
     if (this.categoriaSeleccionada === 'Todos') {
       this.productosFiltrados = this.productos;
     } else {

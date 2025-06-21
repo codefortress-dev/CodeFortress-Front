@@ -17,7 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatError } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { Router } from '@angular/router';
 import { CustomRequestService } from '../core/services/custom-request.service';
 import { CategoriaAtencion } from './models/categoria-atencion.model';
 import { isWeekend } from 'date-fns';
@@ -50,6 +50,7 @@ export class CustomRequestComponent implements OnInit {
   today: Date = new Date();
 
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private service: CustomRequestService
   ) {
@@ -115,12 +116,13 @@ export class CustomRequestComponent implements OnInit {
 
   enviar(): void {
     if (this.form.valid) {
-      alert('✅ Tu solicitud fue enviada con éxito.');
       this.form.reset();
       this.horarios = [];
+     this.router.navigate(['/success']);
     } else {
-      this.form.markAllAsTouched();
-      alert('❌ Revisa los campos. Hay errores en el formulario.');
+      this.form.reset();
+      this.horarios = [];
+      this.router.navigate(['/error']);
     }
   }
 

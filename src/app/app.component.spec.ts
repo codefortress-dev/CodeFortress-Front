@@ -41,6 +41,14 @@ describe('AppComponent (con contextos reales sin TestBed)', () => {
       isAuthenticated: jest.fn(),
       updateActivity: jest.fn()
     };
+    Object.defineProperty(window, 'location', {
+    configurable: true,
+    writable: true,
+    value: {
+      ...window.location,
+      reload: jest.fn()
+    }
+  });
     jest.clearAllMocks();
     jest.clearAllTimers();
     localStorage.clear();

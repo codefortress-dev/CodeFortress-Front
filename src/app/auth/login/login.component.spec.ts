@@ -25,6 +25,7 @@ describe('LoginComponent simple', () => {
         } as User)
       )
     };
+    jest.spyOn(console, 'error').mockImplementation(() => {});
 
     mockRouter = {
       navigate: jest.fn()

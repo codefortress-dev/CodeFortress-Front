@@ -16,7 +16,7 @@ export class AuthService {
   ) {}
 
   login(email: string, password: string): Observable<User> {
-    return this.http.get<User[]>('/mock-data/users.json').pipe(
+    return this.http.get<User[]>('https://mastermindsit.github.io/mock-api/data.json').pipe(
       delay(300),
       map(users => {
         const user = users.find(u => u.email === email && u.password === password);

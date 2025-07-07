@@ -39,7 +39,7 @@ export class PasswordRecoveryComponent {
     this.error = null;
     this.loading = true;
 
-    this.http.get<User[]>('/mock-data/users.json').pipe(
+    this.http.get<User[]>('https://mastermindsit.github.io/mock-api/users.json').pipe(
       delay(300),
       switchMap(users => {
         const exists = users.some(user => user.email === this.email);

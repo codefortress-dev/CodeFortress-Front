@@ -60,7 +60,7 @@ export class TrialRequestComponent implements OnInit {
   submit() {
   if (this.trialForm.invalid) return;
 
-  this.http.get<{ status: string }>('/mock-data/trial-request.json').subscribe({
+  this.http.get<{ status: string }>('https://mastermindsit.github.io/mock-api/trial-request.json').subscribe({
    next: (res) => {
     this.router.navigate(['/success']);
   },

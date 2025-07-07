@@ -16,6 +16,6 @@ export class CatalogService {
   constructor(private http: HttpClient) {}
 
   getProductos(): Observable<Producto[]> {
-    return this.http.get<Producto[]>('/mock-data/products.json');
+    return this.http.get<Producto[]>('https://mastermindsit.github.io/mock-api/products.json');
   }
 }

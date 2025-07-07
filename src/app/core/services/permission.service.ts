@@ -5,7 +5,7 @@ import { Permission } from '../models/permission.model';
 
 @Injectable({ providedIn: 'root' })
 export class PermissionService {
-  private readonly url = '/mock/permissions.json';
+  private readonly url = 'https://mastermindsit.github.io/mock-api/permissions.json';
 
   constructor(private http: HttpClient) {}
 

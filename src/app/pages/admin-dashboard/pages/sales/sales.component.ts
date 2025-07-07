@@ -66,7 +66,7 @@ toDate: Date | null = null;
   ];
 
   ngOnInit(): void {
-    this.http.get<any[]>('/mock-data/sales.json').subscribe(data => {
+    this.http.get<any[]>('https://mastermindsit.github.io/mock-api/sales.json').subscribe(data => {
       this.sales = data;
       this.dataSource.data = data;
       this.dataSource.sort = this.sort;

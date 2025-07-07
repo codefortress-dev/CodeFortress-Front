@@ -55,10 +55,10 @@ export class EmployeesComponent implements OnInit {
       roles: [[], Validators.required]
     });
 
-    this.http.get<Role[]>('/mock-data/roles.json').subscribe((roles) => {
+    this.http.get<Role[]>('https://mastermindsit.github.io/mock-api/roles.json').subscribe((roles) => {
       this.allRoles = roles;
 
-      this.http.get<Employee[]>('/mock-data/employees.json').subscribe((rawEmployees) => {
+      this.http.get<Employee[]>('https://mastermindsit.github.io/mock-api/employees.json').subscribe((rawEmployees) => {
         this.employees = rawEmployees.map(emp => ({
           id: emp.id ?? this.generateId(),
           name: emp.name,

@@ -49,7 +49,7 @@ export class CategoryAdminComponent implements OnInit {
   }
 
   loadCategories(): void {
-    this.http.get<any[]>('/mock-data/categories.json').subscribe(data => {
+    this.http.get<any[]>('https://mastermindsit.github.io/mock-api/categories.json').subscribe(data => {
       this.categories = data;
     });
   }

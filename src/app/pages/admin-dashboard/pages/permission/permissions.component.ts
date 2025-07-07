@@ -31,7 +31,7 @@ export class PermissionsComponent implements OnInit {
   constructor(private http: HttpClient, private translate: TranslateService) {}
 
   ngOnInit(): void {
-    this.http.get<Permission[]>('/mock-data/permissions.json').subscribe(perms => {
+    this.http.get<Permission[]>('https://mastermindsit.github.io/mock-api/permissions.json').subscribe(perms => {
       this.permissions = perms;
     });
   }

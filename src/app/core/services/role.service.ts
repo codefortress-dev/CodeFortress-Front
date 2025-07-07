@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class RoleService {
-  private readonly url = '/mock/roles.json';
+  private readonly url = 'https://mastermindsit.github.io/mock-api/roles.json';
 
   constructor(private http: HttpClient) {}
 

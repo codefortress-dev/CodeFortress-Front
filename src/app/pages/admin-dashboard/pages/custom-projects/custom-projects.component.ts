@@ -49,7 +49,7 @@ export class CustomProjectsComponent implements OnInit {
   mensajeExito: string = '';
 
   ngOnInit(): void {
-    this.http.get<CustomProject[]>('/mock-data/custom-projects.json').subscribe(data => {
+    this.http.get<CustomProject[]>('https://mastermindsit.github.io/mock-api/custom-projects.json').subscribe(data => {
       this.proyectos = data;
       this.proyectosFiltrados = [...data];
       this.estados = this.extraerEstados(data);

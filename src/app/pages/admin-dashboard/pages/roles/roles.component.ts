@@ -55,11 +55,11 @@ export class RolesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.http.get<Role[]>('/mock-data/roles.json').subscribe(data => {
+    this.http.get<Role[]>('https://mastermindsit.github.io/mock-api/roles.json').subscribe(data => {
       this.roles = data;
     });
 
-    this.http.get<Permission[]>('/mock-data/permissions.json').subscribe(perms => {
+    this.http.get<Permission[]>('https://mastermindsit.github.io/mock-api/permissions.json').subscribe(perms => {
       this.allPermissions = perms;
       const lang = this.translate.currentLang || this.translate.defaultLang || 'es';
       this.permissionsMap = Object.fromEntries(

@@ -10,10 +10,10 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProductos(): Observable<any[]> {
-    return this.http.get<any[]>('/mock-data/products.json');
+    return this.http.get<any[]>('https://mastermindsit.github.io/mock-api/products.json');
   }
 
   getCategorias(): Observable<any[]> {
-    return this.http.get<any[]>('/mock-data/categories.json');
+    return this.http.get<any[]>('https://mastermindsit.github.io/mock-api/categories.json');
   }
 }

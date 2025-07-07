@@ -5,7 +5,7 @@ import { Employee } from '../models/employee.model';
 
 @Injectable({ providedIn: 'root' })
 export class EmployeeService {
-  private readonly url = '/mock/employees.json';
+  private readonly url = 'https://mastermindsit.github.io/mock-api/employees.json';
 
   constructor(private http: HttpClient) {}
 

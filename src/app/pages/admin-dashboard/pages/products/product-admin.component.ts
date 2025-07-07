@@ -62,8 +62,8 @@ export class ProductAdminComponent implements OnInit {
       activo: true
     });
 
-    this.http.get<any[]>('/mock-data/products.json').subscribe(p => this.products = p);
-    this.http.get<any[]>('/mock-data/categories.json').subscribe(c => this.categories = c);
+    this.http.get<any[]>('https://mastermindsit.github.io/mock-api/products.json').subscribe(p => this.products = p);
+    this.http.get<any[]>('https://mastermindsit.github.io/mock-api/categories.json').subscribe(c => this.categories = c);
   }
   triggerFileInput() {
     this.fileInput.nativeElement.click();

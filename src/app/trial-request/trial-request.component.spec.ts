@@ -58,7 +58,7 @@ describe('TrialRequestComponent (sin TestBed)', () => {
 
     component.submit();
 
-    expect(httpMock.get).toHaveBeenCalledWith('/mock-data/trial-request.json');
+    expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/trial-request.json');
     expect(routerMock.navigate).toHaveBeenCalledWith(['/success']);
   });
 

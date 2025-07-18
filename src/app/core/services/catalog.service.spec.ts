@@ -42,7 +42,7 @@ describe('CatalogService', () => {
 
     service.getProductos().subscribe(productos => {
       expect(productos).toEqual(mockProductos);
-      expect(httpMock.get).toHaveBeenCalledWith('/mock-data/products.json');
+      expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/products.json');
       done();
     });
   });

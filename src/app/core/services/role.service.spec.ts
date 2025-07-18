@@ -45,7 +45,7 @@ describe('RoleService', () => {
 
     service.getRoles().subscribe((roles) => {
       expect(roles).toEqual(mockRoles);
-      expect(httpMock.get).toHaveBeenCalledWith('/mock/roles.json');
+      expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/roles.json');
       done();
     });
   });

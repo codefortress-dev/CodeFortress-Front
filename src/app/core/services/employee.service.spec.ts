@@ -53,7 +53,7 @@ describe('EmployeeService', () => {
 
     service.getEmployees().subscribe((employees) => {
       expect(employees).toEqual(mockEmployees);
-      expect(httpMock.get).toHaveBeenCalledWith('/mock/employees.json');
+      expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/employees.json');
       done();
     });
   });

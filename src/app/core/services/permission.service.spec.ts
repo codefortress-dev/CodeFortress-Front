@@ -37,7 +37,7 @@ describe('PermissionService', () => {
 
     service.getPermissions().subscribe((permissions) => {
       expect(permissions).toEqual(mockPermissions);
-      expect(httpMock.get).toHaveBeenCalledWith('/mock/permissions.json');
+      expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/permissions.json');
       done();
     });
   });

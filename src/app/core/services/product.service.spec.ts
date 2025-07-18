@@ -28,7 +28,7 @@ describe('ProductService', () => {
 
     service.getProductos().subscribe((productos) => {
       expect(productos).toEqual(mockProductos);
-      expect(httpMock.get).toHaveBeenCalledWith('/mock-data/products.json');
+      expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/products.json');
       done();
     });
   });
@@ -43,7 +43,7 @@ describe('ProductService', () => {
 
     service.getCategorias().subscribe((categorias) => {
       expect(categorias).toEqual(mockCategorias);
-      expect(httpMock.get).toHaveBeenCalledWith('/mock-data/categories.json');
+      expect(httpMock.get).toHaveBeenCalledWith('https://mastermindsit.github.io/mock-api/categories.json');
       done();
     });
   });
